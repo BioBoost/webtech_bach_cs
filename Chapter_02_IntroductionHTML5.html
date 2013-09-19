@@ -1,0 +1,1295 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="css/custom.kulab.nico.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <h1>Webtechnology</h1>
+                    <h3>Chapter 2 - Introduction to HTML(5)</h3>
+                    <p>
+                        <small>Created by EP researchers (EP Research LAB A23)</small>
+                    </p>
+                    <p>
+                        <small>
+                            <a href="mailto:nico.dewitte@khbo.be">Nico De Witte</a> | 
+                            <a href="mailto:sille.vanlandschoot@khbo.be">Sille Van Landschoot</a> | 
+                            <a href="mailto:piet.cordemans@kuleuven.be">Piet Cordemans</a>
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+
+                    <section>
+                        <h2>Webpage structure</h2>
+                        <h3>Without structure there is only chaos</h3>
+                        <a href="#" class="image navigate-down">
+                            <img width="368" height="296" src="assets/WebpageStructure.jpg" alt="Chaos">
+                        </a>
+                    </section>
+
+                    <section>
+                        <h2>Structure of some example page</h2>
+
+                        <p>Can you name some parts of the following page ?</p>
+
+                        <a href="#" class="image navigate-down">
+                            <img height="550" src="assets/C02/ExamplePage1.png" alt="Example Page">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>Structure of some example page</h2>
+
+                        <a href="#" class="image navigate-down">
+                            <img height="600" src="assets/C02/ExamplePage1_Parts.png" alt="Example Page">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>Structure of some example page</h2>
+
+                        <p>Can you name some parts of the following page ?</p>
+
+                        <a href="#" class="image navigate-down">
+                            <img height="550" src="assets/C02/ExamplePage2.png" alt="Example Page">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>Structure of some example page</h2>
+
+                        <a href="#" class="image navigate-down">
+                            <img height="600" src="assets/C02/ExamplePage2_Parts.png" alt="Example Page">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>HTML Structure</h2>
+                        <ul>
+                            <li>Guess what. There are a bunch of people (World Wide Web Consortium (W3C)) who invented this thing called HTML.</li>
+                            <li>Most page parts we just discussed actually map quite nicely on what we call HTML tags or elements.</li>
+                            <ul>
+                                <li>Article => article</li>
+                                <li>Paragraph => p</li>
+                                <li>Headings => h1, h2, h3, ...</li>
+                                <li>Lists => ul, ol and li</li>
+                                <li>Image => img and figure</li>
+                            </ul>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>HTML is a markup language</h2>
+                        <ul>
+                            <li>
+                            Structural markup
+                                <ul>
+                                    <li>Elements (tags) are used to describe the structure of the document.</li>                                    
+                                </ul>
+                            </li>
+                            <li>
+                            Semantic markup provides extra information, such as
+                                <ul>
+                                    
+                                    <li>where emphasis is placed in a sentence</li> 
+                                    <li>meaning of acronyms</li>   
+                                    <li>that something you have written is a quotation (and who said it)</li>                                
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Structural markup</h2>
+
+                        <p>
+                            These elements allow us to define the structure of a page.
+                        </p>
+
+                        <pre><code data-trim>
+&lt;h1&gt;Hello world&lt;/h1&gt;
+                        </code></pre>
+
+                        <ul>
+                            <li>We know "Hello World" is a heading of level 1.</li>
+                            <li>Now the browser knows too.</li>
+                            <li>Firefox may choose to display this bold.</li>
+                            <li>Internet Explorer browser may choose to display it bold and underlined.</li>
+                            <li>As long as we do not specify how it should be represented (we use CSS for that) the browser is free to choose how to display this to the user.</li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Semantic markup</h2>
+
+                        <p>
+                            These elements are not intended to affect the structure of your web pages, but they do add extra information to the pages.
+                        </p>
+
+                        <pre><code data-trim>
+&lt;blockquote cite=&quot;http://en.wikipedia.org/wiki/ Winnie-the-Pooh&quot;&gt;
+  &lt;p&gt;Did you ever stop to think, and forget to start again?&lt;/p&gt;
+&lt;/blockquote&gt;
+                        </code></pre>
+
+                        <ul>
+                        Blockquote element:
+                            <li>Used for longer quotes that take up an entire paragraph</li>
+                            <li>Browsers tend to indent the contents of the element</li>
+                            <li>However you should not use this element just to indent a piece of text</li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>The olden days</h2>
+                        <p>In the olden days HTML was also a presentational markup language. It allowed you to specify how data had to be presented.</p>
+
+                        <pre><code data-trim>
+&lt;font face=&quot;verdana&quot; size=&quot;3&quot; color=&quot;red&quot;&gt;
+This is some text!
+&lt;/font&gt;
+                        </code></pre>
+
+                        <p>We have however evolved and seen the error of our ways.</p>
+
+                        <a href="#" class="image navigate-down">
+                            <img height="150" src="assets/RightWrongWay.jpg" alt="The Right and the Wrong Way">
+                        </a>
+
+                        <p>Now we use CSS(3) for our design needs (but more on that later).</p>
+                       
+                    </section>
+
+                    <section>
+                        <h2>Example</h2>
+                        <p>Our goal for today will be to turn this (the data):</p>
+
+                        <pre style="font-size: 16px;">
+Hello World Program
+A Hello world program is a computer program that outputs Hello, world on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language. It is mostly used to verify that a language or system is operating correctly.
+
+Purpose
+A Hello World program has become the traditional first program that many people learn. In general, it is simple enough so that people who have no experience with computer programming can easily understand it, especially with the guidance of a teacher or a written guide.
+
+Using this simple program as a basis, computer science principles or elements of a specific programming language can be explained to novice programmers. Experienced programmers learning new languages can also gain a lot of information about a given language's syntax and structure from a hello world program.
+
+Example
+A Hello World program running on Sony's PlayStation Portable as a proof of concept.
+
+References
+http://en.wikipedia.org/wiki/Hello_world_program
+http://cm.bell-labs.com/cm/cs/who/dmr/ctut.pdf
+                        </pre>
+
+                    </section>
+
+                    <section>
+                        <p>Into this:</p>
+
+                        <a href="#" class="image navigate-down">
+                            <img height="550" src="assets/C02/HelloWorld_Example.png" alt="Hello World Example Output">
+                        </a>
+                        <p>Using nothing more than some basic HTML tags.</p>
+                    </section>
+
+                </section>
+
+                <section>
+
+                    <section>
+                        <h2>Foundations of an HTML(5) webpage</h2>
+                        <img height="300" src="assets/C02/HTMLBasicSyntax.png" alt="HTML Basic Syntax">
+                    </section>
+
+                    <section>
+                        <h2>Hello World</h2>
+
+                        <p>
+                            When saving this code in a file with the html extension and opening it in your favorite browser it will render your a basic HTML page.
+                        </p>
+
+                        <pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- Character encoding for the HTML document --&gt;
+    &lt;meta charset = &quot;utf-8&quot;&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Hello World&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Doctype</h2>
+
+                        <pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+                        </code></pre>
+
+                        <ul>
+                            <li>Required in HTML5 documents so that browsers render the page in standard mode.</li>
+                            <li>Some browsers operate in quirks mode to maintain backward compatibility with web pages that are not up-to-date with the latest standards.</li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Html element</h2>
+
+                        <ul>
+                            <li>The html element encloses the head and body section.</li>
+                        </ul>
+
+                        <pre><code data-trim>
+&lt;html&gt;
+    &lt;head&gt;
+        ...
+    &lt;/head&gt;
+    &lt;body&gt;
+        ...
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+
+                    </section>
+              
+
+                    <section>
+                        <h2>The head section</h2>
+                        <h3>Metatags</h3>
+
+                        <p>The head section contains information about the HTML5 document.</p>
+
+                        <pre><code data-trim>
+&lt;head&gt;
+    &lt;!-- Character encoding for the HTML document --&gt;
+    &lt;meta charset = &quot;utf-8&quot;&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+&lt;/head&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>
+                                    Metatags
+                                    <ul>
+                                        <li>Provide metadata about the HTML document</li>
+                                        <li>Mostly name / value pairs</li>
+                                        <li>
+                                            Ex. The character set that the page uses
+                                            <ul>
+                                                <li>UTF-8 is most popular character-encoding scheme</li>
+                                                <li>Helps the browser determine how to render the content</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>                            
+                        </div>
+
+                    </section>
+              
+
+                    <section>
+                        <h3>Metatags</h3>
+
+                        <p>Alot of metatags exist. </p>
+
+                        <pre><code data-trim>
+&lt;meta name=&quot;author&quot; content=&quot;Nico De Witte&quot; /&gt;
+&lt;meta name=&quot;description&quot; content=&quot;Slides for Webtechnology&quot; /&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;HTML, Webtechnology&quot; /&gt;
+...
+                        </code></pre>
+
+                        <p>
+                            Check out: 
+                            <a href="http://code.lancepollard.com/complete-list-of-html-meta-tags/">this list of metatags</a>
+                        </p>
+
+                        <p>
+                        Keywords and description were once used by search engines for indexing purposes. Today these are mostly ignored.
+                        </p>
+
+                    </section>
+              
+                    <section>
+                        <h2>The head section</h2>
+                        <h3>Title</h3>
+
+                        <pre><code data-trim>
+&lt;head&gt;
+    &lt;!-- Character encoding for the HTML document --&gt;
+    &lt;meta charset = &quot;utf-8&quot;&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+&lt;/head&gt;
+                        </code></pre>
+
+                        <ul>
+                            <li>
+                                The title of the page
+                                <ul>
+                                    <li>Describes the web page.</li>
+                                    <li>Usually appears in the title bar at the top of the browser window.</li>
+                                    <li>Or in the browser tab on which the page is displayed.</li>
+                                    <li>As the text identifying a page when users add the page to their list of Favorites (Bookmarks).</li>
+                                    <li>Search engines use the title for indexing purposes and when displaying results.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </section>
+              
+
+                    <section>
+                        <h2>The head section</h2>
+                        <h3>CSS and JS</h3>
+
+                        <ul>
+                            <li>Can also contain document-formatting instructions (ex. CSS3) and client-side scripts for creating dynamic web pages (ex. JavaScript).</li>
+                        </ul>
+
+                        <pre><code data-trim>
+&lt;head&gt;
+    ...
+    &lt;style type=&quot;text/css&quot;&gt;
+        ...
+    &lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        ...
+    &lt;/script&gt;
+&lt;/head&gt;
+                        </code></pre>
+
+                    </section>              
+
+                    <section>
+                        <h2>The body section</h2>
+
+                        <pre><code data-trim>
+&lt;body&gt;
+    &lt;p&gt;Hello World&lt;/p&gt;
+&lt;/body&gt;
+                        </code></pre>
+
+                        <ul>
+                            <li>Contains the page's content, which the browser displays when the user visits the web page.</li>
+                            <li>Contains text (and images, animations, audio and videos) that represents the content of a document and elements that specify a document's structure and meaning.</li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Comments</h2>
+
+                        <pre><code data-trim>
+&lt;!-- Character encoding for the HTML document --&gt;
+                        </code></pre>
+
+                        <ul>
+                            <li>Improve readability.</li>
+                            <li>Can be inserted throughout your html files.</li>
+                            <li>Ignored by browser upon rendering.</li>
+                            <li>Not directly visible to user but still there (viewable through source)</li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>HTML tags</h2>
+
+                        <p>Did anyone notice the html tags ?</p>
+
+                        <img height="500" src="assets/C02/HTMLTags_pTag.png" alt="HTML p Tag">
+
+                    </section>
+
+                    <section>
+                        <h2>HTML tags</h2>
+                        
+                        <ul>
+                            HTML5 documents delimit most elements with a start tag and end tag.
+                            <li>A start tag consists of the element name in angle brackets.</li>
+                            <li>An end tag consists of the element name preceded by a forward slash (/) in angle brackets.</li>
+                        </ul>
+
+                        <img height="200" src="assets/C02/HTMLTags_pTag.png" alt="HTML p Tag">
+
+                    </section>
+
+                    <section>
+                        <h2>HTML tags</h2>
+                        <h3>Void Elements</h3>
+
+                        <ul>
+                            There are several so-called "void elements" that do not have end tags.
+                            <li>
+                                Examples:
+                                <ul>
+                                    <li>
+                                        Line break: <code>&lt;br&gt;</code>
+                                    </li>
+                                    <li>
+                                        Horizontal line: <code>&lt;hr&gt;</code>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>HTML attributes</h2>
+
+                        <p>
+                            Many <strong>start tags</strong> have attributes that provide additional information about an element, which browsers use to determine how to process the element.
+                        </p>
+                        
+                        <ul>
+                            <li>Each attribute has a name and a value separated by an equals sign (=).</li>
+                            <li>An end tag consists of the element name preceded by a forward slash (/) in angle brackets.</li>
+                            <li>
+                                Examples:  
+
+                        <pre><code data-trim>
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;p class=&quot;css_class&quot;&gt;Some text&lt;/p&gt;
+&lt;img height=&quot;200px&quot; src=&quot;800px-PSP-Homebrew.jpeg&quot;&gt;
+                        </code></pre>
+
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Whitespace in HTML</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Most whitespace is ignored.</li>
+                                <li>Line breaks (new lines) are converted to a space.</li>
+                                <li>So in other words use whitespace to make your code readable.</li>
+                            </ul>                        
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Whitespace in HTML</h2>
+
+                        <p>Code samples below generate the exact same output.</p>
+                        
+                        <pre><code data-trim>
+&lt;p&gt;Hello World&lt;/p&gt;
+&lt;p&gt;How are you ?&lt;/p&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+&lt;p&gt;Hello World&lt;/p&gt;&lt;p&gt;How are you ?&lt;/p&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+&lt;p&gt;
+Hello
+World
+&lt;/p&gt;
+&lt;p&gt;
+How
+are
+you
+?
+&lt;/p&gt;
+                        </code></pre>
+
+
+                    </section>
+
+                </section>
+
+
+                <section>
+
+                    <section>
+                        <h2>Its all about them standards</h2>
+                        <img height="300" src="assets/C02/W3C_Keys.jpg" alt="W3C">
+                    </section>                 
+
+                    <section>
+                        <h2>Standard overview</h2>
+                        <h3>HTML</h3>
+                    
+                        <ul>
+                            <li>
+                                Presentational and structural markup
+                                <ul>
+                                    <li>HTML 2.0 (1995)</li>
+                                    <li>HTML 3.2 (1997)</li>
+                                    <li>HTML 4.01 (1999)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Move towards structural markup
+                                <ul>
+                                    <li>HTML 4.01 Transitional: allows for hybrid markup</li>
+                                    <li>HTML 4.01 Strict: seperate presentation</li>
+                                    <li>HTML 4.01 Frameset: body is replaced by frameset</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </section>             
+
+                    <section>
+                        <h2>Standard overview</h2>
+                        <h3>XHTML</h3>
+
+                        <ul>
+                            <li>
+                                Stricter syntax: needs to be well-formed to allow parsing by XML parsers
+                                <ul>
+                                    <li>XHTML 1.0 Transitional</li>
+                                    <li>XHTML 1.0 Strict</li>
+                                    <li>XHTML 1.0 Frameset</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <p class="alignleft">Example of XML:</p>
+                    
+                        <pre><code data-trim>
+&lt;breakfast_menu&gt;
+  &lt;food&gt;
+    &lt;name&gt;Belgian Waffles&lt;/name&gt;
+    &lt;price&gt;$5.95&lt;/price&gt;
+    &lt;description&gt;Two of our famous Belgian Waffles&lt;/description&gt;
+  &lt;/food&gt;
+  &lt;food&gt;
+    ...
+  &lt;/food&gt;
+&lt;/breakfast_menu&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>No standard</h2>
+                        <h3>Messing around</h3>
+
+                        <p>Some people might call this a HTML page but don't you dare !</p>
+                        
+                        <pre><code data-trim>
+&lt;HTML&gt;
+&lt;Head&gt;
+  &lt;title&gt; This look like HTML &lt;/title&gt;
+&lt;/Head&gt;
+&lt;Body&gt;
+  ... body content of page ...
+&lt;/Body&gt;
+&lt;/HTML&gt;
+                        </code></pre>
+
+                        <ul>
+                            <li>Most browsers will render this page.</li>
+                            <li>Without doctype, some browsers might fall back to quirks mode.</li>
+                        </ul>
+
+                        <p>Try validating this using <a href="http://validator.w3.org/">W3C Validator</a>.</p>
+                    </section>
+
+                    <section>
+                        <h2>HTML 4.01 Transitional</h2>
+                        
+                        <pre><code data-trim>
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+  &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;HTML&gt;
+&lt;Head&gt;
+  &lt;title&gt; HTML 4.01 Transitional &lt;/title&gt;
+&lt;/Head&gt;
+&lt;Body&gt;
+  &lt;p&gt;&lt;font color=&quot;red&quot;&gt;... paragraph ...&lt;/font&gt;&lt;/p&gt;
+&lt;/Body&gt;
+&lt;/HTML&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Valid</li>
+                                <li>Kinda old</li>
+                            </ul>                            
+                        </div>
+
+                        <img width="100%" src="assets/C02/Standard_HTML401Transitional.png" alt="HTML 4.01 Transitional Validation">
+
+                    </section>
+
+                    <section>
+                        <h2>XHTML 1.0 Transitional</h2>
+                        
+                        <pre><code data-trim>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;nl&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt; XHTML 1.0 Transitional &lt;/title&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;... paragraph ...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Valid</li>
+                                <li>Strict XHTML syntax</li>
+                                <li>Still widely used today</li>
+                            </ul>                            
+                        </div>
+
+                        <img width="100%" src="assets/C02/Standard_XHTML10Transitional.png" alt="XHTML 1.0 Transitional Validation">
+
+                    </section>
+
+                    <section>
+                        <h2>HTML 5</h2>
+                        
+                        <pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt; HTML 5 &lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  ... here comes the page content ...
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Valid</li>
+                                <li>Much simpler</li>
+                                <li>The current standard</li>
+                            </ul>                            
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>HTML 5</h2>
+
+                        <p>It's there for you, so <strong>USE IT</strong>.</p>
+
+                        <img height="400" src="assets/C02/HTML5.png" alt="HTML5">
+
+                        <p>This course will use the HTML5 standard.</p>
+
+                    </section>
+
+                </section>
+
+
+                <section>
+
+                    <section>
+                        <h2>HTML5 building blocks</h2>
+                        <img height="300" src="assets/BuildingBlocks.jpg" alt="W3C">
+                    </section>
+
+                    <section>
+                        <h2>Let's get coding</h2>
+
+                        <pre>
+Hello World Program
+A Hello world program is a computer program that outputs Hello World on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language. It is mostly used to verify that a language or system is operating correctly.
+
+Purpose
+A Hello World program has become the traditional first program that many people learn. In general, it is simple enough so that people who have no experience with computer programming can easily understand it, especially with the guidance of a teacher or a written guide.
+Using this simple program as a basis, computer science principles or elements of a specific programming language can be explained to novice programmers. Experienced programmers learning new languages can also gain a lot of information about a given language's syntax and structure from a hello world program.
+
+Example
+A Hello World program running on Sony's PlayStation Portable as a proof of concept.
+
+References
+http://en.wikipedia.org/wiki/Hello_world_program
+http://cm.bell-labs.com/cm/cs/who/dmr/ctut.pdf
+                        </pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Start of with the foundations</h2>
+
+                        <pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt; Hello World in HTML5 &lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Content comes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+
+                        <p>This represents a valid basic (empty) HTML5 page.</p>
+
+                    </section>
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Headings</h3>
+
+                        <p>
+                            HTML5 provides six heading elements (h1 through h6) for specifying the relative importance of information.
+                        </p>
+
+                        <pre><code data-trim>
+&lt;h1&gt;Level 1 heading&lt;/h1&gt;
+&lt;h2&gt;Level 2 heading&lt;/h2&gt;
+&lt;h3&gt;Level 3 heading&lt;/h3&gt;
+&lt;h4&gt;Level 4 heading&lt;/h4&gt;
+&lt;h5&gt;Level 5 heading&lt;/h5&gt;
+&lt;h6&gt;Level 6 heading&lt;/h6&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>h1 is considered the most significant heading and is rendered in the largest font.</li>
+                                <li>Each successive heading element (i.e., h2, h3, etc.) is standard rendered in a progressively smaller font.</li>
+                            </ul>                            
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <div>
+                            <h1>Level 1 heading</h1>
+                            <h2>Level 2 heading</h2>
+                            <h3>Level 3 heading</h3>
+                            <h4>Level 4 heading</h4>
+                            <h5>Level 5 heading</h5>
+                            <h6>Level 6 heading</h6>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Adding headings</h2>
+
+                        <pre><code data-trim>
+&lt;h1&gt;Hello World Program&lt;/h1&gt;
+A Hello world program is a computer program that outputs Hello World on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language. It is mostly used to verify that a language or system is operating correctly.
+
+&lt;h2&gt;Purpose&lt;/h2&gt;
+A Hello World program has become the traditional first program that many people learn. In general, it is simple enough so that people who have no experience with computer programming can easily understand it, especially with the guidance of a teacher or a written guide.
+Using this simple program as a basis, computer science principles or elements of a specific programming language can be explained to novice programmers. Experienced programmers learning new languages can also gain a lot of information about a given language's syntax and structure from a hello world program.
+
+&lt;h2&gt;Example&lt;/h2&gt;
+A Hello World program running on Sony's PlayStation Portable as a proof of concept.
+
+&lt;h2&gt;References&lt;/h2&gt;
+http://en.wikipedia.org/wiki/Hello_world_program
+http://cm.bell-labs.com/cm/cs/who/dmr/ctut.pdf
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding headings</h2>
+                        <h3>Result</h3>
+
+
+                        <a href="assets/C02/HelloWorld_Example_Headings.html">
+                            <img height="500" src="assets/C02/HelloWorld_Example_Headings.png" alt="HelloWorld Example Headings">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Paragraphs</h3>
+
+                        <pre class="wrap"><code data-trim>
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget leo accumsan metus pellentesque fringilla. Nam vulputate venenatis hendrerit. Fusce.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum et nunc quis volutpat. Fusce consectetur, urna at euismod ullamcorper.&lt;/p&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>All text placed between the <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> tags forms one paragraph.</li>
+                                <li>When a browser renders a paragraph, it places extra space above and below the paragraph text.</li>
+                            </ul>                            
+                        </div>
+
+                    </section>
+
+
+                    <section>
+                        <h2>Adding Paragraphs</h2>
+
+                        <pre><code data-trim>
+&lt;h1&gt;Hello World Program&lt;/h1&gt;
+&lt;p&gt;
+  A Hello world program is a computer program that outputs Hello, world on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language. It is mostly used to verify that a language or system is operating correctly.
+&lt;/p&gt;
+
+&lt;h2&gt;Purpose&lt;/h2&gt;
+&lt;p&gt;
+  A Hello World program has become the traditional first program that many people learn. In general, it is simple enough so that people who have no experience with computer programming can easily understand it, especially with the guidance of a teacher or a written guide.
+&lt;/p&gt;
+&lt;p&gt;
+  Using this simple program as a basis, computer science principles or elements of a specific programming language can be explained to novice programmers. Experienced programmers learning new languages can also gain a lot of information about a given language's syntax and structure from a hello world program.
+&lt;/p&gt;
+
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;p&gt;
+A Hello World program running on Sony's PlayStation Portable as a proof of concept.
+&lt;/p&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+http://en.wikipedia.org/wiki/Hello_world_program
+http://cm.bell-labs.com/cm/cs/who/dmr/ctut.pdf
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding paragraphs</h2>
+                        <h3>Result</h3>
+
+                        <a href="assets/C02/HelloWorld_Example_Paragraphs.html">
+                            <img height="500" src="assets/C02/HelloWorld_Example_Paragraphs.png" alt="HelloWorld Example Paragraphs">
+                        </a>
+
+                    </section>
+
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Images</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                The most popular image formats used by web developers today are
+                                <li>PNG (Portable Network Graphics)</li>
+                                <li>JPEG (Joint Photographic Experts Group)</li>
+                            </ul>                            
+                        </div>
+
+                        <pre><code data-trim>
+<img src="path/to/image.jpg" alt="description of image" >
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The src (source) attribute specifies an image's location relative to the document's location.</li>
+                            </ul>                            
+                        </div>
+
+                    </section>
+
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Images</h3>
+
+                        <pre><code data-trim>
+&lt;img src=&quot;path/to/image.jpg&quot; alt=&quot;description of image&quot; &gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>
+                                    The alt (alternative) attribute
+                                    <ul>
+                                        <li>Every <code>&lt;img&gt;</code> element should have an alt attribute, which contains text that is displayed if the client cannot render the image.</li>
+                                        <li>The alt attribute is also important for accessibility. Speech synthesizer software can speak the alt attribute's value so that a visually impaired user can understand what the browser is displaying.</li>
+                                    </ul>
+                                </li>
+                                <li>Other optional attributes include width, height and title.</li>
+                            </ul>                            
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding the Image</h2>
+
+                        <pre class="wrap"><code data-trim>
+&lt;h2&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;
+A Hello World program running on Sony's PlayStation Portable as a proof of concept.
+&lt;/p&gt;
+
+&lt;img height=&quot;200px&quot; src=&quot;800px-PSP-Homebrew.jpeg&quot;&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding the Image</h2>
+                        <h3>Result</h3>
+
+                        <a href="assets/C02/HelloWorld_Example_Image.html">
+                            <img height="500" src="assets/C02/HelloWorld_Example_Image.png" alt="HelloWorld Example Image">
+                        </a>
+
+                    </section>
+
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Hyperlinks</h3>
+
+                        <pre><code data-trim>
+&lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;http://www.facebook.com&quot;&gt;Facebook&lt;/a&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>
+                                    A hyperlink references or links to other resources, such as HTML5 documents and images.
+                                </li>
+                                <li>
+                                    Web browsers typically underline text hyperlinks and color them blue by default.
+                                </li>
+                                <li>Hyperlinks are created using the <code>&lt;a&gt;</code> (anchor) element.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Hyperlinks</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>
+                                    Attribute href (hypertext reference) specifies a resource's location, such as
+                                    <ul>
+                                        <li>a web page or location within a web page (internal link)
+                                            <pre><code data-trim>&lt;a href=&quot;#elementid&quot;&gt;Click to go to id&lt;/a&gt;</code></pre>
+                                        </li>
+                                        <li>a file</li>
+                                        <li>
+                                            an e-mail address
+                                                <pre><code data-trim>&lt;a href=&quot;mailto:me@domain.com&quot;&gt;Mail me&lt;/a&gt;</code></pre>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>If the web server cannot locate a requested document, it returns an error to the browser (known as a 404 error). The browser displays a page containing an error message.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding the Hyperlinks</h2>
+
+                        <pre><code data-trim>
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Hello_world_program&quot;&gt;Wikipedia&lt;/a&gt;
+&lt;a href=&quot;http://cm.bell-labs.com/cm/cs/who/dmr/ctut.pdf&quot;&gt;Programming in C&lt;/a&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding the Hyperlinks</h2>
+                        <h3>Result</h3>
+
+                        <a href="assets/C02/HelloWorld_Example_Hyperlinks.html">
+                            <img height="500" src="assets/C02/HelloWorld_Example_Hyperlinks.png" alt="HelloWorld Example Hyperlinks">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>Building Blocks</h2>
+                        <h3>Unordered lists</h3>
+
+                        <pre><code data-trim>
+&lt;ul&gt;
+    &lt;li&gt;List item 1&lt;/li&gt;
+    &lt;li&gt;List item 2&lt;/li&gt;
+    &lt;li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Nested list item 1&lt;/li&gt;
+            &lt;li&gt;Nested list item 2&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>
+                                    <code>&lt;ul&gt;</code> creates a list in which each item in the list begins with a bullet symbol (typically a disc)
+                                </li>
+                                <li>
+                                    Each entry is an <code>&lt;li&gt;</code> (list item) element. Most web browsers render these elements with a line break and a bullet symbol at the beginning of the line.
+                                </li>
+                                <li>Lists can be nested.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding the List</h2>
+
+                        <pre><code data-trim>
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;http://en.wikipedia.org/wiki/Hello_world_program&quot;&gt;Wikipedia&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;http://cm.bell-labs.com/cm/cs/who/dmr/ctut.pdf&quot;&gt;Programming in C&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Adding the List</h2>
+                        <h3>Result</h3>
+
+                        <a href="assets/C02/HelloWorld_Example.html">
+                            <img height="500" src="assets/C02/HelloWorld_Example.png" alt="HelloWorld Example">
+                        </a>
+
+                    </section>
+
+                    <section>
+                        <h2>Elements</h2>
+
+                        <p>Dit you notice something inherently different between <code>&lt;h1&gt;</code>, <code>&lt;a&gt;</code> and <code>&lt;p&gt;</code> tags ?</p>
+
+                        <p>
+                            Some tags are rendered with a new line before and after and others are not.
+                        </p>
+
+                        <p>
+                            <a href="assets/C02/HelloWorld_Example_Hyperlinks.html">
+                                <img height="100" src="assets/C02/HelloWorld_Example_Hyperlinks_Zoomed.png" alt="HelloWorld Example Hyperlinks">
+                            </a>
+                        </p>
+
+                    </section>
+
+                    <section>
+                        <h2>Block and Inline elements</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Block elements
+                                    <ul>
+                                        <li>appear on a single line</li>
+                                    </ul>
+                                </li>
+                                <li>Inline elements
+                                    <ul>
+                                        <li>can appear in the middle of a line of text</li>
+                                    </ul>
+                                </li>
+                                <li>Block elements may contain block and inline elements.</li>
+                                <li>Inline elements may only contain inline elements (exception: <code>&lt;a&gt;</code> can also contain block elements)</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Important!</strong> This will return when we see CSS.</p>
+
+                    </section>
+
+                    <section>
+                        <h2>Element overview</h2>
+
+                        <ul>
+                            <li>
+                                Headings
+                                <ul>
+                                    <li><code>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, ...</code></li>
+                                    <li>Block element</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Paragraph
+                                <ul>
+                                    <li><code>&lt;p&gt;...&lt;/p&gt;</code></li>
+                                    <li>Block element</li>
+                                </ul>   
+                            </li>
+                            <li>
+                                Image  
+                                <ul>
+                                    <li><code>&lt;img src=&quot;...&quot;&gt;</code></li>
+                                    <li>Block element</li>
+                                    <li>Void element</li>
+                                </ul>     
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Element overview</h2>
+
+                        <ul>
+                            <li>
+                                Hyperlink    
+                                <ul>
+                                    <li><code>&lt;a href=&quot;...&quot;&gt;...&lt;/a&gt;</code></li>
+                                    <li>Inline element</li>
+                                </ul>   
+                            </li>
+                            <li>
+                                Unordered list    
+                                <ul>
+                                    <li><code>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</code></li>
+                                    <li>Block element</li>
+                                </ul>   
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Let's see an example</h2>
+
+                        <pre><code date-trime>
+&lt;h1 style=&quot;background-color: yellow;&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h1 style=&quot;background-color: pink&quot;&gt;Another Heading 1&lt;/h1&gt;
+&lt;h2 style=&quot;background-color: lime&quot;&gt;Heading 2&lt;/h2&gt;
+
+&lt;a style=&quot;background-color: yellow&quot; href=&quot;#&quot;&gt;LINK 1&lt;/a&gt;
+&lt;a style=&quot;background-color: pink&quot; href=&quot;#&quot;&gt;LINK 2&lt;/a&gt;
+&lt;a style=&quot;background-color: lime&quot; href=&quot;#&quot;&gt;LINK 3&lt;/a&gt;
+
+&lt;p style=&quot;background-color: yellow;&quot;&gt;Hello World&lt;/p&gt;
+&lt;p style=&quot;background-color: pink;&quot;&gt;Hello World Again&lt;/p&gt;
+
+&lt;ul style=&quot;background-color: red;&quot;&gt;
+    &lt;li style=&quot;background-color: yellow;&quot;&gt;Item 1&lt;/li&gt;
+    &lt;li style=&quot;background-color: pink&quot;&gt;Item 2&lt;/li&gt;
+    &lt;li style=&quot;background-color: lime&quot;&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul style=&quot;background-color: red;&quot;&gt;
+    &lt;li style=&quot;background-color: yellow;&quot;&gt;Item 1&lt;/li&gt;
+    &lt;li style=&quot;background-color: pink&quot;&gt;Item 2&lt;/li&gt;
+    &lt;li style=&quot;background-color: lime&quot;&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;img style=&quot;background-color: yellow;&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;
+&lt;img style=&quot;background-color: pink;&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;
+&lt;img style=&quot;background-color: lime;&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;     
+                        </code></pre>
+
+                        <p>Ignore the <code>style=&quot;...&quot;</code> for now. We'll see that later.</p>
+
+                    </section>
+
+                    <section>
+                        <h2>Let's see an example</h2>
+
+                        <a href="assets/C02/BlockInlineElements.html">
+                            <img height="600" src="assets/C02/BlockInlineElements.png" alt="Difference between inline and block elements">
+                        </a>
+
+                    </section>
+                    
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
