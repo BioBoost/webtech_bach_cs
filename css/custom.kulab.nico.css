@@ -1,6 +1,19 @@
+/* Monolith: #404040; */
+/* Agia: #447B82; */
+/* Lion: #2DE0DD; */
+/* DewedAge: #3C7372; */
+/* NotQuiteBlack: #303030; */
+
 .alignleft
 {
     text-align: left;
+}
+
+#logo
+{
+    height: 100px;
+    padding: 50px;
+    float: right;
 }
 
 .floatright
