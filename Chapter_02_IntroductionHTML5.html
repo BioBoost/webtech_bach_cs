@@ -640,14 +640,14 @@ you
                         <pre><code data-trim>
 &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
   &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
-&lt;HTML&gt;
-&lt;Head&gt;
+&lt;html&gt;
+&lt;head&gt;
   &lt;title&gt; HTML 4.01 Transitional &lt;/title&gt;
-&lt;/Head&gt;
-&lt;Body&gt;
-  &lt;p&gt;&lt;font color=&quot;red&quot;&gt;... paragraph ...&lt;/font&gt;&lt;/p&gt;
-&lt;/Body&gt;
-&lt;/HTML&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;... paragraph ...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
                         </code></pre>
 
                         <div class="alignleft">
@@ -1172,7 +1172,7 @@ A Hello World program running on Sony's PlayStation Portable as a proof of conce
                                 Image  
                                 <ul>
                                     <li><code>&lt;img src=&quot;...&quot;&gt;</code></li>
-                                    <li>Block element</li>
+                                    <li>Inline element</li>
                                     <li>Void element</li>
                                 </ul>     
                             </li>
@@ -1206,34 +1206,38 @@ A Hello World program running on Sony's PlayStation Portable as a proof of conce
                         <h2>Let's see an example</h2>
 
                         <pre><code date-trime>
-&lt;h1 style=&quot;background-color: yellow;&quot;&gt;Heading 1&lt;/h1&gt;
-&lt;h1 style=&quot;background-color: pink&quot;&gt;Another Heading 1&lt;/h1&gt;
-&lt;h2 style=&quot;background-color: lime&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;h1 class=&quot;yellow&quot;&gt;Heading 1&lt;/h1&gt;
+&lt;h1 class=&quot;pink&quot;&gt;Another Heading 1&lt;/h1&gt;
+&lt;h2 class=&quot;lime&quot;&gt;Heading 2&lt;/h2&gt;
 
-&lt;a style=&quot;background-color: yellow&quot; href=&quot;#&quot;&gt;LINK 1&lt;/a&gt;
-&lt;a style=&quot;background-color: pink&quot; href=&quot;#&quot;&gt;LINK 2&lt;/a&gt;
-&lt;a style=&quot;background-color: lime&quot; href=&quot;#&quot;&gt;LINK 3&lt;/a&gt;
+&lt;a class=&quot;yellow&quot; href=&quot;#&quot;&gt;LINK 1&lt;/a&gt;
+&lt;a class=&quot;pink&quot; href=&quot;#&quot;&gt;LINK 2&lt;/a&gt;
+&lt;a class=&quot;lime&quot; href=&quot;#&quot;&gt;LINK 3&lt;/a&gt;
 
-&lt;p style=&quot;background-color: yellow;&quot;&gt;Hello World&lt;/p&gt;
-&lt;p style=&quot;background-color: pink;&quot;&gt;Hello World Again&lt;/p&gt;
-
-&lt;ul style=&quot;background-color: red;&quot;&gt;
-    &lt;li style=&quot;background-color: yellow;&quot;&gt;Item 1&lt;/li&gt;
-    &lt;li style=&quot;background-color: pink&quot;&gt;Item 2&lt;/li&gt;
-    &lt;li style=&quot;background-color: lime&quot;&gt;Item 3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul style=&quot;background-color: red;&quot;&gt;
-    &lt;li style=&quot;background-color: yellow;&quot;&gt;Item 1&lt;/li&gt;
-    &lt;li style=&quot;background-color: pink&quot;&gt;Item 2&lt;/li&gt;
-    &lt;li style=&quot;background-color: lime&quot;&gt;Item 3&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;img style=&quot;background-color: yellow;&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;
-&lt;img style=&quot;background-color: pink;&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;
-&lt;img style=&quot;background-color: lime;&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;     
+&lt;p class=&quot;yellow&quot;&gt;Hello World&lt;/p&gt;
+&lt;p class=&quot;pink&quot;&gt;Hello World Again&lt;/p&gt;
                         </code></pre>
 
-                        <p>Ignore the <code>style=&quot;...&quot;</code> for now. We'll see that later.</p>
+                        <p>Ignore the <code>class=&quot;...&quot;</code> for now. We'll see that later.</p>
+
+                    </section>
+
+                    <section>
+                        <h2>Let's see an example</h2>
+
+                        <pre><code date-trime>
+&lt;ul class=&quot;red&quot;&gt;
+    &lt;li class=&quot;yellow&quot;&gt;Item 1&lt;/li&gt;
+    &lt;li class=&quot;pink&quot;&gt;Item 2&lt;/li&gt;
+    &lt;li class=&quot;lime&quot;&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;img class=&quot;yellow&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;
+&lt;img class=&quot;pink&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;
+&lt;img class=&quot;lime&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;#&quot;&gt;     
+                        </code></pre>
+
+                        <p>Ignore the <code>class=&quot;...&quot;</code> for now. We'll see that later.</p>
 
                     </section>
 
