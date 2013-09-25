@@ -1252,6 +1252,156 @@ A Hello World program running on Sony's PlayStation Portable as a proof of conce
                     
                 </section>
 
+                <section>
+
+                    <section>
+                        <h2>Page Structure</h2>
+
+                        <img height="200" src="assets/C02/PageStructure.gif" alt="Page Structure">
+                    </section>
+
+                    <section>
+                        <h2>Typical Page Structure</h2>
+
+                        <img height="500" src="assets/C02/WebPageLayout.png" alt="Typical web page layout">
+                    </section>
+
+                    <section>
+                        <h2>Currently realized with div elements</h2>
+
+                        <img height="500" src="assets/C02/WebPageLayoutUsingDivs.png" alt="Typical web page layout using div tags">
+                    </section>
+
+                    <section>
+                        <h2>A new building block</h2>
+                        <h3>The div element</h3>
+
+                        <pre><code date-trime>
+&lt;div&gt;... This is div element ...&lt;/div&gt;   
+                        </code></pre>
+
+                        <ul class="alignleft">
+                            <li>Defines a division or a section in an HTML document.</li>
+                            <li>Block element</li>
+                            <li>Used to group block-elements to format them with CSS.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>However HTML5 brings us new building blocks</h2>
+
+                        <img height="500" src="assets/C02/WebPageLayoutUsingHTML5.png" alt="Typical web page layout using HTML 5 structure elements">
+                    </section>
+
+
+                    <section>
+                        <h2>HTML5 building blocks</h2>
+                        <h3>The header and footer elements</h3>
+
+                        <ul class="alignleft">
+                            <li>Specifies a header or footer for a document, article or section.</li>
+                            <li>A header should be used as a container for introductory content or set of navigational links.</li>
+                            <li>You can have several header and footer elements in one document.</li>
+                            <li>A header or footer element cannot be placed within a another header or footer element.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>HTML5 building blocks</h2>
+                        <h3>The article element</h3>
+
+                        <ul class="alignleft">
+                            <li>Specifies independent, self-contained content.</li>
+                            <li>Should make sense on its own and it should be possible to distribute it independently from the rest of the site.</li>
+                            <li>Typical usage:
+                                <ul>
+                                    <li>Forum posts</li>
+                                    <li>Blog posts</li>
+                                    <li>Comment</li>
+                                    <li>New story</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>HTML5 building blocks</h2>
+                        <h3>The article element</h3>
+
+                        <ul class="alignleft">
+                            <li>Articles can be nested.
+                                <ul>
+                                    <li>For example a blog can be inside an article element.</li>
+                                    <li>While comments are placed in articles too, which in turn are nested within the blog article.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Combining header, footer and article</h2>
+
+                        <pre><code date-trime>
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Waaaah HTML5 rocks&lt;/h1&gt;
+        &lt;p&gt;The new HTML5 standard is the way to go. Every webdesigner is excited to see how browsers start to support the different elements.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;p&gt;
+        HTML5 is a markup language used for structuring and presenting content for the World Wide Web and a core technology of the Internet. It is the fifth revision of the HTML standard (created in 1990 and standardized as HTML 4 as of 1997) and, as of December 2012, is a candidate recommendation of the World Wide Web Consortium (W3C).
+    &lt;/p&gt;
+    &lt;p&gt;
+        Its core aims have been to improve the language with support for the latest multimedia while keeping it easily readable by humans and consistently understood by computers and devices (web browsers, parsers, etc.). HTML5 is intended to subsume not only HTML 4, but also XHTML 1 and DOM Level 2 HTML.
+    &lt;/p&gt;
+    &lt;footer&gt;
+        Copyright goes here
+    &lt;/footer&gt;
+&lt;/article&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Combining header, footer and article</h2>
+                        <h3>Rendered result</h3>
+
+                        <img height="300" src="assets/C02/ExampleOfArticle.png" alt="Output of example article">
+                    </section>
+
+                    <section>
+                        <h2>HTML5 building blocks</h2>
+                        <h3>The nav element</h3>
+
+                        <ul class="alignleft">
+                            <li>The <code>&lt;nav&gt;</code> element is used to contain the major navigational blocks on the site such as the primary site navigation.</li>
+                            <li>Should not be used for content specific links. Example to related blog posts.</li>
+                            <li>Mostly placed in header or footer elements.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Example of nav element</h2>
+
+                        <pre><code date-trime>
+&lt;header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Example of nav element</h2>
+                        <h3>Rendered result</h3>
+
+                        <img height="300" src="assets/C02/NavInsideHeader.png" alt="Output of example navigation">
+                    </section>
+
+                </section>
 			</div>
 
 		</div>
