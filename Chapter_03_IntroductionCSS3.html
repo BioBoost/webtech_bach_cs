@@ -432,8 +432,88 @@ h1~p
                 </section>
 
 
+                <section>
 
+                    <section>
+                        <h2>Cascading and Inheritance</h2>
+                    </section>
 
+                    <section>
+                        <h2>How CSS Rules Cascade</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>If there are two or more rules that apply to the same element, it is important to understand which will take precedence.</li>
+                                <li>If the two selectors are identical, the latter of the two will take precedence.</li>
+                                <li>If one selector is more specific than the others, the more specific rule will take precedence over more general ones.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Important CSS rules</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>You can add <code>!important</code> after any property value to indicate that it should be considered more important than other rules that apply to the same element.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+p
+{
+    color: blue !important;
+} 
+p
+{
+  color: violet;
+}
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>How CSS Rules are Inherited</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Some properties are inherited by child elements.</li>
+                                <li>However not all properties are inherited since this would result in complex stylesheets.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>How CSS Rules are Inherited</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Examples of properties that are inherited
+                                    <ul>
+                                        <li>color, font-family, ...</li>
+                                    </ul>
+                                </li>
+                                <li>Examples of properties that are NOT inherited
+                                    <ul>
+                                        <li>border, padding, margin, background, ...</li>
+                                    </ul>
+                                </li>
+                                <li>You can force inheritance by using <code>inherit</code> as property value.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+p
+{
+    border: inherit;
+}
+                        </code></pre>
+
+                    </section>
+
+                </section>
 
 			</div>
 
