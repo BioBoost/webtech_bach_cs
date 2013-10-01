@@ -57,17 +57,24 @@
                     </section>
 
                     <section>
-                        <h2>Basics of CSS</h2>
+                        <h2>CSS(3)</h2>
 
-                        <div class="alignleft">
-                            <ul>
-                                <li>CSS allows you to create rules that specify how the content of an element should appear.</li>
-                                <li>The key to understanding how CSS works is to imagine that there is an invisible box around every HTML element.</li>
-                            </ul>
-                        </div>
+                        <p>CSS allows us to seperate content from presentation.</p>
 
-                        <img width="300" src="assets/C02/BlockInlineElements.png" alt="Block versus inline elements">
+                        <p>It allows us to turn this</p>
 
+                        <img height="400" src="assets/C03/VivesWithoutCss.png" alt="Vives without CSS">
+
+                    </section>
+
+                    <section>
+                        <h2>CSS(3)</h2>
+
+                        <p>Into this</p>
+
+                        <img height="400" src="assets/C03/VivesWithCss.png" alt="Vives with CSS">
+
+                        <p>CSS allows you to create rules that specify how the content of an element should appear.</p>
                     </section>
 
                     <section>
@@ -85,6 +92,14 @@
                                 </li>
                             </ul>
                         </div>
+
+                        <div>
+                            <img height="150" src="assets/C03/CssRulesParts.gif" alt="Parts of a CSS rule">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>CSS style rules</h2>
 
                         <pre><code data-trim>
 p
@@ -175,6 +190,28 @@ p
 
                     <section>
                         <h2>Where to place all this CSS ?</h2>
+                        <h3>External CSS file</h3>
+
+                        <pre><code data-trim>
+&lt;link href=&quot;css/styles.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>link element - Used to specify a relationship between two documents
+                                    <ul>
+                                        <li>rel attribute declares the linked document to be a stylesheet for the document</li>
+                                        <li>type attribute specifies the MIME type of the related document</li>
+                                        <li>href attribute provides the URL for the document containing the style sheet</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Where to place all this CSS ?</h2>
 
                         <div class="alignleft">
                             <ol start="2">
@@ -222,7 +259,7 @@ h1
                                 <li>
                                     Inline
                                     <ul>
-                                        <li>Placed in html starttag.</li>
+                                        <li>Placed in element starttag.</li>
                                         <li>Inside the style attribute</li>
                                     </ul>
                                 </li>
@@ -247,6 +284,17 @@ h1
 
                     <section>
                         <h2>CSS Selectors</h2>
+
+                        <pre><code data-trim>
+div#content p:first-child:first-letter {font-size: 200%; }
+table tr:nth-child(odd) td {background: #f1f5fa; }
+ul:nth-child(2n+1) li {background: #f1f5fa; }
+                        </code></pre>
+
+                        <div>
+                            <img src="assets/Confused.jpg" alt="Confused">
+                        </div>
+
                     </section>
 
                     <section>
@@ -429,13 +477,112 @@ h1~p
 
                         <p>If you had two p elements that are siblings of an h1 element, this rule would apply to both</p>
                     </section>
-                </section>
 
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>CSS Pseudo classes</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+a:hover
+{
+    background: gold;
+}
+                        </code></pre>
+
+                        <p>If the user hovers over an a element it will be styled.</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>CSS Pseudo classes</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                            Some common used pseudo classes
+                                <li>:hover</li>
+                                <li>:focus</li>
+                                <li>:first-letter</li>
+                                <li>:first-line</li>
+                                <li>:lang</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>CSS Attribute selectors</h3>
+
+                        <p>It is possible to style HTML elements that have specific attributes.</p>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>[att]:
+                                    <ul>
+                                        <li>Match when the element sets the "att" attribute, whatever the value of the attribute.</li>
+                                    </ul>
+                                </li>
+                                <li>[att=val]:
+                                    <ul>
+                                        <li>Match when the element's "att" attribute value is exactly "val".</li>
+                                    </ul>
+                                </li>
+                                <li>[att~=val]:
+                                    <ul>
+                                        <li>Represents an element with the att attribute whose value is a white space-separated list of words, one of which is exactly "val".</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>CSS Attribute selectors</h3>
+
+                        <pre><code data-trim>
+div[lang="en"]
+{
+    background: gold;
+}
+                        </code></pre>
+
+                        <p>Matches a div element with the attribute lang set to "en".</p>
+                    </section>
+
+                </section>
 
                 <section>
 
                     <section>
                         <h2>Cascading and Inheritance</h2>
+
+                        <div>
+                            <img height="400" src="assets/C03/Inheritance.png" alt="Inheritance">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Conflicting styles</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Styles cascade (and hence the term "Cascading Style Sheets"), or flow together, such that the ultimate appearance of elements on a page results from combining styles defined in several ways.</li>
+                                <li>Styles may be defined by a user (viewer), an author (designer) or a user agent (browser).
+                                    <ul>
+                                        <li>Styles defined by the user take precedence over styles defined by the user agent.</li>
+                                        <li>Styles defined by authors take precedence over styles defined by the user.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
                     </section>
 
                     <section>
@@ -443,7 +590,7 @@ h1~p
 
                         <div class="alignleft">
                             <ul>
-                                <li>If there are two or more rules that apply to the same element, it is important to understand which will take precedence.</li>
+                                <li>Multiple values of one property can be set or inherited on the same element, so the browser must reduce them to one value for that property per element before they are rendered.</li>
                                 <li>If the two selectors are identical, the latter of the two will take precedence.</li>
                                 <li>If one selector is more specific than the others, the more specific rule will take precedence over more general ones.</li>
                             </ul>
@@ -515,6 +662,328 @@ p
 
                 </section>
 
+
+                <section>
+
+                    <section>
+                        <h2>CSS Box Model</h2>
+
+                        <div>
+                            <img height="300" src="assets/C03/Box.jpg" alt="Box">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>The key to CSS</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The key to understanding how CSS works is to imagine that there is an invisible box around every HTML element.</li>
+                            </ul>
+                        </div>
+
+                        <img height="400" src="assets/C02/BlockInlineElements.png" alt="Block versus inline elements">
+
+                    </section>
+
+                    <section>
+                        <h2>Default page flow layout</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Normal page flow is from left to right and from top to bottom.</li>
+                                <li>Elements are placed in the same sequence as they are encountered when no special position formatting is applied.</li>
+                            </ul>
+                        </div>
+
+                        <img height="300" src="assets/C03/DefaultPageFlow.png" alt="Default page flow layout">
+
+                    </section>
+
+                    <section>
+                        <h2>Inline elements</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Do not change the flow of the document</li>
+                                <li>Examples:
+                                    <ul>
+                                        <li>img</li>
+                                        <li>a</li>
+                                        <li>span
+                                            <ul>
+                                                <li>Grouping element</li>
+                                                <li>Does not apply any formatting to its contents</li>
+                                                <li>Creates a container for CSS rules or id attributes to be applied to a section</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Block elements</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Displayed on their own line</li>
+                                <li>Have virtual boxes around them => Box Model</li>
+                                <li>Examples:
+                                    <ul>
+                                        <li>p</li>
+                                        <li>all headings (h1 through h6)</li>
+                                        <li>div</li>
+                                        <li>section</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Inline vs Block elements</h2>
+
+                        <img height="500" src="assets/C03/InlineVsBlock.png" alt="Inline versus block elements">
+
+                    </section>
+
+                    <section>
+                        <h2>Changing display type</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Inline-level elements can be made into block-level elements using the display property and vice versa.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+h1
+{
+    display: inline;
+}
+a
+{
+    display: block;
+} 
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Block-level HTML5 elements have a virtual box drawn around them based on the box model.</li>
+                                <li>Inline elements do not react to different padding or margin settings unless they are defined as block or inline-block.</li>
+                                <li>When the browser renders an element using the box model, the content is surrounded by padding, a margin and a border.</li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            <a href="http://robertnyman.com/2010/02/24/css-display-inline-block-why-it-rocks-and-why-it-sucks/">CSS display: inline-Block: Why It Rocks, And Why It Sucks</a>
+                        </p>                        
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+
+                        <div>
+                            <img height="500" src="assets/C03/TheBoxModel.png" alt="The CSS box model">
+                        </div>                   
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+                        <h3>Padding</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Padding:
+                                    <ul>
+                                        <li>The padding property determines the distance between the content inside an element and the border of the element.</li>
+                                        <li>Padding can be set for each side of the box by using
+                                            <ul>
+                                                <li>padding-top</li>
+                                                <li>padding-right</li>
+                                                <li>padding-left</li>
+                                                <li>padding-bottom</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>               
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+                        <h3>Border</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The border is controlled using the properties:
+                                    <ul>
+                                        <li>
+                                            border-width
+                                            <ul>
+                                                <li>May be set to any of the CSS lengths or to the predefined value of thin, medium or thick</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            border-color
+                                            <ul>
+                                                <li>Sets the color used for the border</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            border-style
+                                            <ul>
+                                                <li>Options are: none, hidden, dotted, dashed, solid, double, groove, ridge, inset and outset</li>
+                                                <li>None of the border properties will have ANY effect unless the border-style property is set.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+                        <h3>Margin</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Determines the distance between the element's border and any outside text</li>
+                                <li>
+                                    Margins for individual sides of an element can be specified by using
+                                    <ul>
+                                        <li>margin-top</li>
+                                        <li>margin-right</li>
+                                        <li>margin-left</li>
+                                        <li>margin-bottom</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>               
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+                        <h3>Element Dimensions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Specifying the width and height of an element</li>
+                                <li>
+                                    Dimensions of elements on a page can be set with CSS by using properties height and width
+                                    <ul>
+                                        <li>Their values can be relative or absolute</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+                        <h3>Element Dimensions</h3>
+
+                        <pre><code data-trim>
+div.top
+{
+    background-color:  #969cae;
+    height:  100px;
+}
+div.left
+{
+    width: 100px;
+    height:  300px;
+    background-color: #87fc87;
+}
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;div class=&quot;top&quot;&gt;
+    I AM THE TOP DIVISION
+&lt;/div&gt;  
+&lt;div class=&quot;left&quot;&gt;
+    I AM THE LEFT DIVISION
+&lt;/div&gt;
+                        </code></pre>
+
+                        <a href="assets/C03/ElementDimensions.html" target="_blank">Show Me</a>
+
+                    </section>
+
+                    <section>
+                        <h2>The Box Model</h2>
+
+                        <pre><code data-trim>
+.outer {
+    width: 100px;
+    height: 100px;
+    background-color: #429E87;
+    border: solid 5px red;
+    margin: 100px;
+    padding: 100px;
+}
+.inner {
+    width: 100px;
+    height: 100px;
+    background-color: #DEF58C;
+    border: solid 5px blue;
+    margin: 20px;
+    padding: 20px;
+}
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;div class=&quot;outer&quot;&gt;
+    &lt;div class=&quot;inner&quot;&gt;
+        CONTENT
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </code></pre>
+
+                        <a href="assets/C03/TheBoxModelExample.html" target="_blank">Show Me</a>
+
+                    </section>
+
+                </section>
+
+
+
+
+
+
+
+                <section>
+
+                    <section>
+                        <h2>Tips and Tricks</h2>
+                    </section>
+
+                    <section>
+                        <h2>CSS Validation</h2>
+
+                        <p>Its always a good idead to validate your CSS rules.</p>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>CSS validator: <a href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a></li>
+                                <li>Can help you make sure that your code is correct and will work on CSS3-compliant browsers.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                </section>
 			</div>
 
 		</div>
