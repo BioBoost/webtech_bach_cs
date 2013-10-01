@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/moderno.css" id="theme">
+
+		<!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="css/custom.kulab.nico.css">
+        <link rel="stylesheet" href="css/highlight.tomorrow-night-bright.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+            <img id="logo" src="assets/Logo_labICT.png" alt="Logo labICT">  
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <h1>Webtechnology</h1>
+                    <h3>Chapter 3 - Cascading Style Sheets</h3>
+                    <p><a href="http://labict.be">labict.be</a></p>
+                </section>
+
+                <section>
+
+                    <section>
+                        <h2>Basics of CSS</h2>
+                        <a href="#" class="image navigate-down">
+                            <img width="400" src="assets/C03/CssToMyHTML.jpg" alt="CSS to my HTML">
+                        </a>
+                    </section>
+
+                    <section>
+                        <h2>Basics of CSS</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>CSS allows you to create rules that specify how the content of an element should appear.</li>
+                                <li>The key to understanding how CSS works is to imagine that there is an invisible box around every HTML element.</li>
+                            </ul>
+                        </div>
+
+                        <img width="300" src="assets/C02/BlockInlineElements.png" alt="Block versus inline elements">
+
+                    </section>
+
+                    <section>
+                        <h2>CSS style rules</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>CSS works by associating rules with HTML elements. These rules govern how the content of specified elements should be displayed.</li>
+                                <li>
+                                    A CSS rule contains two parts:
+                                    <ul>
+                                        <li>Selectors indicate which element the rule applies to. </li>
+                                        <li>Declarations indicate how the elements referred to in the selector should be styled.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+p
+{
+    color: red;
+}
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Declarations are split into two parts (a property and a value), and are separated by a colon.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>CSS style rules</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>You can specify multiple selectors (seperated by commas)</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+h1, h2, h3
+{
+    color: red;
+    font-family: arial;
+}
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>You can specify multiple declarations (seperated by  semicolon)</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+p
+{
+    color: red;
+    background-color: #18ff45;
+}
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Where to place all this CSS ?</h2>
+
+                        <p>There are three options.</p>
+
+                        <div>
+                            <img src="assets/ThreeOptions.jpg" alt="Three options for placeing your CSS code">
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Where to place all this CSS ?</h2>
+
+                        <div class="alignleft">
+                            <ol>
+                                <li>
+                                    External CSS file
+                                    <ul>
+                                        <li>Place your CSS code in an external file and give it a .css extension.</li>
+                                        <li>Add a link to the external file in your HTML head section.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;link href=&quot;css/styles.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>This is the prefered option since it maximally seperates content from presentation and stylesheets can be easily <strong>reused</strong>.</li>
+                                <li>Multiple stylesheets can be used.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Where to place all this CSS ?</h2>
+
+                        <div class="alignleft">
+                            <ol start="2">
+                                <li>
+                                    Internal
+                                    <ul>
+                                        <li>Place your CSS code inside the head section.</li>
+                                        <li>Placed between style tags.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;style type=&quot;text/css&quot;&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+body
+{
+  font-family: arial;
+  background-color: rgb(185,179,175);
+}
+h1
+{
+  color: #FFFFFF;
+}
+                        </code></pre>
+                        <pre><code data-trim>
+&lt;/style&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Only allows reuse inside the current document.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>Where to place all this CSS ?</h2>
+
+                        <div class="alignleft">
+                            <ol start="3">
+                                <li>
+                                    Inline
+                                    <ul>
+                                        <li>Placed in html starttag.</li>
+                                        <li>Inside the style attribute</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;p style=&quot;color:red; font-family: arial;&quot;&gt;This is text&lt;/p&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Allows no reuse.</li>
+                                <li>This is from the olden days. <strong>Do NOT use this!</strong></li>
+                            </ul>
+                        </div>
+
+                    </section>
+                </section>
+
+                <section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>There are many different types of CSS selector that allow you to target rules to specific elements in an HTML document.</li>
+                                <li>CSS selectors are case sensitive, so they must match element names and attribute values exactly.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>Universal Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Applies to all elements in the document</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+*
+{
+    font-weight: bold;
+}
+                        </code></pre>
+
+                        <p>Targets all elements on the page.</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>Type/Element Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches element names</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+h1, h2, h3
+{
+    text-decoration: underline;
+}
+                        </code></pre>
+
+                        <p>Targets the h1, h2 and h3 elements.</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>Class Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches an element whose class attribute has a value that matches the one specified after the period (or full stop) symbol</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+.note
+{
+    font-size: 1.2em;
+}
+                        </code></pre>
+
+                        <p>Targets any element whose class attribute has a value of note.</p>
+
+                        <pre><code data-trim>
+p.note
+{
+    font-size: 1.2em;
+}
+                        </code></pre>
+
+                        <p>Targets only p elements whose class attribute has a value of note.</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>ID Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches an element whose id attribute has a value that matches the one specified after the pound or hash symbol</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#introduction
+{
+    border-color: red;
+}
+                        </code></pre>
+
+                        <p>Targets the element whose id attribute has a value of introduction.</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>Child Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches an element that is a <strong>direct</strong> child of another</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+li>a
+{
+    text-decoration: none;
+}
+                        </code></pre>
+
+                        <p>Targets any a elements that are direct children of an li element (but not other a elements in the page).</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>Descendant Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches an element that is a descendent of another specified element (not just a direct child of that element)</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+p a
+{
+    text-decoration: none;
+}
+                        </code></pre>
+
+                        <p>Targets any q elements that sit inside a p element, even if there are other elements nested between them.</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>Adjacent Sibling Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches an element that is the next sibling of another</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+h1+p
+{
+    text-decoration: none;
+}
+                        </code></pre>
+
+                        <p>Targets the first p element after any h1 element (but not other p elements)</p>
+                    </section>
+
+                    <section>
+                        <h2>CSS Selectors</h2>
+                        <h3>General Sibling Selector</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Matches an element that is a sibling of another, although it does not have to be the directly preceding element</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+h1~p
+{
+    text-decoration: none;
+}
+                        </code></pre>
+
+                        <p>If you had two p elements that are siblings of an h1 element, this rule would apply to both</p>
+                    </section>
+                </section>
+
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
