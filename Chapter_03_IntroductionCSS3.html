@@ -706,6 +706,11 @@ p
                         <div class="alignleft">
                             <ul>
                                 <li>Do not change the flow of the document</li>
+                                <li>The W3C's CSS(2) spec defines inline elements as elements of the source document that do not form new blocks of content
+                                    <ul>
+                                        <li>The content is distributed in lines.</li>
+                                    </ul>
+                                </li>
                                 <li>Examples:
                                     <ul>
                                         <li>img</li>
@@ -730,7 +735,6 @@ p
                         <div class="alignleft">
                             <ul>
                                 <li>Displayed on their own line</li>
-                                <li>Have virtual boxes around them => Box Model</li>
                                 <li>Examples:
                                     <ul>
                                         <li>p</li>
@@ -778,8 +782,8 @@ a
 
                         <div class="alignleft">
                             <ul>
-                                <li>Block-level HTML5 elements have a virtual box drawn around them based on the box model.</li>
-                                <li>Inline elements do not react to different padding or margin settings unless they are defined as block or inline-block.</li>
+                                <li>HTML5 elements have a virtual box drawn around them based on the box model.</li>
+                                <li>Inline elements react different to padding and margin settings.</li>
                                 <li>When the browser renders an element using the box model, the content is surrounded by padding, a margin and a border.</li>
                             </ul>
                         </div>
