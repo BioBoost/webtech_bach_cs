@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/moderno.css" id="theme">
+
+		<!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="css/custom.kulab.nico.css">
+        <link rel="stylesheet" href="css/highlight.tomorrow-night-bright.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+            <img id="logo" src="assets/Logo_labICT.png" alt="Logo labICT">  
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <h1>Webtechnology</h1>
+                    <h3>Chapter 4 - Structuring Webpages</h3>
+                    <p><a href="http://labict.be">labict.be</a></p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Building a basic structure</h2>
+
+                        <img height="400px" src="assets/C04/WebPageLayout_HeaderContentFooter.png">
+                    </section>
+
+                    <section>
+                        <h2>HTML</h2>
+
+                        <pre><code data-trim>
+&lt;div id=&quot;page&quot;&gt;
+  &lt;header&gt;
+    Labict.be
+  &lt;/header&gt;
+  &lt;div id=&quot;content&quot;&gt;
+    &lt;p&gt;
+      ......
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer&gt;
+    &copy; 2013 Labict.be (powered by knowledge)
+  &lt;/footer&gt;
+&lt;/div&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>CSS</h2>
+
+                        <pre><code data-trim>
+#page
+{
+  background-color: gray;
+}
+header
+{
+  background-color: pink;
+}
+#content
+{
+  background-color: lime;
+}
+footer
+{
+  background-color: purple;
+}
+                        </code></pre>
+
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_01.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding some width and height</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Use the width and height properties to limit the elements width and height.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#page
+{
+  background-color: gray;
+  width: 800px;
+}
+header
+{
+  background-color: pink;
+  height: 100px;
+}
+footer
+{
+  background-color: purple;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_02.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Centering the page container</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>This can be done by setting the left and right margin to auto.</li>
+                                <li>Also add <code>text-align:center</code> to the parent of the page container for IE6 and older.
+                                    <ul>
+                                        <li>Do take note that this property is inherited!</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+body
+{
+  background-color: #C0C2C4;
+  text-align: center;
+}
+#page
+{
+  background-color: gray;
+  width: 800px;
+  margin: 20px auto 20px auto; /* Center */
+  text-align: left; /* Center IE6 */
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_03.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding the labict.be logo</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Add an img element wrapped in a div container in the header</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;header&gt;
+  Labict.be
+  &lt;div id=&quot;logo&quot;&gt;
+    &lt;img src=&quot;../Logo_labICT.jpg&quot;&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+                        </code></pre>
+
+                        <p>The image can be moved to the right side by floating the div.</p>
+
+                    </section>
+
+                    <section>
+                        <h2>Floating elements</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The float property allows you to take an element in normal flow and place it as far to the left or right of the containing element as possible.</li>
+                                <li>Anything else that sits inside the containing element will flow around the element that is floated.</li>
+                                <li>You should also use the width property to indicate how wide the floated element should be.</li>
+                            </ul>
+                        </div>
+
+                        
+                    </section>
+
+                    <section>
+                        <h2>Adding the labict.be logo</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Add an img element wrapped in a div container in the header</li>
+                                <li>It can be placed on the right side by floating the div</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;header&gt;
+  Labict.be
+  &lt;div id=&quot;logo&quot;&gt;
+    &lt;img src=&quot;../Logo_labICT.jpg&quot;&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+#logo {
+  height: inherit;
+  float: right;
+}
+#logo img {
+  height: inherit;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_04.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding respectfull background colors</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Change the backgroundcolors to nice values</li>
+                            </ul>
+                        </div>
+
+                        <a href="http://www.colourlovers.com/palettes">Colour Lovers</a>
+
+                        <pre><code data-trim>
+body {
+  background-color: #4A4233;
+}
+#page {
+  background-color: #4A4233;
+}
+header {
+  background-color: #766352;
+}
+#content {
+  background-color: #C4C2BE;
+}
+footer {
+  background-color: #A69B86;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_05.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding a border</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Add a border to the page container</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#page
+{
+  background-color: #4A4233;
+  width: 800px;
+  margin: 20px auto 20px auto; /* Center */
+  text-align: left; /* Center IE6 */
+  border-style: solid;
+  border-width: 4px;
+  border-color: #120E05;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_06.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding some padding for the content and footer</h2>
+
+                        <pre><code data-trim>
+#content
+{
+  background-color: #C4C2BE;
+  padding: 10px
+}
+footer
+{
+  background-color: #A69B86;
+  padding: 10px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_07.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding some articles</h2>
+
+                        <pre><code data-trim>
+  &lt;div id=&quot;content&quot;&gt;
+    &lt;article&gt;
+      &lt;h1&gt;Ut vulputate mauris pretium, pulvinar.&lt;/h1&gt;      
+      &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article&gt;
+      &lt;h1&gt;Ut ac rutrum eros. Aenean.&lt;/h1&gt;
+      &lt;p&gt;...&lt;/p&gt;   
+    &lt;/article&gt;
+    &lt;article&gt;
+      &lt;h1&gt;Vestibulum feugiat quam sit amet.&lt;/h1&gt;
+      &lt;p&gt;...&lt;/p&gt;
+      &lt;p&gt;...&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_08.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding a decent title</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Add an h1 and h2 element for the title and catchphrase</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;header&gt;
+  &lt;h1&gt;Labict.be&lt;/h1&gt;
+  &lt;h2&gt;A good place to learn - a good place to teach&lt;/h2&gt;
+  &lt;div id=&quot;logo&quot;&gt;
+    &lt;img src=&quot;../Logo_labICT.jpg&quot;&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+header h1, header h2 {
+  margin: 0px;
+  padding: 5px 0px 5px 20px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_09.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Adding a decent title</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>By putting the logo first we force the titles to flow around the logo</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;header&gt;
+  &lt;div id=&quot;logo&quot;&gt;
+    &lt;img src=&quot;../Logo_labICT.jpg&quot;&gt;
+  &lt;/div&gt;
+  &lt;h1&gt;Labict.be&lt;/h1&gt;
+  &lt;h2&gt;A good place to learn - a good place to teach&lt;/h2&gt;
+&lt;/header&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+header h1, header h2 {
+  margin: 0px;
+  padding: 5px 0px 5px 20px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooter_10.html" target="_blank">Show Me</a>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Adding basic site navigation</h2>
+
+                        <img height="450px" src="assets/C04/WebPageLayout_HeaderContentFooterNavigation.png">
+                    </section>
+
+                    <section>
+                        <h2>The menu</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The basis of most site navigation is the unordered list</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;header&gt;
+  &lt;div id=&quot;logo&quot;&gt;
+    &lt;img src=&quot;../Logo_labICT.jpg&quot;&gt;
+  &lt;/div&gt;
+  &lt;h1&gt;Labict.be&lt;/h1&gt;
+  &lt;h2&gt;A good place to learn - a good place to teach&lt;/h2&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Info&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Future&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_01.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Inlining the list items</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Each list item starts on a new line</li>
+                                <li>This can be fixed by inlining the list items</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Switching between inline and block</h2>
+                        <h3>display</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The display property allows you to change the elements display style.</li>
+                                <li>Possible values
+                                    <ul>
+                                        <li>inline</li>
+                                        <li>block</li>
+                                        <li>inline-block: causes a block-level element to flow like an inline element, while retaining other features of a block-level element.</li>
+                                        <li>none: hides an element from the page (the element acts as though it is not on the page at all).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Inlining the list items</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Also set background color for navigation container</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav
+{
+  background-color: pink;
+}
+header nav ul li
+{
+  display: inline;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_02.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Fit the navigation bar</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Navigation container is not showing since its overlapping with content container.</li>
+                                <li>Fix by removing the height property of the header and setting the height of a wrapper div around the titles</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Fit the navigation bar</h2>
+
+                        <pre><code data-trim>
+&lt;div id=&quot;titles&quot;&gt;
+  &lt;h1&gt;Labict.be&lt;/h1&gt;
+  &lt;h2&gt;A good place to learn - a good place to teach&lt;/h2&gt;
+&lt;/div&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+header {
+  background-color: #766352;
+}
+#titles {
+  height: 100px;
+}
+#logo {
+  height: 100px;
+  float: right;
+}
+header nav {
+  background-color: pink;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_03.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Space between logo and nav bar</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Remove the margin created by the unordered list</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav ul
+{
+  margin: 0px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_04.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Clean it up</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Remove the hyperlink underline</li>
+                                <li>Set the text color</li>
+                                <li>Set the font weight</li>
+                                <li>Set backgroundcolor for the ul element</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav ul li a
+{  
+  text-decoration: none;
+  color: #2E220B;
+  font-weight: bold;
+}
+header nav ul
+{
+  margin: 0px;
+  background-color: yellow;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_05.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Make menu blocks</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>We can add padding to the anchor elements</li>
+                                <li>Notice how padding is expanded but no extra space is added.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav ul li a
+{
+  text-decoration: none;
+  color: #2E220B;
+  font-weight: bold;
+  padding: 5px 20px 5px 20px;
+  background-color: lime;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_06.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Make menu blocks</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>This can be fixed by adding padding to the unordered list</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav ul
+{
+  margin: 0px;
+  background-color: yellow;
+  padding: 8px 0px 8px 0px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_07.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Center the menu</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Set the margins of the unordered list to auto</li>
+                                <li>Set text align of parent nav</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav
+{
+  background-color: pink;
+  text-align: center;
+}
+header nav ul
+{
+  margin: 0px auto 0px auto;
+  background-color: yellow;
+  padding: 8px 0px 8px 0px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_08.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Make it fancy</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>We can play with backgroundcolors when hovering the menu</li>
+                                <li>Fix the structure colors</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+header nav
+{
+  text-align: center;
+  background-color: #A69B86;
+}
+header nav ul li a:hover
+{
+  background-color: #D1C8B6;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigation_09.html" target="_blank">Show Me</a>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Adding a side menu</h2>
+
+                        <img height="450px" src="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside.png">
+                    </section>
+
+                    <section>
+                        <h2>The menu</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Again we start with an unordered list</li>
+                                <li>Add an aside container after the content container</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;aside id=&quot;sidemenu&quot;&gt;
+  &lt;h3&gt;Recent articles&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Encryption and Security Agencies&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Programming Paradigms&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Programming BASIC and Sorting&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Heaps and Heap Sort&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/aside&gt;
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_01.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Lighting it up</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Adding CSS and background colors</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#sidemenu {
+  background-color: yellow;
+}
+#sidemenu ul {
+  background-color: white;
+}
+#sidemenu ul li {
+  background-color: pink;
+}
+#sidemenu ul li a {
+  background-color: orange;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_02.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Making it prettier</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Remove the bullets from the list</li>
+                                <li>Remove the underline of the anchors</li>
+                                <li>Remove padding and margin of ul</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#sidemenu ul
+{
+  background-color: white;
+  list-style-type: none; /* Remove bullets */
+  padding: 0px;
+  margin: 0px;
+}
+#sidemenu ul li a
+{
+  background-color: orange;
+  text-decoration: none;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_03.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Moving the container to the right</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>This can be done by floating the menu</li>
+                                <li>Also give the container a fixed width</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#sidemenu
+{
+  background-color: yellow;
+  float: right;
+  width: 250px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_04.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Moving the container to the right</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The menu is placed in the right corner of the page.</li>
+                                <li>Fix this by floating the content box left</li>
+                                <li>Also set the width of the content box</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#content
+{
+  background-color: #C4C2BE;
+  padding: 10px;
+  float: left;
+  /* page width - sidemenu width - 2*content padding */
+  width: 530px;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_05.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Moving the container to the right</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Our footer gets moved to the right of the content page</li>
+                                <li>Fix this by clearing the left side of the footer</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+footer
+{
+  background-color: #A69B86;
+  padding: 10px;
+  clear: left;
+}
+                        </code></pre>
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_06.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>The clear property</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The clear property allows you to say that no element (within the same containing element) should touch the left or right-hand sides of a box.</li>
+                                <li>Possible values:
+                                    <ul>
+                                        <li>left: left-hand side of the box should not touch any other elements appearing in the same containing element.</li>
+                                        <li>right: right-hand side of the box will not touch elements appearing in the same containing element.</li>
+                                        <li>both: Neither left nor right-hand sides of the box will touch elements appearing in the same containing element.</li>
+                                        <li>none: elements can touch either side.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Making it more appealing</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>By increasing the font size</li>
+                                <li>By selecting a nicer font</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#sidemenu ul li a
+{
+  background-color: orange;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: 'Molle', cursive;
+}
+                        </code></pre>
+
+                        <a href="http://www.google.com/fonts" target="_blank">Google fonts:</a>
+
+                        <pre><code data-trim>
+&lt;link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css'&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Making it more appealing</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>By centering the h3</li>
+                                <li>Adding hover effects</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#sidemenu h3 {
+  text-align: center;
+  font-size: 1.4em;
+}
+#sidemenu ul li a {
+  color: #47433C;
+}
+#sidemenu ul li a:hover {
+  color: #ADABA6;
+}
+                        </code></pre>
+
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_07.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Making it more appealing</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Removing the structure background colors</li>
+                                <li>Lets also add a seperator border between the sidebar and the content page</li>
+                                <li>Dont forget to adjust the width of the content container</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#content {
+  background-color: #C4C2BE;
+  padding: 10px;
+  float: left;
+  /* page width - sidemenu width - 2*content padding
+   - left border content */
+  width: 527px;
+  border-right-style: solid;
+  border-right-width: 3px;
+  border-right-color: #969593;
+}
+                        </code></pre>
+
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_08.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Making it more appealing</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>By adding some space between the items</li>
+                                <li>Center the URL texts</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+#sidemenu ul li {
+  padding: 8px 5px 8px 5px;
+  text-align: center;
+}
+                        </code></pre>
+
+                        <a href="assets/C04/WebPageLayout_HeaderContentFooterNavigationAside_09.html" target="_blank">Show Me</a>
+                    </section>
+
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
