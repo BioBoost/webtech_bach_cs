@@ -289,6 +289,275 @@
                         </div>
                     </section>
                 </section>
+
+                <section>
+                    <section>
+                        <h2>PHP basics</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PHP code can be inserted anywhere as long as the code is put between the start and end tags.</li>
+                                <li>Comments can be added using double slashes // or delimited by /* and */.</li>
+                                <li>Each statement should be ended with semicolon (;).</li>
+                                <li>PHP ignores whitespace (indentation tabs, newlines, ...).</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>PHP Keywords</h2>
+
+                        <div>
+                            <img height="400px" src="assets/C05/PHPKeywords.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h2>Variables</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PHP is a Loosely Typed Language.
+                                    <ul>
+                                        <li>In PHP, a variable does not need to be declared before adding a value to it.</li>
+                                        <li>PHP automatically converts the variable to the correct data type, depending on its value.</li>
+                                        <li>A variable is created the moment you first assign a value to it</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    $a_string = &quot;Hello World&quot;;
+    $a_number = 125;
+    $a_decimal = 1.25;
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Variables</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Single quoted strings
+                                    <ul>
+                                        <li>Will display things almost completely "as is."</li>
+                                        <li>Variables and most escape sequences will not be interpreted.</li>
+                                    </ul>
+                                </li>
+                                <li>Double quoted strings
+                                    <ul>
+                                        <li>Double quote strings will display a host of escaped characters (including some regexes), and variables in the strings will be evaluated.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    $a_string = &quot;Hello World&quot;;
+    echo $a_string;     // Output: Hello World
+    echo "$a_string";   // Output: Hello World
+    echo '$a_string';   // Output: $a_string
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>PHP Datatypes</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>integer
+                                    <ul>
+                                        <li>Whole numbers that range from -2,147,483,648 to 2,147,483,647</li>
+                                    </ul>
+                                </li>
+                                <li>double
+                                    <ul>
+                                        <li>Numbers with decimal places that range from -1.7E308 to 1.7E308 with up to 16 significant digits.</li>
+                                    </ul>
+                                </li>
+                                <li>boolean
+                                    <ul>
+                                        <li>true or false</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>PHP Datatypes</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>string
+                                    <ul>
+                                        <li>Text that consists of any characters.</li>
+                                    </ul>
+                                </li>
+                                <li>array
+                                    <ul>
+                                        <li>Container that holds multiple values of one or more data types</li>
+                                    </ul>
+                                </li>
+                                <li>object
+                                    <ul>
+                                        <li>Container that contains data (properties) and functions (methods)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Arrays</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Numeric Arrays
+                                    <ul>
+                                        <li>A numeric array stores each array element with a numeric index.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    // Creating an array
+    $array = array(&quot;foo&quot;, &quot;bar&quot;, &quot;hallo&quot;, &quot;world&quot;);
+    var_dump($array);
+
+    // Getting element from array
+    $someValue = $array[0];
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/NumericArrays.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Arrays</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Associative Arrays
+                                    <ul>
+                                        <li>In an associative array, each ID key is associated with a value.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    // Creating an array
+    $array = array(
+        &quot;foo&quot; =&gt; &quot;bar&quot;,
+        &quot;bar&quot; =&gt; &quot;foo&quot;,
+    );
+    var_dump($array);
+
+    // Getting element from array
+    $someValue = $array[&quot;foo&quot;];
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/AssociativeArrays.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Arrays</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Multidimensional Arrays
+                                    <ul>
+                                        <li>In a multidimensional array, each element in an array can also be an array.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    // Creating a multidimensional array
+    $array = array(
+        &quot;foo&quot; =&gt; &quot;bar&quot;,
+        42    =&gt; 24,
+        &quot;multi&quot; =&gt; array(
+             &quot;dimensional&quot; =&gt; array(
+                 &quot;array&quot; =&gt; &quot;foo&quot;
+    )));
+    // Getting element from array
+    var_dump($array[&quot;foo&quot;]);
+    var_dump($array[42]);
+    var_dump($array[&quot;multi&quot;][&quot;dimensional&quot;][&quot;array&quot;]);
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/MultidimensionalArrays.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>PHP Arithmetic Operators</h2>
+
+                        <div>
+                            <img width="75%" src="assets/C05/PHPArithmeticOperators.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h2>PHP Assignment Operators</h2>
+
+                        <div>
+                            <img width="75%" src="assets/C05/PHPAssignmentOperators.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h2>PHP Increment/Decrement Operators</h2>
+
+                        <div>
+                            <img width="75%" src="assets/C05/PHPIncrementOperators.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h2>PHP Comparison Operators</h2>
+
+                        <div>
+                            <img width="75%" src="assets/C05/PHPComparisonOperators.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h2>PHP Logical Operators</h2>
+
+                        <div>
+                            <img width="75%" src="assets/C05/PHPLogicalOperators.png">
+                        </div>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The reason for the two different variations of "and" and "or" operators is that they operate at different precedences.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+                </section>
 			</div>
 
 		</div>
