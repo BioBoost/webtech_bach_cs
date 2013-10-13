@@ -546,17 +546,233 @@
                         </div>
                     </section>
 
+                    <section>
+                        <h2>String Operators</h2>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>There are two string operators.
+                                    <ul>
+                                        <li>The first is the concatenation operator ('.'), which returns the concatenation of its right and left arguments.</li>
+                                        <li>The second is the concatenating assignment operator ('.='), which appends the argument on the right side to the argument on the left side.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 
+                    </section>
 
+                    <section>
+                        <h2>String Operators</h2>
 
+                        <pre><code data-trim>
+&lt;?php
+    $mystring = &quot;Hello&quot; . &quot; World&quot;;
+    $newstring = &quot;Teacher says: &quot;;
+    $newstring .= $mystring . &quot; to all programmers out there&quot;;
 
+    echo '&lt;p&gt;' . $mystring . '&lt;/p&gt;';
+    echo '&lt;p&gt;' . $newstring . '&lt;/p&gt;';
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/StringOperators.php" target="_blank">Show Me</a>
 
+                    </section>
 
+                    <section>
+                        <h2>Bitwise Operators</h2>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>Bitwise operators allow evaluation and manipulation of specific bits within an integer.</li>
+                            </ul>
+                        </div>
 
+                        <div>
+                            <img width="75%" src="assets/C05/PHPBitwiseOperators.png">
+                        </div>
+                    </section>
 
+                    <section>
+                        <h2>Array Operators</h2>
 
+                        <div>
+                            <img width="75%" src="assets/C05/PHPArrayOperators.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>If - else</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $rnd = rand (0, 100);
+    if ($rnd == 0 || $rnd == 100) {
+        echo &quot;&lt;p&gt;$rnd is limit value&lt;/p&gt;&quot;;
+    }
+    else if ($rnd &lt; 25) {
+        echo &quot;&lt;p&gt;$rnd is smaller than 25&lt;/p&gt;&quot;;
+    }
+    else {
+        echo &quot;&lt;p&gt;$rnd is bigger than or equal to 25&lt;/p&gt;&quot;;
+    }
+?&gt;
+                        </code></pre> 
+                        <a href="assets/C05/ControlStructures_IfElse.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>While loop</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $array = array('test', 'some', 'stuff');
+    while ($val = array_pop($array))
+    {
+        echo '&lt;p&gt;' . $val . '&lt;/p&gt;';
+    }
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/ControlStructures_While.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>Do While loop</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $x = 0;
+    echo '&lt;ul&gt;';
+    do
+    {
+        echo '&lt;li&gt;' . $x++ . '&lt;/li&gt;';
+    }
+    while ($x &lt; 10);
+    echo '&lt;/ul&gt;';
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/ControlStructures_DoWhile.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>For loop</h3>
+
+                        <pre><code data-trim>
+&lt;p&gt;Starting countdown till Apocalypse.&lt;/p&gt;
+&lt;p&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+    &lt;?php
+    for ($i = 10; $i &gt;= 0; $i--)
+    {
+        echo &quot;$i ... &quot;;
+    }
+    ?&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;/p&gt;
+&lt;p&gt;Executing BringTheWorldToItsEnd();&lt;/p&gt;
+                        </code></pre>
+                        <a href="assets/C05/ControlStructures_For.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>Switch statements</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $rnd = rand (0, 2);
+    switch ($rnd) {
+        case 0:
+        case 2:
+            echo &quot;&lt;p&gt;$rnd is limit value&lt;/p&gt;&quot;;
+            break;
+        case 1:
+            echo &quot;&lt;p&gt;rnd is 1&lt;/p&gt;&quot;;
+            break;      
+        default:
+            echo &quot;&lt;p&gt;rnd is out of range&lt;/p&gt;&quot;;
+            break;
+    }
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/ControlStructures_Switch.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>Foreach</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+$student_grades = array('Jerry' =&gt; 16.5,
+    'Mark' =&gt; 12, 'Elise' =&gt; 5.5, 'Sarah' =&gt; 17
+);
+
+foreach ($student_grades as $grade) {
+    echo &quot;&lt;p&gt;Someone has a grade of $grade/20&lt;/p&gt;&quot;;
+}
+
+foreach ($student_grades as $student =&gt; $grade) {
+    echo &quot;&lt;p&gt;$student has a grade of $grade/20&lt;/p&gt;&quot;;
+}
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/ControlStructures_Foreach.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>Foreach with assignment</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+$myarray = array(1, 2, 3, 4);
+
+echo '&lt;h1&gt;Without passing by reference:&lt;/h1&gt;';
+foreach ($myarray as $value) {
+    $value = $value * 2;
+}
+echo '&lt;pre&gt;';
+print_r($myarray);
+echo '&lt;/pre&gt;';
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Control structures</h2>
+                        <h3>Foreach with assignment</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>In order to be able to directly modify array elements within the loop precede $value with &amp;</li>
+                                <li>In that case the value will be assigned by reference.</li>
+                            </ul>                            
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+$myarray = array(1, 2, 3, 4);
+
+echo '&lt;h1&gt;With passing by reference:&lt;/h1&gt;';
+foreach ($myarray as &amp;$value) {
+    $value = $value * 2;
+}
+echo '&lt;pre&gt;';
+print_r($myarray);
+echo '&lt;/pre&gt;';
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/ControlStructures_ForeachAssign.php" target="_blank">Show Me</a>
+                    </section>
                 </section>
 			</div>
 
