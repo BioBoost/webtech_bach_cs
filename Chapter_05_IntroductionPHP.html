@@ -778,6 +778,99 @@ echo '&lt;/pre&gt;';
                         <a href="assets/C05/ControlStructures_ForeachAssign.php" target="_blank">Show Me</a>
                     </section>
                 </section>
+
+                <section>
+                    <section>
+                        <h2>PHP Functions</h2>
+                    </section>
+
+                    <section>
+                        <h2>Functions</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The real power of PHP comes from its functions.</li>
+                                <li>In PHP, there are more than 700 built-in functions.
+                                    <ul>
+                                        <li>Check out: <a href="http://php.net/quickref.php" target="_blank">http://php.net/quickref.php</a></li>
+                                    </ul>
+                                </li>
+                                <li>A function will be executed by a call to the function.</li>
+                                <li>You may call a function from anywhere within a page.</li>
+                            </ul>                            
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Functions calls</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+$numbers = array(1, 2, 3, 4, 5);
+echo '&lt;p&gt;' . 'Total sum of numbers: ' . array_sum($numbers) . '&lt;/p&gt;';
+
+$string = 'Aint no place like home.';
+$hash = hash('md5', $string);
+echo &quot;&lt;p&gt;&quot; . &quot;The md5 hash for '$string' is '$hash'&lt;/p&gt;&quot;;
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/PHPBuiltInFunctionCalls.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Defining your own functions</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PHP allows you to define your own functions</li>
+                                <li>Three ways to return control to the point at which a function was invoked
+                                    <ul>
+                                        <li>Reaching the function-ending right brace.</li>
+                                        <li>Executing the statement return;</li>
+                                        <li>Executing the statement "return expression;" to return the value of expression to the caller.</li>
+                                    </ul>
+                                </li>
+                            </ul>                            
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Defining your own functions</h2>
+                        
+                        <pre><code data-trim>
+&lt;?php
+function check_password($hash, $hashtype, $password)
+{
+    // Hash the plain password
+    $userhash = hash($hashtype, $password);
+
+    // Return if they match
+    return ($userhash == $hash);
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Defining your own functions</h2>
+                        
+                        <pre><code data-trim>
+&lt;?php
+// Calling my custom function
+if (check_password('beaecb055ddd74cc924af921daaf271e',
+    'md5', 'AC-DC kicks ass'))
+{
+    echo '&lt;p&gt;Access allowed&lt;/p&gt;';
+}
+else
+{
+    echo '&lt;p&gt;Access denied&lt;/p&gt;';
+}
+?&gt;
+                        </code></pre>
+                        <a href="assets/C05/PHPUserFunctions.php" target="_blank">Show Me</a>
+                    </section>
+                </section>
 			</div>
 
 		</div>
