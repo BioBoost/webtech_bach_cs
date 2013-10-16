@@ -97,11 +97,303 @@ class User {
                         </code></pre>
                     </section>
 
+                    <section>
+                        <h2>Instantiation</h2>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>An <strong>object is an instance of a class</strong>. In other words, you can create more than one object from a single class.</li>
+                                <li>The process of creating an object from a class is called <strong>instantiation</strong>.</li>
+                                <li>To create an object, specify the <code>new</code> keyword followed by the name of the class and a set of parenthesis enclosing a comma separated list of constructor arguments.</li>
+                            </ul>
+                        </div>
 
+                        <pre><code data-trim>
+&lt;?php
+// Instantiation
+$ted = new User(&quot;Ted&quot;, &quot;SomePasswordHash&quot;, &quot;ted@hotmail.com&quot;);
+?&gt;
+                        </code></pre>
+                    </section>
 
+                    <section>
+                        <h2>Properties</h2>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>Class member variables are called <strong>properties</strong>.</li>
+                                <li>The visibility of a property or method can be defined by prefixing the declaration with the keywords <code>public</code>, <code>protected</code> or <code>private</code>.
+                                    <ul>
+                                        <li>Class members declared public can be accessed everywhere.</li>
+                                        <li>Members declared protected can be accessed only within the class itself and by inherited subclasses.</li>
+                                        <li>Members declared as private may only be accessed by the class that defines the member.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
 
+                    <section>
+                        <h2>Properties</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+class User
+{
+    // Properties
+    private $id;
+    private $username;
+    private $passhash;
+    private $email;
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A public property can be accessed by appending the object access operator <code>-></code> to the object reference.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+// Accessing a public property
+print $someObj-&gt;publicProperty;
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Methods define the actions that can be performed by an object (instance of a class).</li>
+                                <li>We can distinguish different method types according to the type of operation they perform:
+                                    <ul>
+                                        <li>Getters (accessors) and setters (mutators)</li>
+                                        <li>Action methods</li>
+                                        <li>Constructors and destructors</li>
+                                        <li>Class methods (static methods): belong to the class and not to the object of a class.</li>
+                                        <li>Final methods: cannot be overridden by a method in a subclass.</li>
+                                        <li>Abstract methods: get an implementation in subclass</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The visibility of a method can also be defined by prefixing the declaration with the keywords <code>public</code>, <code>protected</code> or <code>private</code>.</li>
+                                <li>Methods can be accesses using the object access operator <code>-></code>.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+// Call a public method
+$someObj-&gt;doSomething();
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Getters and Setters</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Getters (accessors): return the value of a property.</li>
+                                <li>Setters (mutators): assign a value to a property (with or without extra validation and or formatting).</li>
+                                <li>By using get and set methods we prohibit direct access to the internal properties. This is also known as <strong>data</strong> or <strong>information hiding</strong>.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Getters and Setters</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+// Read-only Properties
+private $id;
+
+// Read/Write Properties
+private $email;
+
+// GET Methods
+public function getId() { return $this-&gt;id; }
+public function getEmail() { return $this-&gt;email; }
+
+// SET Methods
+public function setEmail($email) { $this-&gt;email = $email; }
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Getters and Setters</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The pseudo-variable <code>$this</code> is available when a method is called from within an object context. <code>$this</code> is a reference to the calling object (usually the object to which the method belongs).</li>
+                                <li><code>$this</code> is required (mandatory) when calling other methods from within a method.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Action methods</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Action methods perform a certain operation on the object.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+public function __toString()
+{
+    return &quot;Username: &quot; . $this-&gt;username
+            . &quot; | Password: &quot; . $this-&gt;passhash
+            . &quot; | E-mail: &quot; . $this-&gt;email;
+}
+?&gt;
+                        </code></pre>
+                        <a href="assets/C06/UserExamples_ToString.php" target="_blank">Show Me</a>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The <code>__toString()</code> method allows a class to decide how it will react when it is treated like a string.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Action methods</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+private function generateRandomString($length = 10)
+{
+  $characters = '0123456789abcdefghijklmnopqrstuvwxyz
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $randomString = &quot;&quot;;
+  for ($i = 0; $i &lt; $length; $i++) {
+    $randomString .= $characters[rand(0, strlen($characters)-1)];
+  }
+  return $randomString;
+}
+
+public function generateRandomPasshash()
+{
+  $this-&gt;passhash = hash(&quot;sha256&quot;,
+              $this-&gt;generateRandomString(100), false);
+}            
+?&gt;            
+                        </code></pre>
+                        <a href="assets/C06/UserExamples_RandomPasshash.php" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Constructors</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Constructors initialize the internal properties of the object upon construction (instantiation) so that the object has a stable state and is suitable for use.</li>
+                                <li><code>void __construct()</code></li>
+                                <li>Parent constructors are not called implicitly if the child class defines a constructor.
+                                    <ul>
+                                        <li>In order to run a parent constructor, a call to <code>parent::__construct()</code> within the child constructor is required.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Constructors</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+// Constructor
+public function __construct($id, $un, $passhash, $email)
+{
+    $this->id = $id;
+    $this->username = $un;
+    $this->passhash = $passhash;
+    $this->email = $email;
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Constructor overloading</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PHP does <strong>NOT</strong> support constructor overloading (multiple constructors with different signatures)</li>
+                                <li>Can lead to really weird and ugly code constructs.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+class A
+{
+    /* No constructor overloading
+        public function __construct() { }
+        public function __construct($a, $b) { }
+    */
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Constructor overloading</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Option: Default argument values</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+// Constructor
+public function __construct($un, $passhash, $email, $id = 0)
+{
+    $this-&gt;username = $un;
+    $this-&gt;passhash = $passhash;
+    $this-&gt;email = $email;
+    $this-&gt;id = $id;
+}
+?&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;?php
+// Instantiation
+$mark = new User(&quot;Mark&quot;, &quot;sfd448rtre4dfs&quot;, &quot;mark@gmail.com&quot;, 30);
+$ted = new User(&quot;Ted&quot;, &quot;qr48yumnm154iuy&quot;, &quot;ted@hotmail.com&quot;);
+?&gt;
+                        </code></pre>
+                    </section>
                 </section>
 			</div>
 
