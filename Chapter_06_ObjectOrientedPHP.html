@@ -394,7 +394,838 @@ $ted = new User(&quot;Ted&quot;, &quot;qr48yumnm154iuy&quot;, &quot;ted@hotmail.
 ?&gt;
                         </code></pre>
                     </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Destructors</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Destructors free resources and perform cleanup operations upon object destruction.</li>
+                                <li><code>void __destruct ( void )</code></li>
+                                <li>The destructor method will be called as soon as there are no other references to a particular object.</li>
+                                <li>Like constructors, parent destructors will not be called implicitly by the engine. In order to run a parent destructor, one would have to explicitly call <code>parent::__destruct()</code> in the destructor body.</li>
+                                <li>Destructors do NOT take arguments.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Overloading</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PHP 5.x.x does not support method overloading.</li>
+                                <li>You cannot overload PHP functions. Function signatures are based only on their names and do not include argument lists, so you cannot have two functions with the same name.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Methods</h2>
+                        <h3>Overloading</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Class method overloading is different in PHP than in many other languages. PHP uses the same word but it describes a different pattern.</li>
+                                <li>Overloading in PHP provides means to dynamically "create" properties and methods. These dynamic entities are processed via magic methods one can establish in a class for various action types.</li>
+                                <li>The overloading methods are invoked when interacting with properties or methods that have not been declared or are not visible in the current scope.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Static methods and properties</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A static property (class property) or static method (class methods) is a property or method that belongs to the class, not to the object created from the class.</li>
+                                <li>Inside a class you can access a static property or method by coding the self keyword followed by a double colon and the property or method name.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+class SomeClass {
+    // Static properties need to be initialized here (no object creation).
+    private static $objectCount = 0;
+
+    public function __construct() {
+        self::$objectCount++;       // Update static property
+    }
+
+    public function __destruct() {
+        self::$objectCount--;       // Update static property
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Static methods and properties</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Outside a class, you can access a static property or method that's public by coding the class name followed by a double colon and the static property or method name.</li>
+                                <li>When you access a static property, you must include the dollar sign at the beginning of the property's name.</li>
+                                <li>In a PHP application, the code space is separate for each user. As a result, static properties and methods aren’t shared between multiple users.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Static methods and properties</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+class SomeClass {
+    // Static properties need to be initialized here
+    // (no object creation).
+    private static $objectCount = 0;
+
+    //...
+
+    public static function getObjectCount() {
+        return self::$objectCount;
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;?php
+    echo &quot;Object count: &quot; . SomeClass::getObjectCount();
+?&gt;
+                        </code></pre>
+                        <a href="assets/C06/StaticProperties.php" target="_blank">Show Me</a>
+                    </section>
                 </section>
+
+                <section>
+                    <section>
+                        <h2>Inheritance</h2>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Inheritance is the process of creating a new class by inheriting and extending the properties and methods of an already existing class.</li>
+                                <li>A class that inherits from another class is called a subclass, derived class or child class.</li>
+                                <li>A class that is inherited by another class is called a superclass, base class or parent class.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+
+                        <div>
+                            <img height="400px" src="assets/C06/BasicsInheritance.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The subclass inherits the properties and methods of the superclass.
+                                    <ul>
+                                        <li>Public and protected methods and properties are inherited by the subclass.</li>
+                                        <li>Private methods and properties are not inherited by the subclass.</li>
+                                    </ul>
+                                </li>
+                                <li>The subclass can extend the superclass by adding new properties and methods.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+                        <h3>Method overriding</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A subclass can also override (=/= overload) a method from the superclass with its own version of the method.
+                                    <ul>
+                                        <li>Overriding methods have same signature.</li>
+                                        <li>Overriding methods are placed in subclasses.</li>
+                                        <li>Overloading methods have different signatures.</li>
+                                        <li>Overloading methods are placed in the same classes.</li>
+                                    </ul>
+                                </li>
+                                <li>A subclass can call a method from the superclass by prefixing the method name with <code>parent::</code>.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+                        <h3>Method overriding</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+class User {
+
+    //...
+
+    // Constructor
+    public function __construct($un, $passhash, $email, $id = 0) {
+        $this-&gt;username = $un;
+        $this-&gt;passhash = $passhash;
+        $this-&gt;email = $email;
+        $this-&gt;id = $id;
+    }
+
+    //...
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+                        <h3>Method overriding</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+include(&quot;User.php&quot;);    
+class PrivilegedUser extends User {
+    private $privilegeLevel;
+    
+    // ...
+    public function __construct($un, $passhash, $email, $id, $privlevel = -1) {
+        parent::__construct($un, $passhash, $email, $id);   // Call parent constructor
+        $this-&gt;privilegeLevel = $privlevel;
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Notice the include of User.php</li>
+                                <li>Notice extends User</li>
+                                <li>Notice the call to the parent constructor for base type initialization</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Basics of Inheritance</h2>
+                        <h3>Overriding the toString of User</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+// Overriden __toString method
+public function __toString() {
+    return &quot;Username: &quot; . $this-&gt;username
+            . &quot; | Password: &quot; . $this-&gt;passhash
+            . &quot; | E-mail: &quot; . $this-&gt;email;
+}
+?&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;?php
+// Override the tostring method of the parent class
+public function __toString() {
+    return parent::__toString() . &quot; | Privilege level: &quot;
+        . $this-&gt;privilegeLevel;
+}
+?&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Abstract classes and methods</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>An abstract class is a class that can NOT be instantiated. It is useful as a superclass for other classes.</li>
+                                <li>An abstract method is a method that specifies the signature of the method but does not provide an implementation.</li>
+                                <li>A class can be declared abstract without abstract methods.</li>
+                                <li>A class containing abstract methods needs to be declared abstract.</li>
+                                <li>An abstract class can have a constructor which can be called from a derived class.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Abstract classes and methods</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+abstract class SpaceObject {
+    protected $coordinates;
+    protected $vertices;
+
+    public function __construct($coordinates) {
+        $this-&gt;coordinates = $coordinates;
+    }
+
+    public function addVertice($vertice) {
+        array_push($this-&gt;vertices, $vertice);
+    }
+
+    // Abstract methods
+    abstract public function drawObject();
+    abstract public function rotateObject();
+    abstract public function translateObject();
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Abstract classes and methods</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A final method cannot be overridden by a method in a subclass.</li>
+                                <li>A final class cannot be inherited from.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+final class SomeFinalClass {
+    // ...
+}
+?&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;?php
+class SomeClass {
+    // ...
+
+    // Cannot be overriden
+    final public function someFinalFunction() {
+        //...
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Interfaces</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>An interface defines a set of public methods that can be implemented by a class.</li>
+                                <li>The interface does not provide any implementation, it only provides the method signatures.</li>
+                                <li>All methods in an interface must be public and cannot be static.</li>
+                                <li>A class that implements an interface must provide an implementation for each method defined by the interface unless it is declared abstract.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Interfaces</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>An interface can define class constants that are available to any class that implements the interface.</li>
+                                <li>Although a class can only inherit from 1 class, it can implement multiple interfaces.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Interfaces</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+interface IDrawable {
+    const SOME_VALUE = 15;
+    public function drawObject();
+    public function rotateObject();
+    public function translateObject();
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>IDrawable defines a class constant</li>
+                                <li>IDrawable declares the public methods that should be implemented to make an instance of a class implementing IDrawable drawable.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Interfaces</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+abstract class SpaceObject implements IDrawable {
+    public function drawObject() {
+        // Implementation
+    }
+
+    public function rotateObject() {
+        // Implementation        
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>SpaceObject implements IDrawable</li>
+                                <li>SpaceObject does however not supply implementations for all interface methods and therefore should be declared abstract</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Interfaces</h2>
+
+                        <pre><code data-trim>
+&lt;?php
+class SpaceMan extends SpaceObject {
+    public function translateObject() {
+        // Implementation        
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>SpaceMan inherits from SpaceObject</li>
+                                <li>SpaceMan implements all methods of the IDrawable interface (combined with the implementations of its superclass)</li>
+                            </ul>
+                        </div>
+                    </section>                    
+
+                    <section>
+                        <h2>Interfaces vs class interface</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A class interface is a contract specifying a set of methods and properties which will be available on any implementing object. It's the object's external face to the world.</li>
+                                <li>The interface of a class is the set of public methods and properties the class exposes.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Polymorphism</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Is the ability of objects belonging to different types to respond to method, field, or property calls of the same name, each one according to an appropriate type-specific behavior.</li>
+                                <li>The caller (calling code) likewise its programmer, does not have to know the exact type of the callee (called object), thus the exact behavior is determined at run-time (this is called <strong>late binding</strong> or <strong>dynamic binding</strong>).</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Polymorphism</h2>
+                        <h3>SpaceCreature example</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+interface ICreature {
+    public function showYourself();
+}
+
+class SpaceCreature implements ICreature {
+    public function showYourself() {
+        return &quot;I am a SpaceCreature&quot;;
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>ICreature declares the public method <code>showYourself()</code>.</li>
+                                <li>SpaceCreate implements ICreature and gives <code>showYourself()</code> an implementation.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Polymorphism</h2>
+                        <h3>SpaceCreature example</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+class SpaceMan extends SpaceCreature {
+    public function showYourself() {
+        return "I am a SpaceMan";
+    }
+}
+
+class SpaceWomen extends SpaceCreature {
+    public function showYourself() {
+        return "I am a SpaceWomen";
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>SpaceMan and SpaceWomen both inherit from SpaceCreature and both override the <code>showYourself()</code> method.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Polymorphism</h2>
+                        <h3>SpaceCreature example</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Next we create a random (meh) list of space creatures and loop the list using a foreach calling the showYourself() method on each one. And this is where PM kicks in.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php 
+    $mySpacePeople = array();
+    array_push($mySpacePeople, new SpaceWomen());
+    array_push($mySpacePeople, new SpaceCreature());
+    array_push($mySpacePeople, new SpaceMan());
+    array_push($mySpacePeople, new SpaceWomen());
+    //...
+    echo '&lt;ul&gt;';
+    foreach ($mySpacePeople as $alien) {
+        echo &quot;&lt;li&gt;&quot; . $alien-&gt;showYourself() . &quot;&lt;/li&gt;&quot;;
+    }
+    echo '&lt;/ul&gt;';
+?&gt;
+                        </code></pre>
+                        <a href="assets/C06/Polymorphism.php" target="_blank">Show Me</a>
+                    </section>
+
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>To create a second reference to the same object you can use the assignment operator (=).</li>
+                                <li>To create a copy of an object you must use the clone operator.</li>
+                                <li>When using the clone operator PHP will only make a shallow copy of the object, meaning it does not clone nested objects.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Copying the reference</h3>
+
+                        <div>
+                            <img height="300px" src="assets/C06/Cloning_ReferenceCopy.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Shallow cloning</h3>
+
+                        <div>
+                            <img height="300px" src="assets/C06/Cloning_ShallowClone_OK.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Shallow cloning</h3>
+
+                        <div>
+                            <img height="300px" src="assets/C06/Cloning_ShallowClone_NOTOK.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Deep object cloning</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Once the cloning is complete, if a __clone() method is defined, then the newly created object's __clone() method will be called, to allow any necessary properties that need to be changed.</li>
+                                <li>Like __construct and __destruct, you must call parent::__clone() yourself from inside a child's __clone() function.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Deep object cloning</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+class SubObject {
+    public $someValue;
+    public function __construct() {
+        $this-&gt;someValue = 0;
+    }
+}
+
+class MyCloneable {
+    public $object1;
+    public $object2;
+
+    public function __construct() {
+        $this-&gt;object1 = new SubObject();
+        $this-&gt;object2 = new SubObject();
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Deep object cloning</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+class MyCloneable {
+    // ...
+
+    public function __clone() {
+        // Force clones (shallow copies !)
+        $this-&gt;object1 = clone $this-&gt;object1;
+        $this-&gt;object2 = clone $this-&gt;object2;
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+                        <h3>Deep object cloning</h3>
+
+                        <div>
+                            <img height="300px" src="assets/C06/Cloning_DeepCloning.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cloning and comparing objects</h2>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Clone will not create a new instance and thus will not call the object's constructor. Clone seems to only allocate memory for the object cloned, and simply copies the variables memory from the original to the new one (imagine something alike memcpy() in C). Nothing more.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Comparing objects</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>You can use the equality operator (==) to check whether both objects are instances of the same class and have the same values for every property.</li>
+                                <li>You can use the identity operator (===) to check whether both object variables refer to the same instance of an object.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Comparing objects</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $obj = new MyCloneable();
+    $objRef = $obj;
+
+    print &quot;&lt;p class='info'&gt;objRef = obj;&lt;/p&gt;&quot;;
+
+    if ($obj == $objRef)
+        print &quot;&lt;p class='same'&gt;objRef == obj: &quot; . &quot;TRUE&quot; . &quot;&lt;/p&gt;&quot;;
+    else
+        print &quot;&lt;p class='notsame'&gt;objRef == obj: &quot; . &quot;FALSE&quot; . &quot;&lt;/p&gt;&quot;;
+
+    if ($obj === $objRef)
+        print &quot;&lt;p class='same'&gt;objRef === obj: &quot; . &quot;TRUE&quot; . &quot;&lt;/p&gt;&quot;;
+    else
+        print &quot;&lt;p class='notsame'&gt;objRef === obj: &quot; . &quot;FALSE&quot; . &quot;&lt;/p&gt;&quot;;
+?&gt;
+                        </code></pre>
+
+                        <!--
+                            objRef == obj: TRUE
+                                => Same attribute values
+                            objRef === obj: TRUE
+                                => Same instances
+                        -->
+                    </section>
+
+                    <section>
+                        <h3>Comparing objects</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $obj = new MyCloneable();
+    $objRef = clone $obj;
+
+    print &quot;&lt;p class='info'&gt;objRef = clone obj;&lt;/p&gt;&quot;;
+
+    if ($obj == $objRef)
+        print &quot;&lt;p class='same'&gt;objRef == obj: &quot; . &quot;TRUE&quot; . &quot;&lt;/p&gt;&quot;;
+    else
+        print &quot;&lt;p class='notsame'&gt;objRef == obj: &quot; . &quot;FALSE&quot; . &quot;&lt;/p&gt;&quot;;
+
+    if ($obj === $objRef)
+        print &quot;&lt;p class='same'&gt;objRef === obj: &quot; . &quot;TRUE&quot; . &quot;&lt;/p&gt;&quot;;
+    else
+        print &quot;&lt;p class='notsame'&gt;objRef === obj: &quot; . &quot;FALSE&quot; . &quot;&lt;/p&gt;&quot;;
+?&gt;
+                        </code></pre>
+
+                        <!--
+                            objRef == obj: TRUE
+                                => Same attribute values
+                            objRef === obj: FALSE
+                                => Different instances
+                        -->
+                    </section>
+
+                    <section>
+                        <h3>Comparing objects</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    $obj = new MyCloneable();
+    $objRef = clone $obj;
+    $obj-&gt;object1-&gt;someValue = 25;
+
+    print &quot;&lt;p class='info'&gt;objRef = clone obj;&lt;/p&gt;&quot;;
+    print &quot;&lt;p class='info'&gt;Also changed object1-&gt;somevalue of obj&lt;/p&gt;&quot;;
+
+    if ($obj == $objRef)
+        print &quot;&lt;p class='same'&gt;objRef == obj: &quot; . &quot;TRUE&quot; . &quot;&lt;/p&gt;&quot;;
+    else
+        print &quot;&lt;p class='notsame'&gt;objRef == obj: &quot; . &quot;FALSE&quot; . &quot;&lt;/p&gt;&quot;;
+
+    if ($obj === $objRef)
+        print &quot;&lt;p class='same'&gt;objRef === obj: &quot; . &quot;TRUE&quot; . &quot;&lt;/p&gt;&quot;;
+    else
+        print &quot;&lt;p class='notsame'&gt;objRef === obj: &quot; . &quot;FALSE&quot; . &quot;&lt;/p&gt;&quot;;
+?&gt;
+                        </code></pre>
+
+                        <!--
+                            objRef == obj: FALSE
+                                => Attribute values changed (also detects deeper changes !)
+                            objRef === obj: FALSE
+                                => Different instances
+                        -->
+                    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</div>
 
 		</div>
