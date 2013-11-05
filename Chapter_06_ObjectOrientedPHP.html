@@ -207,8 +207,15 @@ $someObj-&gt;doSomething();
 
                         <div class="alignleft">
                             <ul>
-                                <li>Getters (accessors): return the value of a property.</li>
-                                <li>Setters (mutators): assign a value to a property (with or without extra validation and or formatting).</li>
+                                <li>Getters (accessors)
+                                    <ul>
+                                        <li>Return the value of a property</li>
+                                    </ul>
+                                </li>
+                                <li>Setters (mutators)
+                                    <ul>
+                                        <li>Assign a value to a property (with or without extra validation and or formatting)</li>
+                                    </ul>
                                 <li>By using get and set methods we prohibit direct access to the internal properties. This is also known as <strong>data</strong> or <strong>information hiding</strong>.</li>
                             </ul>
                         </div>
@@ -310,7 +317,7 @@ public function generateRandomPasshash()
 
                         <div class="alignleft">
                             <ul>
-                                <li>Constructors initialize the internal properties of the object upon construction (instantiation) so that the object has a stable state and is suitable for use.</li>
+                                <li>Constructors initialize the internal properties of the object upon construction (<strong>instantiation</strong>) so that the object has a stable state and is suitable for use.</li>
                                 <li><code>void __construct()</code></li>
                                 <li>Parent constructors are not called implicitly if the child class defines a constructor.
                                     <ul>
@@ -345,7 +352,7 @@ public function __construct($id, $un, $passhash, $email)
 
                         <div class="alignleft">
                             <ul>
-                                <li>PHP does <strong>NOT</strong> support constructor overloading (multiple constructors with different signatures)</li>
+                                <li>PHP does <strong>NOT</strong> support constructor <strong>overloading</strong> (multiple constructors with different signatures)</li>
                                 <li>Can lead to really weird and ugly code constructs.</li>
                             </ul>
                         </div>
@@ -444,6 +451,10 @@ $ted = new User(&quot;Ted&quot;, &quot;qr48yumnm154iuy&quot;, &quot;ted@hotmail.
                                 <li>Inside a class you can access a static property or method by coding the self keyword followed by a double colon and the property or method name.</li>
                             </ul>
                         </div>
+                    </section>
+
+                    <section>
+                        <h2>Static methods and properties</h2>
 
                         <pre><code data-trim>
 &lt;?php

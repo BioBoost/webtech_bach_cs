@@ -47,7 +47,7 @@
 
 .reveal strong
 {
-    color: red;
+    color: #C05046;
 }
 
 .reveal section img
@@ -66,4 +66,11 @@
 {
     font-size: 0.8em;
     padding: 2px;
+}
+
+.reveal section div code    /* Should not touch "pre code" */
+{
+    color: #4BACC6;
+    margin: 5px;
+    white-space: nowrap;
 }
