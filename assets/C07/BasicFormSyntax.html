@@ -2,6 +2,12 @@
 <html>
 <head>
     <title></title>
+    <style type="text/css">
+    div 
+    {
+      margin: 20px;
+    }
+    </style>
 </head>
 <body>
 
@@ -9,26 +15,68 @@
 
 <p>Please fill out this form to help us improve our site.</p>
 
-<!-- this tag starts the form, gives the -->
-<!-- method of sending information and the -->
-<!-- location of the form-processing script -->
-<form method="post" action="myformhandler.html">
+<form method="post" action="myformhandler.php" id="myfeedbackform">
+  <!-- Form controls are placed here -->
 
-  <!-- <input type = "text"> inserts a text field -->
-  <p>
-     <label>Name:
-        <input name="name" type="text" size="25" maxlength="30">
-     </label>
-  </p>
+  <div>
+    <label>
+      Please state your name: 
+      <input type="text" placeholder="firstname lastname"
+        id="firstnamelastname" name="firstnamelastname" maxlength="25">      
+    </label>
+  </div>
 
- <p>
-     <!-- input types "submit" and "reset" insert -->
-     <!-- buttons for submitting and clearing the -->
-     <!-- form's contents, respectively -->
-     <input type="submit" value="Submit">
-     <input type="reset" value="Clear">
-  </p>   
+  <div>
+    <label>
+      Please enter your password: 
+      <input type="password" placeholder="password"
+        id="password" name="password">      
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Enter your comments here:
+      <textarea name="comments" id="comments">...</textarea>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Please select your favorite action hero:
+      <input type="radio" value="rambo" id="hero_rambo" name="hero" checked="checked">Rambo
+      <input type="radio" value="madmax" id="hero_mm" name="hero">Mad Max
+      <input type="radio" value="bugsbunny" id="hero_bb" name="hero">Bugs Bunny
+    </label>
+  </div>
+
+  <div>
+    <label>
+      What programming languages do you know:
+      <input type="checkbox" value="C" id="prog_c" name="proglang">C
+      <input type="checkbox" value="Cpp" id="prog_cpp" name="proglang">C++
+      <input type="checkbox" value="Csharp" id="prog_csharp" name="proglang">CSharp
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Please select your favorite music:
+      <select name="music" id="music">
+        <option value="heavymetal" selected="selected">Heavy Metal</option>
+        <option value="blackmetal" selected="selected">Black Metal</option>
+        <option value="othermetal" selected="selected">Other Metal</option>
+      </select>
+    </label>
+  </div>
+
+  <input type="submit" name="submit" value="Submit your comment" />
+
 </form>
 
 </body>
 </html>
+
+
+
+

@@ -56,14 +56,80 @@
                 <section>
                     <section>
                         <h2>HTML forms</h2>
+                        <div>
+                            <img height="300px" src="assets/C07/HtmlForms.jpg">
+                        </div>
                     </section>
 
                     <section>
-                        <h3>Basic form construction</h3>
+                        <h3>Usage</h3>
 
                         <div class="alignleft">
                             <ul>
                                 <li>HTML5 provides forms for collecting information from users.</li>
+                                <li>Examples
+                                    <ul>
+                                        <li>Registrations forms</li>
+                                        <li>Giving feedback</li>
+                                        <li>Search functionality</li>
+                                        <li>Posting comments</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Building blocks</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>There are several types of form controls that you can use to collect information from visitors to your site.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="500px" src="assets/C07/FormControls.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h3>Process flow</h3>
+
+                        <div class="alignleft">
+                            <ol>
+                                <li>A user fills in a form and then presses a button to submit the information to the server.</li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <img height="400px" src="assets/C07/FormFlow.png">
+                        </div>                        
+                    </section>
+
+                    <section>
+                        <h3>Process flow</h3>
+
+                        <div class="alignleft">
+                            <ol start="2">
+                                <li>The name of each form control is sent to the server along with the value the user enters or selects.</li>
+                                <li>The server processes the information using a programming language such as PHP, C#, VB.net, or Java. It may also store the information in a database.</li>
+                                <li>The server creates a new page to send back to the browser based on the information received.</li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <img height="150px" src="assets/C07/FormFlowResponse.png">
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Processing forms on the server</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A form may have several form controls, each gathering different information.</li>
+                                <li>The server needs to know which piece of inputted data corresponds with which form element.</li>
                                 <li>Name and id attributes
                                     <ul>
                                         <li>Not always done in example code to save space.</li>
@@ -73,7 +139,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </div>
+                        </div>                      
                     </section>
 
                     <section>
@@ -82,43 +148,725 @@
                         <div class="alignleft">
                             <ul>
                                 <li>A form is defined by a form element</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+    &lt;!-- Form controls are placed here --&gt;
+&lt;/form&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
                                 <li>Attribute <code>method</code> specifies how the form's data is sent to the web server.
                                     <ul>
-                                        <li>Using <code>method="post"</code> appends form data to the browser request, which contains the protocol (HTTP) and the requested resource's URL.</li>
-                                        <li>The other possible value, <code>method="get"</code>, appends the form data directly to the end of the URL of the script, where it's visible in the browser's Address field.</li>
+                                        <li>We will come back to this later</li>
                                     </ul>
                                 </li>
                                 <li>The <code>action</code> attribute of the form element specifies the script to which the form data will be sent.</li>
+                                <li>The <code>id</code> attribute is used to identify the form distinctly from other elements on the page</li>
                             </ul>
                         </div>
                     </section>
 
                     <section>
-                        <h3>Basic form construction</h3>
+                        <h3>Populating forms with input controls</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The <code>&lt;input&gt;</code> element is used to create several different form controls. The value of the type attribute determines what kind of input they will be creating.</li>
+                                <li>Examples: hidden, text, password, checkbox, radio, submit, reset, ...
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Text input</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Used for a single line of text such as address or name.</li>
+                                <li>The label element provides users with information about the input element's purpose.</li>
+                            </ul>
+                        </div>
+
 
                         <pre><code data-trim>
-&lt;!-- this tag starts the form, gives the --&gt;
-&lt;!-- method of sending information and the --&gt;
-&lt;!-- location of the form-processing script --&gt;
-&lt;form method=&quot;post&quot; action=&quot;myformhandler.html&quot;&gt;
-  &lt;!-- &lt;input type = &quot;text&quot;&gt; inserts a text field --&gt;
-  &lt;p&gt;
-     &lt;label&gt;Name:
-        &lt;input name=&quot;name&quot; type=&quot;text&quot; size=&quot;25&quot; maxlength=&quot;30&quot;&gt;
-     &lt;/label&gt;
-  &lt;/p&gt;
- &lt;p&gt;
-     &lt;!-- input types &quot;submit&quot; and &quot;reset&quot; insert --&gt;
-     &lt;!-- buttons for submitting and clearing the --&gt;
-     &lt;!-- form's contents, respectively --&gt;
-     &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
-     &lt;input type=&quot;reset&quot; value=&quot;Clear&quot;&gt;
-  &lt;/p&gt;   
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      Please state your name: 
+      &lt;input type=&quot;text&quot; placeholder=&quot;firstname lastname&quot;
+            id=&quot;firstnamelastname&quot; name=&quot;firstnamelastname&quot; maxlength=&quot;25&quot;&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
 &lt;/form&gt;
                         </code></pre>
-                        <a href="assets/C07/BasicFormSyntax.html" target="_blank">Show Me</a>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>name</code> identifies the form control</li>
+                                <li><code>maxlength</code> limits the number of characters a user may enter</li>
+                                <li><code>placeholder</code> shows a temporary text in the text field (not default value!).</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Password input</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When the type attribute has a value of <code>password</code> it creates a text box that acts just like a single-line text input, except the characters are blocked out.</li>
+                                <li>Although the password is hidden on the screen, this does not mean that the data in a password control is sent securely to the server. You should never use these for sending sensitive data such as credit card numbers.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      Please enter your password: 
+      &lt;input type=&quot;password&quot; placeholder=&quot;password&quot;
+            id=&quot;password&quot; name=&quot;password&quot;&gt;      
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Textarea</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The <code>textarea</code> element is used to create a multi-line text input.</li>
+                                <li>Unlike other input elements this is not an empty element. It should therefore have an opening and a closing tag.</li>
+                                <li>Use CSS to control the width and height of a textarea element.
+                                    <ul>
+                                        <li>Older forms used the <code>cols</code> and <code>rows</code> attributes</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      Enter your comments here
+      &lt;textarea name=&quot;comments&quot; id=&quot;comments&quot;&gt;...&lt;/textarea&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Radio buttons</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Radio buttons allow users to pick just one of a number of options.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      Please select your favorite action hero:
+      &lt;input type=&quot;radio&quot; value=&quot;rambo&quot;
+            id=&quot;hero_rambo&quot; name=&quot;hero&quot; checked=&quot;checked&quot;&gt;Rambo
+
+      &lt;input type=&quot;radio&quot; value=&quot;madmax&quot;
+            id=&quot;hero_mm&quot; name=&quot;hero&quot;&gt;Mad Max
+
+      &lt;input type=&quot;radio&quot; value=&quot;bugsbunny&quot;
+            id=&quot;hero_bb&quot; name=&quot;hero&quot;&gt;Bugs Bunny
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Radio buttons</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>name</code> the value of the name attribute should be the same for all of the radio buttons used in a group</li>
+                                <li><code>value</code> indicates the value that is sent to the server for the selected option. The value of each of the buttons in a group should be different (so that the server knows which option the user has selected).</li>
+                                <li><code>checked</code> can be used to indicate which value (if any) should be selected when the page loads. The value of this attribute is checked. Only one radio button in a group should use this attribute.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Checkboxes</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Checkboxes allow users to select (and unselect) one or more options in answer to a question.</li>
+                                <li>Similar to radio buttons</li>
+                                <li>Checked attribute can also be used</li>
+                                <li>Names should be same and values should be different</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      What programming languages do you know:
+      &lt;input type=&quot;checkbox&quot; value=&quot;C&quot;
+            id=&quot;prog_c&quot; name=&quot;proglang&quot;&gt;C
+
+      &lt;input type=&quot;checkbox&quot; value=&quot;Cpp&quot;
+            id=&quot;prog_cpp&quot; name=&quot;proglang&quot;&gt;C++
+
+      &lt;input type=&quot;checkbox&quot; value=&quot;Csharp&quot;
+            id=&quot;prog_csharp&quot; name=&quot;proglang&quot;&gt;CSharp
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Drop down list box</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A drop down list box (also known as a select box) allows users to select one option from a drop down list.</li>
+                                <li>The <code>select</code> element is used to create a drop down list box. It contains two or more <code>option</code> elements.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      Please select your favorite music:
+      &lt;select name=&quot;music&quot; id=&quot;music&quot;&gt;
+        &lt;option value=&quot;heavymetal&quot;
+            selected=&quot;selected&quot;&gt;Heavy Metal&lt;/option&gt;
+        &lt;option value=&quot;blackmetal&quot;
+            selected=&quot;selected&quot;&gt;Black Metal&lt;/option&gt;
+        &lt;option value=&quot;othermetal&quot;
+            selected=&quot;selected&quot;&gt;Other Metal&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>selected</code> can be used to indicate the option that should be selected when the page loads.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Submitting your form</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When the submit button is pressed, the form's data is sent to the location specified in the form's action attribute.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;myformhandler.php&quot; id=&quot;myfeedbackform&quot;&gt;
+  &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit your comment&quot; /&gt;
+&lt;/form&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>value</code> controls the text that appears on the button.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Lets take a look</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Lets take a look at what we've already got</li>
+                                <li><a href="assets/C07/BasicFormSyntax.html" target="_blank">Show Me</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Explore</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Many other controls are available (even more since HTML5)
+                                    <ul>
+                                        <li>Multiple selection box</li>
+                                        <li>File input</li>
+                                        <li>Reset and Image button</li>
+                                        <li>Date input</li>
+                                        <li>Email and URL input</li>
+                                        <li>Color input</li>
+                                        <li>....</li>
+                                    </ul>
+                                </li>
+                                <li>Explore them for yourself</li>
+                                <li>Not all are supported by all browsers (yet)</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>HTTP GET and HTTP POST</h2>
+                    </section>
+
+                    <section>
+                        <h3>Get and Post</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The two most common HTTP request types (also known as request methods) are <code>get</code> and <code>post</code>.</li>
+                                <li>
+                                    <ul>
+                                        <li>A get request typically gets (or retrieves) information from a server, such as an HTML document, an image or Cascaded Style Sheet (CSS)
+                                            <div><img height="250px" src="assets/C07/BasicGetRequestForPage.png"></div>
+                                        </li>
+                                        <li>A post request typically posts (or sends) data to a server.
+                                            <ul>
+                                                <li>Common uses of post requests are to send form data or documents to a server.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Form data</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>An HTTP request often posts data to a server-side form handler that processes the data.</li>
+                                <li>For example, when a user performs a search or participates in a web-based survey, the web server receives the information specified in the HTML form as part of the request.</li>
+                                <li>Get requests and post requests can both be used to send data to a web server, but each request type sends the information differently.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Submitting form data using a GET request</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A get request appends data to the URL, e.g., <a href="www.google.com/search?q=html5">www.google.com/search?q=html5</a>
+                                    <ul>
+                                        <li>q=html5 is called the query string
+                                            <ul>
+                                                <li>q is the name of a variable in Google’s search form and html5 is the search term.</li>
+                                                <li>A name/value pair is passed to the server separated by an equals sign (=).</li>
+                                                <li>If more than one name/value pair is submitted, each pair is separated by an ampersand (&amp;).</li>
+                                            </ul>
+                                        </li>
+                                        <li>search is the name of the server-side form handler</li>
+                                        <li>The ? separates the query string from the rest of the URL in a request.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Submitting form data using a GET request</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The server uses data passed in a query string to retrieve an appropriate resource from the server.</li>
+                                <li>The server then sends a response to the client.</li>
+                                <li>A get request may be initiated by submitting an HTML form whose method attribute is set to "get", or by typing the URL (possibly containing a query string) directly into the browser's address bar.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Submitting form data using a POST request</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A post request sends form data as part of the HTTP message, not as part of the URL.</li>
+                                <li>A get request typically limits the query string (i.e., everything to the right of the ?) to a specific number of characters, so it’s often necessary to send large amounts of information using the post method.</li>
+                                <li>The post method is also sometimes preferred because it hides the submitted data from the user by embedding it in an HTTP message.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Submitting form data using a POST request</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>If a form submits several hidden input values along with user-submitted data, the post method might generate a URL like <a href="www.searchengine.com/search">www.searchengine.com/search</a></li>
+                                <li>The form data still reaches the server and is processed in a similar fashion to a get request, but the user does not see the exact information sent.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Submitting form data using a POST request</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The data send in a post request is not part of the URL, and the user can't see the data by default.</li>
+                                <li>However, tools are available that expose this data, so you should not assume that the data is secure just because a post request is used.</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <img height="250px" src="assets/C07/ExposingPostData.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Example of GET</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Using <code>method="get"</code> appends the form data directly to the end of the URL of the script, where it's visible in the browser's Address field.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;get&quot; action=&quot;Forms_GET.php&quot;&gt;
+    &lt;p&gt;
+        &lt;label&gt;Name:
+            &lt;input type=&quot;text&quot; name=&quot;txtName&quot; maxlength=&quot;30&quot;&gt;
+        &lt;/label&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;txtHidden&quot; value=&quot;aHiddenValue&quot;&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+        &lt;input type=&quot;reset&quot; value=&quot;Clear&quot;&gt;
+    &lt;/p&gt;   
+&lt;/form&gt;
+                        </code></pre>
+                        <a href="assets/C07/Forms_GET.php" target="_blank">Show Me</a>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Hidden input fields are not shown to the user but are included in the form</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Example of POST</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Using <code>method="post"</code> appends form data to the browser request, which contains the protocol (HTTP) and the requested resource's URL.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;form method=&quot;post&quot; action=&quot;Forms_POST.php&quot;&gt;
+    &lt;p&gt;
+        &lt;label&gt;Name:
+            &lt;input type=&quot;text&quot; name=&quot;txtName&quot; maxlength=&quot;30&quot;&gt;
+        &lt;/label&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;txtHidden&quot; value=&quot;aHiddenValue&quot;&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+        &lt;input type=&quot;reset&quot; value=&quot;Clear&quot;&gt;
+    &lt;/p&gt;   
+&lt;/form&gt;
+                        </code></pre>
+                        <a href="assets/C07/Forms_POST.php" target="_blank">Show Me</a>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Processing form data using PHP</h2>
+                    </section>
+
+                    <section>
+                        <h3>Form submitted using GET</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When the form is submitted using the GET method, then the data is available as an associative array via the superglobal <code>$_GET</code></li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php    
+    if (!empty($_GET['txtName']) &amp;&amp; !empty($_GET['txtHidden'])) {
+        echo &quot;&lt;p&gt;Username: &quot; . $_GET['txtName'] . &quot;&lt;/p&gt;&quot;;
+        echo &quot;&lt;p&gt;Hidden value: &quot; . $_GET['txtHidden'] . &quot;&lt;/p&gt;&quot;;
+    }
+    else {
+        echo &quot;No values submitted&quot;;
+    }
+?&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Form submitted using POST</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When the form is submitted using the POST method, then the data is available as an associative array via the superglobal <code>$_POST</code></li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php    
+    if (!empty($_POST['txtName']) &amp;&amp; !empty($_POST['txtHidden'])) {
+        echo &quot;&lt;p&gt;Username: &quot; . $_POST['txtName'] . &quot;&lt;/p&gt;&quot;;
+        echo &quot;&lt;p&gt;Hidden value: &quot; . $_POST['txtHidden'] . &quot;&lt;/p&gt;&quot;;
+    }
+    else {
+        echo &quot;No values submitted&quot;;
+    }
+?&gt; 
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Some useful PHP functions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>isset($var)</code> Returns a TRUE value if the variable has been set and is not a NULL value.</li>
+                                <li><code>empty($var)</code> Returns a TRUE value if the variable hasn’t been set, contains a NULL value, or contains an empty string.</li>
+                                <li><code>is_numeric($var)</code> Returns a TRUE value if the variable is a number or a string that can be converted to a number.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>HTML 5 Self Validation</h2>
+                    </section>
+
+                    <section>
+                        <h3>Self validation</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Most of the new input types are self validating, meaning the user input will be validated on the client-side.
+                                    <ul>
+                                        <li>If the user input is valid, the form data is submitted to the server.</li>
+                                        <li>If the user input is invalid, a warning message will be generated to inform the user.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <img height="250px" src="assets/C07/Html5Validation.png">
+                        </div>
+
+                    </section>
+
+                    <section>
+                        <h3>Self validation</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A lot of users also have JavaScript disabled out of security reasons and hereby miss out on client-side validation.</li>
+                                <li>! Do take note that data should still be validated on server-side !</li>
+                                <li>Validation can be bypassed by adding the <code>formnovalidate</code> attribute to the submit input control.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; formnovalidate=&quot;formnovalidate&quot;&gt;
+                        </code></pre>
+
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>HTML5 form input attributes</h2>
+                    </section>
+
+                    <section>
+                        <h3>Autofocus</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>"autofocus"</code>
+                                    <ul>
+                                        <li>Selects the input control that automatically receives focus after the page is loaded. This allows the user to immediately start typing without first having to select the input field.</li>
+                                        <li>Can only be used on one input control on a form.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;input type=&quot;url&quot; name=&quot;website&quot; autofocus=&quot;autofocus&quot;&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h3>Required</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>"required"</code>
+                                    <ul>
+                                        <li>The required attribute indicates which input control fields must contain a valid value before the form can be submitted.</li>
+                                        <li>These fields can not be empty.</li>
+                                        <li>Can be used with any input control.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;input type=&quot;date&quot; name=&quot;dateofevent&quot; required=&quot;required&quot;&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h3>Autocomplete</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>"required"</code>
+                                    <ul>
+                                        <li>The autocomplete attribute allows users to select values for input types based on previous information provided by the user.</li>
+                                        <li>Can be enabled for the entire form or can be enabled on specific controls.</li>
+                                        <li>Should be disabled for credit card information and password fields.</li>
+                                        <li>Autocomplete only works when you give the control a name and/or id.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;input type=&quot;text&quot; name=&quot;address&quot; required=&quot;required&quot;&gt;
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h3>More attributes</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>More attributes available
+                                    <ul>
+                                        <li>readonly</li>
+                                        <li>pattern</li>
+                                        <li>...</li>
+                                        <li>Check: <a href="http://www.w3.org/TR/html5/common-input-element-attributes.html">http://www.w3.org/TR/html5/common-input-element-attributes.html</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;input type=&quot;text&quot; name=&quot;address&quot; required=&quot;required&quot;&gt;
+                        </code></pre>
+
                     </section>
                 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			</div>
 
