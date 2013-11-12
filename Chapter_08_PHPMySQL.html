@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/moderno.css" id="theme">
+
+		<!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="css/custom.kulab.nico.css">
+        <link rel="stylesheet" href="css/highlight.tomorrow-night-bright.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+            <img id="logo" src="assets/Logo_labICT.png" alt="Logo labICT">  
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <section>
+                        <h1>Webtechnology</h1>
+                        <h3>Chapter 7 – HTML Forms</h3>
+                        <p><a href="http://labict.be">labict.be</a></p>
+                    </section>
+
+                    <section>
+                        <h2>Overview</h2>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>MySQL</h2>
+                    </section>
+
+                    <section>
+                        <h3>MySQL</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>MySQL is an open-source database management system (DBMS).</li>
+                                <li>Can be downloaded for free from <a href="http://www.mysql.com">http://www.mysql.com</a></li>
+                                <li>MySQL is included in XAMPP</li>
+                                <li>phpMyAdmin allows for management of MySQL database through web interface.
+                                    <ul>
+                                        <li>Included in XAMPP</li>
+                                        <li>Can also be downloaded separately</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>MySQL</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Inexpensive: free for most uses.</li>
+                                <li>Fast: one of the fastest relational databases currently available.</li>
+                                <li>Easy to use: easy to install and manage.</li>
+                                <li>Portable: runs on a whole variety of operating systems (linux, windows, android, ...).</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>MySQL</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Supports SQL: Structured Query Language.</li>
+                                <li>Supports access from multiple clients.</li>
+                                <li>Security: protect access to data.</li>
+                                <li>Supports referential integrity:
+                                    <ul>
+                                        <li>Keeps relations between tables intact. Can’t delete referenced row unless referencing row is deleted first.</li>
+                                        <li>When using InnoDB.</li>
+                                    </ul>
+                                </li>
+                                <li>Supports transactional processing: grouped SQL statements.
+                                    <ul>
+                                        <li>All or nothing (rollback)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Accessing MySQL</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Option 1:
+                                    <ul>
+                                        <li>Use XAMPP + included phpMyAdmin</li>
+                                    </ul>
+                                </li>
+                                <li>Option 2:
+                                    <ul>
+                                        <li>MySQL: <a href="http://dev.mysql.com/downloads/installer/">http://dev.mysql.com/downloads/installer/</a></li>
+                                        <li>phpMyAdmin: <a href="http://www.phpmyadmin.net/home_page/downloads.php">http://www.phpmyadmin.net/home_page/downloads.php</a></li>
+                                    </ul>
+                                </li>
+                                <li>Option 3:
+                                    <ul>
+                                        <li>Use XAMPP for MySQL instance</li>
+                                        <li>phpMyAdmin: <a href="http://www.phpmyadmin.net/home_page/downloads.php">http://www.phpmyadmin.net/home_page/downloads.php</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Using phpMyAdmin to manage a database</h2>
+                    </section>
+
+                    <section>
+                        <h3>Creating a database</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Select the databases tab.</li>
+                                <li>Give the database a name</li>
+                                <li>Make sure to select UTF8 standard collation (ci = case insensitive)</li>
+                                <li>Click create</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="400px" src="assets/C08/phpMyAdmin_CreatingADatabase.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Creating tables</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Open the newly created database.</li>
+                                <li>Click create table.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="400px" src="assets/C08/phpMyAdmin_CreatingATable.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Creating tables</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>In a relational database, a unique key index can uniquely identify each row of data values in a database table.
+                                    <ul>
+                                        <li>Comprises a single column or a set of columns in a single database table.</li>
+                                        <li>No two distinct rows or data records in a database table can have the same data value (or combination of data values) in those unique key index columns if NULL values are not used.</li>
+                                        <li>Depending on its design, a database table may have many unique key indexes but at most one primary key index.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Creating tables</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A primary key is a combination of columns which uniquely specify a row.
+                                    <ul>
+                                        <li>It is a special case of unique keys.</li>
+                                        <li>One difference is that primary keys have an implicit NOT NULL constraint while unique keys do not.</li>
+                                        <li>A table can have at most one primary key, but more than one unique key.</li>
+                                        <li>Another unique characteristic of a Primary Key is that a Primary Key must also serve as a Foreign Key on a related table.</li>
+                                    </ul>
+                                </li>
+                                <li>The foreign key can be used to cross-reference tables.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Creating tables</h3>
+
+                        <div>
+                            <img height="500px" src="assets/C08/phpMyAdmin_Keys.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Creating tables</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Unique key comprises a single column or a set of columns in a single database table.
+                                    <ul>
+                                        <li>Verified in MySQL</li>
+                                        <li>Combination of all unique key fields needs to be unique.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="300px" src="assets/C08/phpMyAdmin_UniqueKeys.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Inserting test data</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>phpMyAdmin can be used to insert test data in the database</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="300px" src="assets/C08/phpMyAdmin_TestData.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Executing SQL queries</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>You can test SQL statements using the SQL query runner in phpMyAdmin.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="300px" src="assets/C08/phpMyAdmin_SqlQueries.png">
+                        </div>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2>Accessing a MySQL database from PHP</h2>
+                    </section>
+
+                    <section>
+                        <h3>PHP Data Objects (PDO)</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PDO defines a consistent interface for accessing databases.</li>
+                                <li>This means that the same code can be used to access several types of databases (MySQL, SQL server, SQLite, ...).</li>
+                                <li>Only available since PHP 5</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>PHP Data Objects (PDO)</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Before:
+                                    <ul>
+                                        <li>mysql_connect(): Opens or reuses a connection to a MySQL server.</li>
+                                        <li>mssql_connect(): establishes a connection to a MS SQL server.</li>
+                                        <li>sqlite_open(): Opens an SQLite database and create the database if it does not exist.</li>
+                                        <li>pg_connect(): Open a PostgreSQL connection.</li>
+                                        <li>px_open_fp(): Open paradox database.</li>
+                                        <li>...</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>PDO methods</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Once the PDO object is constructed, its methods can be used to execute SQL statements.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="300px" src="assets/C08/PDO_Methods.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Connecting to a MySQL DB</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PDO constructor requires a DSN, username and password.</li>
+                                <li>Data Source Name (DSN)
+                                    <ul>
+                                        <li>The Data Source Name, or DSN, contains the information required to connect to the database.</li>
+                                        <li>In case of MySQL:</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&#x201c;mysql:host=host_address;port=portnumber;dbname=database_name&#x201d;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Connecting to a MySQL DB</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>PDO::__construct</code> — Creates a PDO instance representing a connection to a database</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+// Data Source Name
+$dsn = &quot;mysql:host=localhost;port=3306;dbname=nico_webtech_pdo&quot;;
+$username = &quot;nico_webtech_pdo&quot;;
+$password = &quot;**************&quot;;
+
+try {
+    // Create a PHP Data Object
+    $db = new PDO($dsn, $username, $password);
+    echo &quot;Connection was succesfully made with the database&quot;;
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e-&gt;getMessage();
+    exit();
+}
+?&gt;
+                        </code></pre>
+                        <div>
+                            <a href="assets/C08/PDO_BasicDatabaseConnection.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Executing a SELECT statement</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>To execute an SQL select statement we can use the query method of the PDO instance.</li>
+                                <li><code>PDO::query</code> — Executes an SQL statement, returning a result set as a PDOStatement object.</li>
+                                <li>Requires an SQL selection statement as argument and returns the result set (if any).</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Executing a SELECT statement</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+$db = new PDO($dsn, $username, $password);
+//...
+
+// Create select statement
+$query = 'SELECT username, email FROM users WHERE 1';
+$results = $db-&gt;query($query);       // Execute query
+
+// Output the results
+foreach ($results as $row) {
+    echo &quot;&lt;p&gt;&quot; . $row['username'] . &quot; - &quot; . $row['email'] . &quot;&lt;/p&gt;&quot;;
+}
+?&gt;
+                        </code></pre>
+                        <div>
+                            <a href="assets/C08/PDO_ExecutingASelect.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Executing a SELECT statement</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>To execute an SQL statement you can also use the <code>PDO::exec</code> method.</li>
+                                <li><code>PDO::query</code> — Executes an SQL statement, returning a result set as a PDOStatement object.</li>
+                                <li><code>PDO::exec</code> — Execute an SQL statement and return the number of affected rows.</li>
+                            </ul>
+                        </div>
+
+                        <!-- What to use ?
+                        The answer depends on what you need to do with the data, if you need to run query and not do anything with the results, then you should use exec to execute the query
+                        Otherwise if you need the data you should use pdo::query and then use the results returned by the call.
+                        -->
+                    </section>
+
+                    <section>
+                        <h3>User input - Named placeholders</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>In most situations we want to fetch data from the database using specific select statements and criteria to which the selected data must correspond.</li>
+                                <li>The criteria are in most cases not static but determined at run-time, for example by user input.</li>
+                                <li>One way we can achieve this is by using the previous proposed query method.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>User input - Named placeholders</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Plain substitution also works but is less flexible and safe</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+$db = new PDO($dsn, $username, $password);
+//...
+
+// Create select statement
+$un = &quot;nico&quot;;
+$query = &quot;SELECT username, email FROM users WHERE username='$un'&quot;;
+$results = $db-&gt;query($query);      // Execute query
+
+// Output the results
+foreach ($results as $row) {
+    print &quot;&lt;p&gt;&quot; . $row['username'] . &quot; - &quot; . $row['email'] . &quot;&lt;/p&gt;&quot;;
+}
+?&gt;
+                        </code></pre>   <!--PDO_BasicSubstitution.php -->
+                    </section>
+
+                    <section>
+                        <h3>User input - Named placeholders</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+//...
+$query = &quot;SELECT username, email FROM users WHERE username='$un'&quot;;
+//...
+?&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The previous code is not optimized and has one big disadvantage: SQL INJECTIONS.</li>
+                                <li>What if $un is obtained from user input and the user were to submit this as the $un value:
+                                    <code>$un = "' OR '1'='1"</code></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <a href="assets/C08/PDO_SQLInjection.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>User input - Named placeholders</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A prepared statement is a precompiled SQL statement that can be executed multiple times by sending just the data to the server. It has the added advantage of automatically making the data used in the placeholders safe from SQL injection attacks.</li>
+                                <li>You use a prepared statement by including placeholders in your SQL.</li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>User input - Named placeholders</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>PDO::prepare</code> — Prepares a statement for execution and returns a statement object </li>
+                                <li><code>PDOStatement::execute</code> — Executes a prepared statement.</li>
+                                <li><code>PDOStatement::fetchAll</code> — Returns an array containing all of the result set rows.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+$db = new PDO($dsn, $username, $password);
+$un = &quot;nico&quot;;
+$query = &quot;SELECT username, email FROM users WHERE username=:un&quot;;
+$pdostat = $db-&gt;prepare($query);         // Prepare
+$pdostat-&gt;execute(array(':un' =&gt; $un));  // Replace placeholders
+$results = $pdostat-&gt;fetchAll();         // Fetch results
+outputUserDataset($results);                // Output the results
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_UsingNamedPlaceholders.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Fetch and Close cursor</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>PDOStatement::fetch</code> — Fetches the next row from a result set.</li>
+                                <li><code>PDOStatement::closeCursor</code> — Closes the cursor, enabling the statement to be executed again.</li>
+                                <li>If you use <code>$statement->fetch()</code>, you will also have to use <code>$statement->closeCursor()</code> afterwards, to be able to execute another query.</li>
+                                <li>Alternatively you can use <code>$statement>fetchAll()</code> without <code>$statement>closeCursor()</code>.</li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>PDO and PDOStatement</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Note the difference between the two execute methods of the PDO and PDOStatement classes.</li>
+                                <li><code>PDO::exec</code> — Execute an SQL statement and return the number of affected rows.</li>
+                                <li><code>PDO::prepare</code> — Prepares a statement for execution and returns a statement object.</li>
+                                <li><code>PDOStatement::execute</code> — Executes a prepared statement.</li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Executing an INSERT statement</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+$newvalues = array( &quot;:username&quot; =&gt; &quot;john&quot;,
+                    &quot;:password&quot; =&gt; &quot;DADADA&quot;,
+                    &quot;:email&quot; =&gt; &quot;john@rambo.com&quot;,
+                    &quot;:display_name&quot; =&gt; &quot;John Rambo&quot;);
+
+$insert = &quot;INSERT INTO users (username, password, email, display_name)
+                  VALUES (:username, :password, :email, :display_name)&quot;;
+
+$pdostat = $db-&gt;prepare($insert);
+$succes = $pdostat-&gt;execute($newvalues);
+echo $succes ? &quot;&lt;p&gt;Insert successfully.&lt;/p&gt;&quot; : &quot;&lt;p&gt;Failed to insert&lt;/p&gt;&quot;;
+
+// Print number of rows that were affected (should be 1)
+print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_InsertStatement.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Executing an UPDATE statement</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+$newvalues = array( &quot;:username&quot; =&gt; &quot;nicodw&quot;,
+                    &quot;:email&quot; =&gt; &quot;mynew_email2@donaim.com&quot;);
+
+$update = &quot;UPDATE users SET email=:email WHERE username=:username&quot;;
+
+$pdostat = $db-&gt;prepare($update);
+$success = $pdostat-&gt;execute($newvalues);
+
+echo $success ? &quot;&lt;p&gt;Update successfully.&lt;/p&gt;&quot; : &quot;&lt;p&gt;Failed to update&lt;/p&gt;&quot;;
+
+// Print number of rows that were affected (should be 1)
+print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_UpdateStatement.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Executing a DELETE statement</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+$un = &quot;nicdw&quot;;
+$delete = &quot;DELETE FROM users WHERE username=:username&quot;;
+
+$pdostat = $db-&gt;prepare($delete);
+$success = $pdostat-&gt;execute(array(':username' =&gt; $un));
+
+echo $succes ? &quot;&lt;p&gt;Delete successfully.&lt;/p&gt;&quot; : &quot;&lt;p&gt;Failed to delete&lt;/p&gt;&quot;;
+
+// Print number of rows that were affected (should be 1)
+print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_DeleteStatement.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Single prepare, multiple execution</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>As mentioned before, a statement can be executed multiple times after being prepared.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    $records = array(
+        array(
+                &quot;:username&quot; =&gt; &quot;jenny&quot;,
+                &quot;:password&quot; =&gt; &quot;dfgdfgdfg44tret6ewr&quot;,
+                &quot;:email&quot; =&gt; &quot;jenny@domain.com&quot;,
+                &quot;:display_name&quot; =&gt; &quot;Jenny The Merx&quot;
+        ),
+        array(
+                &quot;:username&quot; =&gt; &quot;donny&quot;,
+                &quot;:password&quot; =&gt; &quot;sdfsdfsdsdfrtutytytyry&quot;,
+                &quot;:email&quot; =&gt; &quot;donny@domain.com&quot;,
+                &quot;:display_name&quot; =&gt; &quot;Donny English&quot;
+        ),
+        array(
+                &quot;:username&quot; =&gt; &quot;marry&quot;,
+                &quot;:password&quot; =&gt; &quot;sdfsdfsdtyttyyutty&quot;,
+                &quot;:email&quot; =&gt; &quot;marry@domain.com&quot;,
+                &quot;:display_name&quot; =&gt; &quot;Marry Tebo&quot;
+        )
+    );
+?&gt;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Single prepare, multiple execution</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>As mentioned before, a statement can be executed multiple times after being prepared.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;?php
+    $insert = &quot;INSERT INTO users (username, password, email, display_name)
+                      VALUES (:username, :password, :email, :display_name)&quot;;
+
+    $pdostat = $db-&gt;prepare($insert);
+
+    $success = true;
+    foreach ($records as $newvalues) {
+        $success = $success &amp;&amp; $pdostat-&gt;execute($newvalues);
+    }
+
+    echo $success ? &quot;&lt;p&gt;Insert successfully.&lt;/p&gt;&quot; : &quot;&lt;p&gt;Failed to insert&lt;/p&gt;&quot;;
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_InsertStatement_Multiple.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Singleton Pattern</h2>
+                    </section>
+
+                    <section>
+                        <h3>Singleton Pattern</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Sometimes it's important to have only one instance for a class. For example, in a system there should be only one window manager (or only a file system or only a print spooler).</li>
+                                <li>Usually singletons are used for centralized management of internal or external resources and they provide a global point of access to themselves.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Singleton Pattern</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The singleton pattern is one of the simplest design patterns:
+                                    <ul>
+                                        <li>it involves only one class which is responsible to instantiate itself, to make sure it creates not more than one instance;</li>
+                                        <li>at the same time it provides a global point of access to that instance.</li>
+                                        <li>In this case the same instance can be used from everywhere, being impossible to invoke directly the constructor each time.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Singleton Pattern</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Intent
+                                    <ul>
+                                        <li>Ensure that only one instance of a class is created.</li>
+                                        <li>Provide a global point of access to the object.</li>
+                                    </ul>
+                                </li>
+                                <li>Implementation
+                                    <ul>
+                                        <li>The implementation involves
+                                            <ul>
+                                                <li>a static member in the "Singleton" class</li>
+                                                <li>a private constructor</li>
+                                                <li>and a static public method that returns a reference to the static member.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Singleton Pattern</h3>
+
+                        <div>
+                            <img height="400px" src="assets/C08/Singleton.gif">
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>PHP Implementation</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+class Database
+{
+    private static $db = NULL;
+
+    const DSN = &quot;mysql:host=localhost;port=3306;dbname=nico_webtech_pdo&quot;;
+    const USERNAME = &quot;nico_webtech_pdo&quot;;
+    const PASSWORD = &quot;QwX5NQHm2Hwp2daQ&quot;;
+
+    public static function getInstance() {
+        if (self::$db) {
+            return self::$db;
+        }
+        
+        //...
+?&gt;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>PHP Implementation</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+        //...
+
+        try {
+            self::$db = new PDO(self::DSN, self::USERNAME, self::PASSWORD);
+            return self::$db;
+        }
+        catch (PDOException $e) {
+            echo 'Connection failed: ' . $e-&gt;getMessage();
+            exit();
+        }        
+
+        return self::$db;
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>PHP Implementation</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+    // Create select statement
+    $query = 'SELECT username, password, email, display_name FROM users WHERE 1';
+    $results = Database::getInstance()-&gt;query($query);       // Execute query
+    outputUserDataset($results);
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_SelectStatement_Singleton.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Implementation using config file</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+class Database
+{
+    private static $db = NULL;
+
+    const INI_FILE = &quot;config_db.ini&quot;;
+
+    public static function getInstance()
+    {
+        if (self::$db) {
+            return self::$db;
+        }
+        
+        //...
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Implementation using config file</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+        //...
+        
+        // Parse config
+        if (!$settings = parse_ini_file(self::INI_FILE, TRUE))
+            throw new exception('Unable to open ' . self::INI_FILE);
+
+        $dsn = $settings[&quot;db_driver&quot;] . &quot;:&quot;;
+        foreach ($settings [&quot;dsn&quot;] as $key =&gt; $val)
+            $dsn .= &quot;$key=$val;&quot;;
+
+        //...
+    }
+}
+?&gt;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Implementation using config file</h3>
+
+                        <pre><code data-trim>
+&lt;?php
+        //...
+
+        try {
+            self::$db = new PDO($dsn, $settings[&quot;db_user&quot;],
+                $settings[&quot;db_password&quot;]);
+
+            return self::$db;
+        }
+        catch (PDOException $e) {
+            echo 'Connection failed: ' . $e-&gt;getMessage();
+            exit();
+        }
+    }
+}
+?&gt;
+                        </code></pre>
+
+                        <div>
+                            <a href="assets/C08/PDO_SelectStatement_SingletonConfig.php" target="_blank">Show Me</a>
+                        </div>
+                    </section>
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
