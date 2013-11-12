@@ -81,10 +81,10 @@
 
                         <div class="alignleft">
                             <ul>
-                                <li>Inexpensive: free for most uses.</li>
-                                <li>Fast: one of the fastest relational databases currently available.</li>
-                                <li>Easy to use: easy to install and manage.</li>
-                                <li>Portable: runs on a whole variety of operating systems (linux, windows, android, ...).</li>
+                                <li><strong>Inexpensive</strong> - free for most uses.</li>
+                                <li><strong>Fast</strong> - one of the fastest relational databases currently available.</li>
+                                <li><strong>Easy to use</strong> - easy to install and manage.</li>
+                                <li><strong>Portable</strong> - runs on a whole variety of operating systems (linux, windows, android, ...).</li>
                             </ul>
                         </div>
                     </section>
@@ -94,17 +94,18 @@
 
                         <div class="alignleft">
                             <ul>
-                                <li>Supports SQL: Structured Query Language.</li>
-                                <li>Supports access from multiple clients.</li>
-                                <li>Security: protect access to data.</li>
-                                <li>Supports referential integrity:
+                                <li>Supports <strong>Structured Query Language</strong>.</li>
+                                <li>Supports access from <strong>multiple clients</strong>.</li>
+                                <li><strong>Security</strong> - protect access to data.</li>
+                                <li>Supports <strong>referential integrity</strong>
                                     <ul>
                                         <li>Keeps relations between tables intact. Can’t delete referenced row unless referencing row is deleted first.</li>
                                         <li>When using InnoDB.</li>
                                     </ul>
                                 </li>
-                                <li>Supports transactional processing: grouped SQL statements.
+                                <li>Supports <strong>transactional processing</strong>
                                     <ul>
+                                        <li>Grouped SQL statements.</li>
                                         <li>All or nothing (rollback)</li>
                                     </ul>
                                 </li>
@@ -157,7 +158,7 @@
                         </div>
 
                         <div>
-                            <img height="400px" src="assets/C08/phpMyAdmin_CreatingADatabase.png">
+                            <img height="200px" src="assets/C08/phpMyAdmin_CreatingADatabase.png">
                         </div>
                     </section>
 
@@ -172,7 +173,7 @@
                         </div>
 
                         <div>
-                            <img height="400px" src="assets/C08/phpMyAdmin_CreatingATable.png">
+                            <img height="200px" src="assets/C08/phpMyAdmin_CreatingATable.png">
                         </div>
                     </section>
 
@@ -377,9 +378,13 @@ try {
                         <div class="alignleft">
                             <ul>
                                 <li>To execute an SQL select statement we can use the query method of the PDO instance.</li>
-                                <li><code>PDO::query</code> — Executes an SQL statement, returning a result set as a PDOStatement object.</li>
+                                <li><code>PDO::query</code> — Executes an SQL statement, returning a result set as a <code>PDOStatement</code> object.</li>
                                 <li>Requires an SQL selection statement as argument and returns the result set (if any).</li>
                             </ul>
+                        </div>
+
+                        <div>
+                            <a href="http://us3.php.net/manual/en/book.pdo.php" target="_blank">More info ? => PDO Reference</a>
                         </div>
                     </section>
 
@@ -403,6 +408,12 @@ foreach ($results as $row) {
                         </code></pre>
                         <div>
                             <a href="assets/C08/PDO_ExecutingASelect.php" target="_blank">Show Me</a>
+                        </div>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>PDOStatement enables you to iterate over the rowset returned by a successfully executed SELECT statement.</li>
+                            </ul>
                         </div>
                     </section>
 
@@ -429,7 +440,11 @@ foreach ($results as $row) {
                         <div class="alignleft">
                             <ul>
                                 <li>In most situations we want to fetch data from the database using specific select statements and criteria to which the selected data must correspond.</li>
-                                <li>The criteria are in most cases not static but determined at run-time, for example by user input.</li>
+                                <li>The criteria are in most cases not static but determined at run-time
+                                    <ul>
+                                        <li>For example by user input.</li>
+                                    </ul>
+                                </li>
                                 <li>One way we can achieve this is by using the previous proposed query method.</li>
                             </ul>
                         </div>
@@ -475,11 +490,18 @@ $query = &quot;SELECT username, email FROM users WHERE username='$un'&quot;;
 
                         <div class="alignleft">
                             <ul>
-                                <li>The previous code is not optimized and has one big disadvantage: SQL INJECTIONS.</li>
-                                <li>What if $un is obtained from user input and the user were to submit this as the $un value:
-                                    <code>$un = "' OR '1'='1"</code></li>
+                                <li>The previous code is not optimized and has one big disadvantage
+                                    <ul>
+                                        <li><strong>SQL INJECTIONS</strong></li>
+                                    </ul>
+                                </li>
+                                <li>What if <code>$un</code> is obtained from user input and the user were to submit this as the <code>$un</code> value:</li>
                             </ul>
                         </div>
+
+                        <pre><code data-trim>
+$un = &quot;' OR '1'='1&quot;
+                        </code></pre>
 
                         <div>
                             <a href="assets/C08/PDO_SQLInjection.php" target="_blank">Show Me</a>
@@ -491,7 +513,8 @@ $query = &quot;SELECT username, email FROM users WHERE username='$un'&quot;;
 
                         <div class="alignleft">
                             <ul>
-                                <li>A prepared statement is a precompiled SQL statement that can be executed multiple times by sending just the data to the server. It has the added advantage of automatically making the data used in the placeholders safe from SQL injection attacks.</li>
+                                <li>A prepared statement is a <strong>precompiled</strong> SQL statement that can be <strong>executed multiple times</strong> by sending just the data to the server.</li>
+                                <li>It has the added advantage of automatically making the data used in the placeholders safe from SQL injection attacks.</li>
                                 <li>You use a prepared statement by including placeholders in your SQL.</li>
                             </ul>
                         </div>
@@ -499,14 +522,6 @@ $query = &quot;SELECT username, email FROM users WHERE username='$un'&quot;;
                     
                     <section>
                         <h3>User input - Named placeholders</h3>
-
-                        <div class="alignleft">
-                            <ul>
-                                <li><code>PDO::prepare</code> — Prepares a statement for execution and returns a statement object </li>
-                                <li><code>PDOStatement::execute</code> — Executes a prepared statement.</li>
-                                <li><code>PDOStatement::fetchAll</code> — Returns an array containing all of the result set rows.</li>
-                            </ul>
-                        </div>
 
                         <pre><code data-trim>
 &lt;?php
@@ -523,6 +538,14 @@ outputUserDataset($results);                // Output the results
                         <div>
                             <a href="assets/C08/PDO_UsingNamedPlaceholders.php" target="_blank">Show Me</a>
                         </div>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>PDO::prepare</code> — Prepares a statement for execution and returns a PDOStatement object (or false on fail)</li>
+                                <li><code>PDOStatement::execute</code> — Executes a prepared statement (returns true on success).</li>
+                                <li><code>PDOStatement::fetchAll</code> — Returns an array containing all of the result set rows.</li>
+                            </ul>
+                        </div>
                     </section>
                     
                     <section>
@@ -530,23 +553,13 @@ outputUserDataset($results);                // Output the results
 
                         <div class="alignleft">
                             <ul>
-                                <li><code>PDOStatement::fetch</code> — Fetches the next row from a result set.</li>
-                                <li><code>PDOStatement::closeCursor</code> — Closes the cursor, enabling the statement to be executed again.</li>
-                                <li>If you use <code>$statement->fetch()</code>, you will also have to use <code>$statement->closeCursor()</code> afterwards, to be able to execute another query.</li>
+                                <li>If you use <code>$statement->fetch()</code>, you will also have to use <code>$statement->closeCursor()</code> afterwards, to be able to execute another query.
+                                    <ul>
+                                        <li><code>PDOStatement::fetch</code> — Fetches the next row from a result set.</li>
+                                        <li><code>PDOStatement::closeCursor</code> — Closes the cursor, enabling the statement to be executed again.</li>
+                                    </ul>
+                                </li>
                                 <li>Alternatively you can use <code>$statement>fetchAll()</code> without <code>$statement>closeCursor()</code>.</li>
-                            </ul>
-                        </div>
-                    </section>
-                    
-                    <section>
-                        <h3>PDO and PDOStatement</h3>
-
-                        <div class="alignleft">
-                            <ul>
-                                <li>Note the difference between the two execute methods of the PDO and PDOStatement classes.</li>
-                                <li><code>PDO::exec</code> — Execute an SQL statement and return the number of affected rows.</li>
-                                <li><code>PDO::prepare</code> — Prepares a statement for execution and returns a statement object.</li>
-                                <li><code>PDOStatement::execute</code> — Executes a prepared statement.</li>
                             </ul>
                         </div>
                     </section>
@@ -575,6 +588,12 @@ print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
 
                         <div>
                             <a href="assets/C08/PDO_InsertStatement.php" target="_blank">Show Me</a>
+                        </div>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Note not to add single quotes around your named placeholders.</li>
+                            </ul>
                         </div>
                     </section>
                     
@@ -664,12 +683,6 @@ print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
                     <section>
                         <h3>Single prepare, multiple execution</h3>
 
-                        <div class="alignleft">
-                            <ul>
-                                <li>As mentioned before, a statement can be executed multiple times after being prepared.</li>
-                            </ul>
-                        </div>
-
                         <pre><code data-trim>
 &lt;?php
     $insert = &quot;INSERT INTO users (username, password, email, display_name)
@@ -690,6 +703,11 @@ print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
                             <a href="assets/C08/PDO_InsertStatement_Multiple.php" target="_blank">Show Me</a>
                         </div>
                     </section>
+
+                    <!--
+                        TODO
+                        Add slide about using question mark parameters for preparing statements.
+                    -->
                 </section>
 
                 <section>
@@ -702,7 +720,11 @@ print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
 
                         <div class="alignleft">
                             <ul>
-                                <li>Sometimes it's important to have only one instance for a class. For example, in a system there should be only one window manager (or only a file system or only a print spooler).</li>
+                                <li>Sometimes it's important to have only one instance for a class.
+                                    <ul>
+                                        <li>For example, in a system there should be only one window manager (or only a file system or only a print spooler).</li>
+                                    </ul>
+                                </li>
                                 <li>Usually singletons are used for centralized management of internal or external resources and they provide a global point of access to themselves.</li>
                             </ul>
                         </div>
@@ -715,9 +737,9 @@ print &quot;Affected rows: &quot; . $pdostat-&gt;rowCount();
                             <ul>
                                 <li>The singleton pattern is one of the simplest design patterns:
                                     <ul>
-                                        <li>it involves only one class which is responsible to instantiate itself, to make sure it creates not more than one instance;</li>
-                                        <li>at the same time it provides a global point of access to that instance.</li>
-                                        <li>In this case the same instance can be used from everywhere, being impossible to invoke directly the constructor each time.</li>
+                                        <li>It involves only one class which is responsible to instantiating itself, to make sure it creates not more than one instance</li>
+                                        <li>At the same time it provides a global point of access to that instance.</li>
+                                        <li>In this case the same instance can be used from everywhere, being impossible to invoke the constructor directly each time.</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -819,6 +841,27 @@ class Database
                         <div>
                             <a href="assets/C08/PDO_SelectStatement_Singleton.php" target="_blank">Show Me</a>
                         </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Implementation using config file</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Using a config file (config_db.ini) to keep sensitive data such as usernames and password</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+db_driver=mysql
+db_user=nico_webtech_pdo
+db_password=*****************
+
+[dsn]
+host=localhost
+port=3306
+dbname=nico_webtech_pdo
+                        </code></pre>
                     </section>
                     
                     <section>
