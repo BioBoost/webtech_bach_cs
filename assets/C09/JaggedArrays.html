@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Multidimensional Arrays</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var myArray = new Array(3);     // 3 rows
+        myArray[0] = new Array(5);      // 5 columns
+        myArray[1] = new Array(13);    // 13 columns
+        myArray[2] = new Array(11);    // 11 columns
+
+        for (var row = 0; row < myArray.length; row++)
+        {
+            for (var col = 0; col < myArray[row].length; col++)
+            {
+                myArray[row][col] = row * col;
+            }
+        }
+        </script>
+    </body>
+</html>

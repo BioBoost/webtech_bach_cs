@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Webtechnology - Chapter 9 – JavaScript</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/moderno.css" id="theme">
+
+		<!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="css/custom.kulab.nico.css">
+        <link rel="stylesheet" href="css/highlight.tomorrow-night-bright.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+            <img id="logo" src="assets/Logo_labICT.png" alt="Logo labICT">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <section>
+                        <h1>Webtechnology</h1>
+                        <h3>Chapter 9 – JavaScript</h3>
+                        <p><a href="http://labict.be">labict.be</a></p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Introduction</h2>
+                    </section>
+
+                    <section>
+                        <h3>A scripting language</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript is the most popular scripting language in the world. It is the standard language of the web, and widely used in servers, desktops, and mobile phones.</li>
+                                <li>JavaScript is a Scripting Language
+                                    <ul>
+                                        <li>A scripting language is a lightweight programming language that supports the writing of scripts.</li>
+                                        <li>JavaScript was designed to add interactivity to HTML pages.</li>
+                                        <li>JavaScript is programming code that can be inserted into HTML pages to be executed by web browser.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Running JavaScript</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>All major web browsers contain JavaScript interpreters, which process the commands written in JavaScript.</li>
+                                <li>Before you can run code examples with JavaScript on your computer, you may need to change your browser’s security settings.
+                                    <ul>
+                                        <li>IE9 prevents scripts on the local computer from running by default</li>
+                                        <li>Firefox, Chrome, Opera, Safari, ... browsers have JavaScript enabled by default.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Capabilities of JavaScript</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript can write directly into the HTML output stream.</li>
+                                <li>JavaScript can change the content of HTML elements.</li>
+                                <li>JavaScript can react to events.</li>
+                                <li>JavaScript can manipulate HTML styles.</li>
+                                <li>JavaScript can test input, and alert about errors.</li>
+                                <li>...</li>
+                            </ul>
+                        </div>
+
+                        <!--
+                        JavaScript = ECMAScript
+                        ECMA-262 is the official name of the JavaScript standard.
+                        JavaScript was invented by Brendan Eich at Netscape, and appeared for the first time in Netscape Navigator (a no longer existing web browser) in1995.
+                        The JavaScript standard was adopted by the industry standard association ECMA in 1997.
+                        The development of the standard (ECMAScript-262) is a continuing process.
+                        -->
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Basics of JavaScript</h2>
+                    </section>
+
+                    <section>
+                        <h3>Basics</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Every statement should end with a semicolon (also known as the statement terminator), although none is required by JavaScript</li>
+                                <li>JavaScript is case sensitive.
+                                    <ul>
+                                        <li>Not using the proper uppercase and lowercase letters is a syntax error.</li>
+                                        <li>Each browser has its own way of displaying JavaScript errors.</li>
+                                        <li>FF: Tools => Web Developer => Error Console</li>
+                                        <li>Chrome: Tools => JavaScript Console</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Where to put it all ?</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A JavaScript can be put in the body and in the head section of an HTML page.</li>
+                                <li>The <code>&lt;script&gt;</code> tag indicates to the browser that the text that follows is part of a script.
+                                    <ul>
+                                        <li>The attribute <code>type</code> specifies the scripting language used in the script—such as <code>text/javascript</code>.</li>
+                                        <li>Comments can be added using double slashes // or delimited by /* and */</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // JavaScript code
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Small JavaScript example</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Scripting gives you the ability to generate part or all of a web page’s content at the time it is shown to the user.
+                                    <ul>
+                                        <li>Such web pages are said to be dynamic</li>
+                                        <li>HTML can be directly inserted into the HTML output stream using the <code>writeln</code> method of the DOM</li>
+                                        <li>Browser's document object represents the HTML5 document currently being displayed</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    /* Writes a heading 1 element to the HTML body */
+    document.writeln(&quot;&lt;h1&gt;Welcome to the exiting world of JS.&lt;/h1&gt;&quot;);
+
+    //Writes a paragraph to the HTML body
+    document.write(&quot;&lt;p&gt;This is just a paragraph of simple text.&lt;/p&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Document Object Model</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When a web page is loaded, the browser creates a Document Object Model of the page.</li>
+                                <li>The HTML DOM model is constructed as a tree of Objects</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="400px" src="assets/C09/HTML_DOM_Tree.gif">
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>The JavaScript Language</h2>
+                    </section>
+
+                    <section>
+                        <h3>Variables</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>All variables should be declared with a var statement before they are used in a script.</li>
+                                <li>JavaScript does not require variables to have a type before they can be used in a script.</li>
+                                <li>A variable in JavaScript can contain a value of any data type, and in many situations, JavaScript automatically converts between values of different types for you.</li>
+                                <li>JavaScript is referred to as a loosely typed language.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var someNumber = 15;
+    var someString = &quot;Hello World&quot;;
+    var someDouble = 15.3;
+    var someUndefined;
+    var someInt1, someInt2, someInt3;
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Variables</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When a variable is declared in JavaScript, but is not given a value, it has an undefined value.
+                                    <ul>
+                                        <li>Attempting to use the value of such a variable is normally a logic error.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Arithmetic Operators</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When a variable is declared in JavaScript, but is not given a value, it has an undefined value.
+                                    <ul>
+                                        <li>Attempting to use the value of such a variable is normally a logic error.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="400px" src="assets/C09/JS_ArithmethicOperators.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Idempotent</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The increment and decrement operators are not idempotent and can have side-effects if not used with caution.
+                                    <ul>
+                                        <li>Idempotent operations always give the same result, no matter how many times they are executed.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //...
+
+    x = a + 3;      // Idempotent
+    x++;            // Not idempotent
+
+    //...
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Lazy evaluation</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Results are different because of idempotency in combination with lazy evaluation.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var a = 0;
+var someCondition = true;
+
+while (someCondition &amp;&amp; (++a &lt; 4))
+{
+    document.writeln(a + &quot; &quot;);
+    if (a == 3)
+        someCondition = false;
+}
+document.writeln(&quot;Lastvalue of a is &quot;+ a);
+// Output: 1 2 3 Lastvalue of a is 3
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Lazy evaluation</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var a = 0;
+var someCondition = true;
+
+while ((++a &lt; 4) &amp;&amp; someCondition)
+{
+    document.writeln(a + &quot; &quot;);
+    if (a == 3)
+        someCondition = false;
+}
+document.writeln(&quot;Lastvalue of a is &quot;+ a);
+// Output: 1 2 3 Lastvalue of a is 4
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Relational Operators</h3>
+
+                        <div>
+                            <img height="400px" src="assets/C09/JS_RelationalOperators.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Relational Operators</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>As mentioned before, JavaScript automatically converts between types when needed.</li>
+                                <li>This results in the following evaluation being evaluated as true:</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+if (75 == &quot;75&quot;)
+    document.writeln(&quot;'75' equals 75&quot;);
+else
+    document.writeln(&quot;'75' does not equals 75&quot;);
+&lt;/script&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>This behaviour can be circumvented using the strict comparison operators (=== and !==).</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+if (75 === &quot;75&quot;)
+    document.writeln(&quot;'75' strict equals 75&quot;);
+else
+    document.writeln(&quot;'75' does not strict equals 75&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Logical Operators</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Logical operators can be used to form complex conditions by combining simple conditions
+                                    <ul>
+                                        <li><code>&amp;&amp;</code> (logical AND)</li>
+                                        <li><code>||</code> (logical OR)</li>
+                                        <li><code>!</code> (logical NOT, also called logical negation)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Logical Operators</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript evaluates to false or true all expressions that include relational operators, equality operators and/or logical operators.
+                                    <ul>
+                                        <li>In JavaScript, any nonzero numeric value in a condition evaluates to true, and 0 evaluates to false.</li>
+                                        <li>Any string containing one or more characters evaluates to true, and the empty string "" evaluates to false.</li>
+                                        <li>The value null and variables that have been declared but not initialized are considered to be false.</li>
+                                        <li>All objects are considered to be true.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+<!--
+In JavaScript, undefined means a variable has been declared but has not yet been assigned a value, such as:
+
+var TestVar;
+alert(TestVar); //shows undefined
+alert(typeof TestVar); //shows undefined
+
+null is an assignment value. It can be assigned to a variable as a representation of no value:
+
+var TestVar = null;
+alert(TestVar); //shows null
+alert(typeof TestVar); //shows object
+From the preceding examples, it is clear that undefined and null are two distinct types: undefined is a type itself (undefined) while null is an object.
+
+Quote from the book Professional JS For Web Developers (Wrox): "You may wonder why the typeof operator returns 'object' for a value that is null. This was actually an error in the original JavaScript implementation that was then copied in ECMAScript. Today, it is rationalized that null is considered a placeholder for an object, even though, technically, it is a primitive value."
+
+-->
+
+
+                    <section>
+                        <h3>The If statement</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+// Generate random number between 1 and 100
+var rnd = Math.floor(Math.random() * 100) + 1;
+
+if (rnd &lt; 50) {
+    document.write(&quot;&lt;div&gt;Smaller than 50&lt;/div&gt;&quot;);
+}
+else if (rnd &gt;= 50) {
+    document.write(&quot;&lt;div&gt;Bigger or equal to 50&lt;/div&gt;&quot;);
+}
+else {
+    document.write(&quot;&lt;div&gt;Number not in range. How did this happen ?&lt;/div&gt;&quot;);
+}
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Switch statement</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Use the switch statement to select one of many blocks of code to be executed.</li>
+                                <li>Break is used as the last statement in each case to exit the switch statement immediately.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+switch(variable) {
+    case value1:
+        //Execute code block 1
+        break;
+    case value1:
+        //Execute code block 2
+        break;
+    default:
+        //Code to execute in case of mismatch
+}
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>The conditional operator</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+result = operand1 ? operand2 : operand3;
+&lt;/script&gt;
+                        </code></pre>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Takes three operands (ternary operator)
+                                    <ul>
+                                        <li>The first operand is a boolean expression</li>
+                                        <li>The second is the value for the conditional expression if the boolean expression evaluates to true</li>
+                                        <li>Third is the value for the conditional expression if the boolean expression evaluates to false</li>
+                                    </ul>
+                                </li>
+                                <li>Use the ternary operator with caution.</li>
+                                <li>Complex statements should be modeled using if ... else constructs.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>The While statement</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var i = 0;
+while (i &lt; 10) {
+    document.write(&quot;&lt;div&gt;&quot; + (i++) + &quot;&lt;/div&gt;&quot;);
+}
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>The Do While statement</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var i = 0;
+do {
+    document.write(&quot;&lt;div&gt;&quot; + (i++) + &quot;&lt;/div&gt;&quot;);
+} while (i &lt; 10);
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>The For statement</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+for (var i = 0; i &lt; 10; i++) {
+    document.write(&quot;&lt;div&gt;&quot; + (i++) + &quot;&lt;/div&gt;&quot;);
+}
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript strings</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Strings in JavaScript can be enclosed in either double quotation marks (") or single quotation marks (').
+                                    <ul>
+                                        <li>No difference between the two (not as in PHP!)</li>
+                                    </ul>
+                                </li>
+                                <li>The <code>+</code> operator (called the "concatenation operator" when used in this manner) joins two strings together</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript strings</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Confusing the + operator used for string concatenation with the + operator used for addition often leads to undesired results.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var a = 3;
+document.writeln(&quot;&lt;div&gt;a + 7 = &quot; + a + 7 + &quot;&lt;/div&gt;&quot;);
+// Output: a + 7 = 37
+
+var b = 3;
+document.writeln(&quot;&lt;div&gt;b + 7 = &quot; + (b + 7) + &quot;&lt;/div&gt;&quot;);
+// Output: b + 7 = 10
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Escape sequences</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>When a backslash is encountered in a string of characters, the next character is combined with the backslash to form an escape sequence.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="400px" src="assets/C09/JS_EscapeSequences.png">
+                        </div>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2>JavaScript Functions</h2>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript functions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>There are several reasons for modularizing a program with functions.
+                                    <ul>
+                                        <li>Divide-and-conquer approach makes program development more manageable.</li>
+                                        <li>Software reusability.</li>
+                                        <li>Avoid repeating code in a program.</li>
+                                    </ul>
+                                </li>
+                                <li>You can define programmer-defined functions that perform specific tasks and use them at many points in a script.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Function invocation</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Functions are invoked by writing the name of the function, followed by a left parenthesis, followed by a comma-separated list of zero or more arguments, followed by a right parenthesis.</li>
+                                <li>A function must be called explicitly for the code in its body to execute.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+// Generate random number between 1 and 100
+var rnd = Math.floor(Math.random() * 100) + 1;
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Defining your own functions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The format of a function definition is:</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+function functionName(param1, param2, param3)
+{
+    var someVal = 15;
+
+    // ...
+
+    return someVal;     // Optional return statement
+}
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Defining your own functions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>All variables declared with the keyword <code>var</code> in function definitions are local variables—this means that they can be accessed only in the function in which they're defined.</li>
+                                <li>A function's parameters are also considered to be local variables.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+function functionName(param1, param2, param3)
+{
+    //Local variables
+    var x;
+    var y;
+    var z;
+}
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Global functions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript provides several global functions as part of a Global object.</li>
+                                <li>This object contains 
+                                    <ul>
+                                        <li>all the global variables in the script</li>
+                                        <li>all the user-defined functions in the script </li>
+                                        <li>all the built-in global functions listed in the following slide</li>
+                                    </ul>                                    
+                                </li>
+                                <li>You do not need to use the Global object directly; JavaScript uses it for you.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Global functions</h3>
+
+                        <div>
+                            <img height="400px" src="assets/C09/JS_GlobalFunctions.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Separating JavaScript code</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript code is typically placed in a separate file, then included in the HTML5 document that uses the script.</li>
+                                <li>This makes the code more reusable, because it can be included into any HTML5 document
+                                    <ul>
+                                        <li>As is the case with the many JavaScript libraries used in professional web development today.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Separating JavaScript code</h3>
+
+                        <pre><code data-trim>
+/* HelloWorld.js */
+function helloWorld() {
+    document.writeln(&quot;&lt;h1&gt;Hello World&lt;/h1&gt;&quot;);
+}
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;Hello World&lt;/title&gt;
+        &lt;script src=&quot;HelloWorld.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            //Call function helloWorld
+            helloWorld();
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <a href="assets/C09/HelloWorld.html" target="_blank">Show Me</a>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>JavaScript Objects</h2>
+
+                        <div>
+                            <img height="300px" src="assets/C09/JS_Objects101.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Objects</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>"Everything" in JavaScript is an Object: a String, a Number, an Array, a function....
+                                    <ul>
+                                        <li>This is actually only halve of the truth. Primitive types (int, boolean, ...) are not objects but are silently converted to their equivalent object types (Integer, Boolean, ...) when necessary.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Objects</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>In addition, JavaScript allows you to define your own objects.</li>
+                                <li>Properties are the values associated with an object.</li>
+                                <li>Methods are the actions that can be performed on objects.</li>
+                                <li>JavaScript has several built-in objects, like String, Date, Array, and more.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Objects</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>An object's methods are called by writing the name of the object followed by a dot operator <code>.</code> and the name of the method.
+                                    <ul>
+                                        <li>In parentheses following the method name are arguments to the method.</li>
+                                    </ul>
+                                </li>
+                                <li>The difference between invoking a stand-alone function and a method of an object is that a method requires an object to be invoked upon.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>The Math object</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The Math object allows you to perform mathematical tasks.</li>
+                                <li>All properties/methods of Math can be called by using Math as an object, without creating it.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="300px" src="assets/C09/JS_MathObject_1.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>The Math object</h3>
+
+                        <div>
+                            <img height="500px" src="assets/C09/JS_MathObject_2.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>The String object</h3>
+
+                        <div>
+                            <img height="200px" src="assets/C09/JS_StringObject_1.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>The String object</h3>
+
+                        <div>
+                            <img height="500px" src="assets/C09/JS_StringObject_2.png">
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <h3>The Array object</h3>
+
+                        <div>
+                            <img height="200px" src="assets/C09/JS_ArrayObject_1.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>The Array object</h3>
+
+                        <div>
+                            <img height="500px" src="assets/C09/JS_ArrayObject_2.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Other JavaScript objects</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Boolean</li>
+                                <li>Date</li>
+                                <li>Number</li>
+                                <li>RegExp</li>
+                                <li>Global</li>
+                                <li>...</li>
+                            </ul>
+                        </div>
+
+                        <a href="http://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">More info on W3CSchools</a>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>JavaScript Arrays</h2>
+
+                        <div>
+                            <img height="300px" src="assets/C09/JS_Arrays.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript arrays are "dynamic" entities that can change size after they are created.</li>
+                                <li>An array is a group of memory locations.
+                                    <ul>
+                                        <li>All have the same name and normally are of the same type (although this attribute is not required in JavaScript)</li>
+                                    </ul>
+                                </li>
+                                <li>We may refer to any one of the elements by giving the array's name followed by the position number of the element in square brackets <code>[]</code>.
+                                    <ul>
+                                        <li>The first element in every array is the zeroth element.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript arrays are <code>Array</code> objects.
+                                    <ul>
+                                        <li>Every array in JavaScript knows its own length, which it stores in its length attribute and can be found with the expression <code>arrayname.length</code></li>
+                                    </ul>
+                                </li>
+                                <li>You use the <code>new</code> operator to create an array and to specify the number of elements in an array.
+                                    <ul>
+                                        <li>The <code>new</code> operator creates an object as the script executes by obtaining enough memory to store an object of the type specified to the right of new.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Creating JavaScript Arrays</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var myArray = new Array(10);
+document.writeln(&quot;&lt;div&gt;Your new array has a length of &quot;
+    + myArray.length
+    + &quot; elements&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/ArrayLength.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Creating JavaScript Arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript reallocates an Array when a value is assigned to an element that is outside the bounds of the original Array.
+                                    <ul>
+                                        <li>Elements between the last element of the original array and the new element are <code>undefined</code>.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- TODO: Add example here -->
+                    </section>
+
+                    <section>
+                        <h3>Array Initializer lists</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Arrays can be created using a comma-separated initializer list enclosed in square brackets <code>[]</code>.</li>
+                                <li>The initial values of an array can be specified as arguments in the parentheses following <code>new Array</code>.</li>
+                                <li>The array’s size is determined by the number of values in the initializer list.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var someArray = [&quot;blue&quot;, &quot;red&quot;, &quot;green&quot;];
+var otherArray = new Array(1, 2, 3, 4, 5);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/ArrayInitialization.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Now we can FINALLY do this</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var x = new Array(16);
+
+document.writeln(&quot;&lt;div&gt;&quot; + x.join(&quot;&quot;) + &quot;&lt;/div&gt;&quot;);
+document.writeln(&quot;&lt;div&gt;&quot; + x.join(&quot;Hello&quot;) + &quot;&lt;/div&gt;&quot;);
+document.writeln(&quot;&lt;div&gt;&quot; + x.join(&quot;Hello&quot; - 1) + &quot;&lt;/div&gt;&quot;);
+document.writeln(&quot;&lt;div&gt;&quot; + x.join(&quot;Hello&quot; -1)  + &quot; Batman!&quot; + &quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/NanaBatman.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Iterating arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>An array can be iterated using a for loop.</li>
+                                <li>However, a special statement has been added in JavaScript to iterate over Array object.</li>
+                                <li>JavaScript's <code>for ... in</code> repetition statement
+                                    <ul>
+                                        <li>Enables a script to perform a task for each element in an array</li>
+                                        <li>The <code>for ... in</code> statement skips any undefined elements in the array.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Iterating arrays</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var someArray = new Array(10);
+someArray[0] = &quot;blue&quot;;
+someArray[1] = &quot;red&quot;;
+someArray[2] = &quot;green&quot;;
+someArray[9] = &quot;orange&quot;;
+
+document.write(&quot;&lt;div style='font-size: 40px;'&gt;&quot;);
+for (var i in someArray) {
+    document.write(someArray[i] + &quot; &quot;);
+}
+document.write(&quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/IteratingArrays.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Multidimensional arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>In general, an array with m rows and n columns is called an m-by-n array.</li>
+                                <li>Specify the two indices to identify a particular two-dimensional multidimensional array element.
+                                    <ul>
+                                        <li>By convention, the first identifies the element's row, and the second identifies the element's column.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Multidimensional arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Two-dimensional array elements are accessed using an element name of the form <code>a[row][column]</code>.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <img height="300px" src="assets/C09/JS_MultidimensionalArrays.jpg">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Multidimensional arrays</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Are actually arrays of arrays</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var myArray = new Array(3);     // 3 rows
+myArray[0] = new Array(10);    // 10 columns
+myArray[1] = new Array(10);    // 10 columns
+myArray[2] = new Array(10);    // 10 columns
+
+for (var row = 0; row &lt; myArray.length; row++)
+{
+    for (var col = 0; col &lt; myArray[row].length; col++)
+    {
+        myArray[row][col] = row * col;
+    }
+}
+&lt;/script&gt;
+                        </code></pre>
+                        <!-- <a href="assets/C09/MultidimensionalArrays.html" target="_blank">Show Me</a> -->
+                    </section>
+
+                    <section>
+                        <h3>Jagged arrays</h3>
+
+                        <div>
+                            <img height="120px" src="assets/C09/JaggedArrays.gif">
+                        </div>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Sub arrays are not required to have the same length.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var myArray = new Array(3);     // 3 rows
+myArray[0] = new Array(5);      // 5 columns
+myArray[1] = new Array(13);    // 13 columns
+myArray[2] = new Array(11);    // 11 columns
+
+for (var row = 0; row &lt; myArray.length; row++) {
+    for (var col = 0; col &lt; myArray[row].length; col++) {
+        myArray[row][col] = row * col;
+    }
+}
+&lt;/script&gt;
+                        </code></pre>
+                        <!-- <a href="assets/C09/JaggedArrays.html" target="_blank">Show Me</a> -->
+
+                        <div>
+                            <strong>Why can't we use for ... in in this situation?</strong>
+                            <!-- Because for ... in skips undefined values. -->
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Multidimensional array initializers</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Multidimensional arrays can be initialized in declarations like a one-dimensional array, with values grouped by row in square brackets.
+                                    <ul>
+                                        <li>The interpreter determines the number of rows by counting the number of sub initializer.</li>
+                                        <li>The interpreter determines the number of columns in each row by counting the number of values in the sub-array that initializes the row.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var someArray = [   [1, 2, 3],              // Row 0
+                    [5, 6, 7, 8, 9, 10],    // Row 1
+                    [11, 25, 23, 58, 99],   // Row 2
+                    [0, 0]                  // Row 3
+                    ];
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Reference parameters</h2>
+                    </section>
+
+                    <section>
+                        <h3>Reference parameters</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>There are two ways to pass arguments to functions (or methods)
+                                    <ul>
+                                        <li>Pass-by-value
+                                            <ul>
+                                                <li>a copy of the argument's value is made and is passed to the called function</li>
+                                            </ul>
+                                        </li>
+                                        <li>Pass-by-reference
+                                            <ul>
+                                                <li>The caller gives the called function access to the caller’s data and allows the called function to modify the data if it so chooses.</li>
+                                                <li>Can improve performance because it can eliminate the overhead of copying large amounts of data, but it can weaken security because the called function can access the caller's data.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Reference parameters</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>In JavaScript, numbers, boolean values and strings are passed to functions by value.</li>
+                                <li>All objects are passed to functions by reference.</li>
+                                <li>With pass-by-value, changes to the copy of the value received by the called function do not effect the original variable's value in the calling function.</li>
+                                <li>When information is returned from a function via a return statement, numbers and boolean values are returned by value and objects are returned by reference.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Passing arrays to functions</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>To pass an array as an argument to a function
+                                    <ul>
+                                        <li>Specify the array's name (a reference to the array) without brackets</li>
+                                        <li>Although entire arrays are passed by reference, individual numeric and boolean array elements are passed by value exactly as simple numeric and boolean variables are passed
+                                            <ul>
+                                                <li>Such simple single pieces of data are called scalars, or scalar quantities.</li>
+                                                <li>To pass an array element to a function, use the indexed name of the element as an argument in the function call.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Passing arrays to functions</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var myArray = new Array(3);
+for (var i = 0; i &lt; myArray.length; i++) {
+    myArray[i] = i;
+}
+printArray(myArray);            //Passed by reference
+printElement(myArray[2]);       //Passed by value
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Iterating Arrays</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var someArray = new Array(10);
+        someArray[0] = "blue";
+        someArray[1] = "red";
+        someArray[2] = "green";
+        someArray[9] = "orange";
+
+        document.write("<div style='font-size: 40px;'>");
+        for (var i in someArray) {
+            document.write(someArray[i] + " ");
+        }
+        document.write("</div>");
+        </script>
+    </body>
+</html>
+
+
