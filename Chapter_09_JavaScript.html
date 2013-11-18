@@ -52,6 +52,10 @@
                 <section>
                     <section>
                         <h2>Introduction</h2>
+
+                        <div>
+                            <img height="400px" src="assets/C09/JavaScriptVsGood.jpg">
+                        </div>
                     </section>
 
                     <section>
@@ -114,6 +118,10 @@
                 <section>
                     <section>
                         <h2>Basics of JavaScript</h2>
+
+                        <div>
+                            <img height="300px" src="assets/C09/JavaScriptFunny.jpg">
+                        </div>
                     </section>
 
                     <section>
@@ -122,12 +130,15 @@
                         <div class="alignleft">
                             <ul>
                                 <li>Every statement should end with a semicolon (also known as the statement terminator), although none is required by JavaScript</li>
-                                <li>JavaScript is case sensitive.
+                                <li>JavaScript is <strong>case sensitive</strong>
                                     <ul>
                                         <li>Not using the proper uppercase and lowercase letters is a syntax error.</li>
-                                        <li>Each browser has its own way of displaying JavaScript errors.</li>
-                                        <li>FF: Tools => Web Developer => Error Console</li>
-                                        <li>Chrome: Tools => JavaScript Console</li>
+                                        <li>Each browser has its own way of displaying JavaScript errors.
+                                            <ul>
+                                                <li>FF: Tools => Web Developer => Error Console</li>
+                                                <li>Chrome: Tools => JavaScript Console</li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -143,7 +154,7 @@
                                 <li>The <code>&lt;script&gt;</code> tag indicates to the browser that the text that follows is part of a script.
                                     <ul>
                                         <li>The attribute <code>type</code> specifies the scripting language used in the script—such as <code>text/javascript</code>.</li>
-                                        <li>Comments can be added using double slashes // or delimited by /* and */</li>
+                                        <li>Current standard scripting language is JS so the <code>type</code> attribute is optional when including JS code.</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -153,6 +164,22 @@
 &lt;script type=&quot;text/javascript&quot;&gt;
     // JavaScript code
 &lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Where to put it all ?</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>You can also add JavaScript code to external files with the extension ".js" and add these to your html.</li>
+                                <li>Use the <code>script</code> tag to include the JavaScript file</li>
+                                <li>Do NOT add script tags arround your JS code in the external file</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script src=&quot;MyCode.js&quot;&gt;&lt;/script&gt;
                         </code></pre>
                     </section>
 
@@ -181,26 +208,15 @@
 &lt;/script&gt;
                         </code></pre>
                     </section>
-
-                    <section>
-                        <h3>Document Object Model</h3>
-
-                        <div class="alignleft">
-                            <ul>
-                                <li>When a web page is loaded, the browser creates a Document Object Model of the page.</li>
-                                <li>The HTML DOM model is constructed as a tree of Objects</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <img height="400px" src="assets/C09/HTML_DOM_Tree.gif">
-                        </div>
-                    </section>
                 </section>
 
                 <section>
                     <section>
                         <h2>The JavaScript Language</h2>
+
+                        <div>
+                            <img height="300px" src="assets/C09/JavaScriptLanguageBasics.jpg">
+                        </div>
                     </section>
 
                     <section>
@@ -208,10 +224,13 @@
 
                         <div class="alignleft">
                             <ul>
-                                <li>All variables should be declared with a var statement before they are used in a script.</li>
-                                <li>JavaScript does not require variables to have a type before they can be used in a script.</li>
-                                <li>A variable in JavaScript can contain a value of any data type, and in many situations, JavaScript automatically converts between values of different types for you.</li>
-                                <li>JavaScript is referred to as a loosely typed language.</li>
+                                <li>All variables should be declared with a <code>var</code> statement before they are used in a script.</li>
+                                <li>JavaScript does not require variables to have a type before they can be used in a script.
+                                    <ul>
+                                        <li>A variable in JavaScript can contain a value of any data type, and in many situations, JavaScript automatically converts between values of different types for you.</li>
+                                        <li>JavaScript is referred to as a loosely typed language.</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
 
@@ -220,8 +239,6 @@
     var someNumber = 15;
     var someString = &quot;Hello World&quot;;
     var someDouble = 15.3;
-    var someUndefined;
-    var someInt1, someInt2, someInt3;
 &lt;/script&gt;
                         </code></pre>
                     </section>
@@ -231,27 +248,25 @@
 
                         <div class="alignleft">
                             <ul>
-                                <li>When a variable is declared in JavaScript, but is not given a value, it has an undefined value.
+                                <li>When a variable is declared in JavaScript, but is not given a value, it has an <code>undefined</code> value.
                                     <ul>
                                         <li>Attempting to use the value of such a variable is normally a logic error.</li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var someUndefined;
+    var someInt1, someInt2, someInt3;
+    document.write(someUndefined);      // Output: undefined
+&lt;/script&gt;
+                        </code></pre>
                     </section>
 
                     <section>
                         <h3>JavaScript Arithmetic Operators</h3>
-
-                        <div class="alignleft">
-                            <ul>
-                                <li>When a variable is declared in JavaScript, but is not given a value, it has an undefined value.
-                                    <ul>
-                                        <li>Attempting to use the value of such a variable is normally a logic error.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
 
                         <div>
                             <img height="400px" src="assets/C09/JS_ArithmethicOperators.png">
@@ -263,7 +278,7 @@
 
                         <div class="alignleft">
                             <ul>
-                                <li>The increment and decrement operators are not idempotent and can have side-effects if not used with caution.
+                                <li>The increment and decrement operators are not idempotent and can have <strong>side-effects</strong> if not used with caution.
                                     <ul>
                                         <li>Idempotent operations always give the same result, no matter how many times they are executed.</li>
                                     </ul>
@@ -297,8 +312,7 @@
 var a = 0;
 var someCondition = true;
 
-while (someCondition &amp;&amp; (++a &lt; 4))
-{
+while (someCondition &amp;&amp; (++a &lt; 4)) {
     document.writeln(a + &quot; &quot;);
     if (a == 3)
         someCondition = false;
@@ -307,6 +321,7 @@ document.writeln(&quot;Lastvalue of a is &quot;+ a);
 // Output: 1 2 3 Lastvalue of a is 3
 &lt;/script&gt;
                         </code></pre>
+                        <a href="assets/C09/Idempotent1.html" target="_blank">Show Me</a>
                     </section>
 
                     <section>
@@ -317,8 +332,7 @@ document.writeln(&quot;Lastvalue of a is &quot;+ a);
 var a = 0;
 var someCondition = true;
 
-while ((++a &lt; 4) &amp;&amp; someCondition)
-{
+while ((++a &lt; 4) &amp;&amp; someCondition) {
     document.writeln(a + &quot; &quot;);
     if (a == 3)
         someCondition = false;
@@ -327,13 +341,14 @@ document.writeln(&quot;Lastvalue of a is &quot;+ a);
 // Output: 1 2 3 Lastvalue of a is 4
 &lt;/script&gt;
                         </code></pre>
+                        <a href="assets/C09/Idempotent2.html" target="_blank">Show Me</a>
                     </section>
 
                     <section>
                         <h3>JavaScript Relational Operators</h3>
 
                         <div>
-                            <img height="400px" src="assets/C09/JS_RelationalOperators.png">
+                            <img height="300px" src="assets/C09/JS_RelationalOperators.png">
                         </div>
                     </section>
 
@@ -355,6 +370,11 @@ else
     document.writeln(&quot;'75' does not equals 75&quot;);
 &lt;/script&gt;
                         </code></pre>
+                        <a href="assets/C09/Equality.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Relational Operators</h3>
 
                         <div class="alignleft">
                             <ul>
@@ -370,6 +390,7 @@ else
     document.writeln(&quot;'75' does not strict equals 75&quot;);
 &lt;/script&gt;
                         </code></pre>
+                        <a href="assets/C09/StrictComparison.html" target="_blank">Show Me</a>
                     </section>
 
                     <section>
@@ -393,11 +414,11 @@ else
 
                         <div class="alignleft">
                             <ul>
-                                <li>JavaScript evaluates to false or true all expressions that include relational operators, equality operators and/or logical operators.
+                                <li>JavaScript evaluates to <code>false</code> or <code>true</code> all expressions that include relational operators, equality operators and/or logical operators.
                                     <ul>
                                         <li>In JavaScript, any nonzero numeric value in a condition evaluates to true, and 0 evaluates to false.</li>
                                         <li>Any string containing one or more characters evaluates to true, and the empty string "" evaluates to false.</li>
-                                        <li>The value null and variables that have been declared but not initialized are considered to be false.</li>
+                                        <li>The value <code>null</code> and variables that have been declared but not initialized (<code>undefined</code>) are considered to be false.</li>
                                         <li>All objects are considered to be true.</li>
                                     </ul>
                                 </li>
@@ -443,6 +464,7 @@ else {
 }
 &lt;/script&gt;
                         </code></pre>
+                        <a href="assets/C09/IfStatement.html" target="_blank">Show Me</a>
                     </section>
 
                     <section>
@@ -450,8 +472,8 @@ else {
 
                         <div class="alignleft">
                             <ul>
-                                <li>Use the switch statement to select one of many blocks of code to be executed.</li>
-                                <li>Break is used as the last statement in each case to exit the switch statement immediately.</li>
+                                <li>Use the <code>switch</code> statement to select one of many blocks of code to be executed.</li>
+                                <li><code>break</code> is used as the last statement in each case to exit the switch statement immediately.</li>
                             </ul>
                         </div>
 
@@ -476,7 +498,7 @@ switch(variable) {
 
                         <pre><code data-trim>
 &lt;script type=&quot;text/javascript&quot;&gt;
-result = operand1 ? operand2 : operand3;
+result = &lt;codition&gt; ? &lt;value_true&gt; : &lt;value_false&gt;;
 &lt;/script&gt;
                         </code></pre>
 
@@ -489,7 +511,6 @@ result = operand1 ? operand2 : operand3;
                                         <li>Third is the value for the conditional expression if the boolean expression evaluates to false</li>
                                     </ul>
                                 </li>
-                                <li>Use the ternary operator with caution.</li>
                                 <li>Complex statements should be modeled using if ... else constructs.</li>
                             </ul>
                         </div>
@@ -553,7 +574,7 @@ for (var i = 0; i &lt; 10; i++) {
 
                         <div class="alignleft">
                             <ul>
-                                <li>Confusing the + operator used for string concatenation with the + operator used for addition often leads to undesired results.</li>
+                                <li>Confusing the <code>+</code> operator used for string concatenation with the <code>+</code> operator used for addition often leads to undesired results.</li>
                             </ul>
                         </div>
 
@@ -575,12 +596,12 @@ document.writeln(&quot;&lt;div&gt;b + 7 = &quot; + (b + 7) + &quot;&lt;/div&gt;&
 
                         <div class="alignleft">
                             <ul>
-                                <li>When a backslash is encountered in a string of characters, the next character is combined with the backslash to form an escape sequence.</li>
+                                <li>When a backslash (<code>\</code>) is encountered in a string of characters, the next character is combined with the backslash to form an escape sequence.</li>
                             </ul>
                         </div>
 
                         <div>
-                            <img height="400px" src="assets/C09/JS_EscapeSequences.png">
+                            <img height="300px" src="assets/C09/JS_EscapeSequences.png">
                         </div>
                     </section>
                 </section>
@@ -589,6 +610,10 @@ document.writeln(&quot;&lt;div&gt;b + 7 = &quot; + (b + 7) + &quot;&lt;/div&gt;&
                 <section>
                     <section>
                         <h2>JavaScript Functions</h2>
+
+                        <div>
+                            <img height="300px" src="assets/C09/FunctionMachine.png">
+                        </div>
                     </section>
 
                     <section>
@@ -620,8 +645,8 @@ document.writeln(&quot;&lt;div&gt;b + 7 = &quot; + (b + 7) + &quot;&lt;/div&gt;&
 
                         <pre><code data-trim>
 &lt;script type=&quot;text/javascript&quot;&gt;
-// Generate random number between 1 and 100
-var rnd = Math.floor(Math.random() * 100) + 1;
+// Show an alert box to the user
+alert(&quot;Hello World&quot;);
 &lt;/script&gt;
                         </code></pre>
                     </section>
@@ -639,11 +664,11 @@ var rnd = Math.floor(Math.random() * 100) + 1;
 &lt;script type=&quot;text/javascript&quot;&gt;
 function functionName(param1, param2, param3)
 {
-    var someVal = 15;
+    var someVal = param1 + param2 + param3;
 
     // ...
 
-    return someVal;     // Optional return statement
+    return someVal;     /* Optional return statement */
 }
 &lt;/script&gt;
                         </code></pre>

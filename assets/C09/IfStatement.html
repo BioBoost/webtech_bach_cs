@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+    // Generate random number between 1 and 100
+    var rnd = Math.floor(Math.random() * 100) + 1;
+
+    if (rnd < 50) {
+        document.write("<div>Smaller than 50</div>");
+    }
+    else if (rnd >= 50) {
+        document.write("<div>Bigger or equal to 50</div>");
+    }
+    else {
+        document.write("<div>Number not in range. How did this happen ?</div>");
+    }
+    </script>
+</body>
+</html>

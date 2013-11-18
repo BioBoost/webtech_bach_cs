@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+    var a = 0;
+    var someCondition = true;
+
+    while (someCondition && (++a < 4))
+    {
+        document.writeln(a + " ");
+        if (a == 3)
+            someCondition = false;
+    }
+    document.writeln("Lastvalue of a is "+ a);
+    // Output: 1 2 3 Lastvalue of a is 3
+    </script>
+</body>
+</html>
