@@ -1240,39 +1240,356 @@ printElement(myArray[2]);       //Passed by value
                     </section>
                 </section>
 
+                <section>
+                    <section>
+                        <h2>Manipulating the Document Object Model</h2>
 
+                        <div>
+                            <!-- <img height="300px" src="assets/C09/JS_Arrays.jpg"> -->
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>Document Object Model</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>When a web page is loaded, the browser creates a Document Object Model of the page.</li>
+                                <li>The HTML DOM model is constructed as a tree of Objects</li>
+                            </ul>
+                        </div>
 
+                        <div>
+                            <img height="300px" src="assets/C09/HTML_DOM_Tree.gif">
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>Document Object Model</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>The Document Object Model gives you scripting access to all the elements on a web page.</li>
+                                <li>Using JavaScript, you can create, modify and remove elements in the page dynamically.</li>
+                                <li>With the DOM, HTML5 elements can be treated as objects, and many attributes of HTML5 elements can be treated as properties of those objects.</li>
+                                <li>Then objects can be scripted with JavaScript to achieve dynamic effects.</li>
+                            </ul>
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>Document Object Model</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>The nodes in a document make up the page's DOM tree, which describes the relationships among elements.
+                                    <ul>
+                                        <li>Nodes are related to each other through child-parent relationships.</li>
+                                        <li>A node can have multiple children, but only one parent.</li>
+                                        <li>Nodes with the same parent node are referred to as siblings.</li>
+                                        <li>The html node in a DOM tree is called the root node, because it has no parent.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>The Node Object</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>The Node object represents a node in the HTML document.</li>
+                                <li>A node in an HTML document is:
+                                    <ul>
+                                        <li>The Document</li>
+                                        <li>An element</li>
+                                        <li>An attribute</li>
+                                        <li>Text</li>
+                                        <li>A comment</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 
+                        <a href="http://www.w3schools.com/dom/dom_node.asp" target="_blank">More info on W3CSchools</a>
+                    </section>
 
+                    <section>
+                        <h3>Visual Representation</h3>
 
+                        <div>
+                            <img height="400px" src="assets/C09/DOMNodes.jpg">
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>DOM Inspector</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>Every major browser these days has a DOM viewer. Use it to inspect your webpages.</li>
+                            </ul>
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>Event Handling</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript events
+                                    <ul>
+                                        <li>allow scripts to respond to user interactions and modify the page accordingly</li>
+                                    </ul>
+                                </li>
+                                <li>Events and event handling 
+                                    <ul>
+                                        <li>help make web applications more dynamic and interactive</li>
+                                        <li>An event handler is a function that responds to an event.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>Registering event handlers</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>Assigning an event handler to an event on a DOM node is called <strong>registering</strong> an event handler.</li>
+                                <li>Method <code>addEventListener()</code> can be called multiple times on a DOM node to register more than one event-handling method for an event.
+                                    <ul>
+                                        <li>Multiple handlers can be assigned to 1 event.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
 
+                    <section>
+                        <h3>Registering 2 onload event handlers</h3>
 
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+function windowLoaded1() {
+    window.alert(&quot;Document loaded 1&quot;);
+}
 
+function windowLoaded2() {
+    window.alert(&quot;Document loaded 2&quot;);
+}
 
+// Register onload event handler
+window.addEventListener(&quot;load&quot;, windowLoaded1);
+window.addEventListener(&quot;load&quot;, windowLoaded2);
+&lt;/script&gt;
+                        </code></pre>
 
+                        <a href="assets/C09/LoadEventHandler.html" target="_blank">Show Me</a>
+                    </section>
 
+                    <section>
+                        <h3>Passing Arguments to event handlers</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>Events handlers can not be registered directly when they take arguments.</li>
+                                <li>Following code will generate an <strong>ERROR</strong>
+                                    <ul>
+                                        <li>At least it used to! Apparently this works now.</li>
+                                        <li>Next slide shows better solution</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+function displayName(name) {
+    window.alert(&quot;Hello there &quot; + name);
+}
 
+// Register onload event handler
+window.addEventListener(&quot;load&quot;, displayName(&quot;Mark&quot;));
+&lt;/script&gt;
+                        </code></pre>
 
+                        <a href="assets/C09/EventHandler_PassingArguments_Bad.html" target="_blank">Show Me</a>
+                    </section>
 
+                    <section>
+                        <h3>Passing Arguments to event handlers using anonymous functions</h3>
 
+                        <div class="alignleft">
+                            <ul>
+                                <li>Anonymous functions are defined without a name.</li>
+                                <li>It's created in nearly the same way as any other function, but with no identifier after the keyword function.</li>
+                            </ul>
+                        </div>
 
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function displayName(name) {
+        window.alert(&quot;Hello there &quot; + name);
+    }
 
+    // Register onload event handler using anonymous function
+    window.addEventListener(
+        &quot;load&quot;,
+        function() { displayName(&quot;Mark&quot;); }
+    );
+&lt;/script&gt;
+                        </code></pre>
+
+                        <a href="assets/C09/EventHandler_PassingArguments_Anonymous.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Event bubbling</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The process whereby events fired on child elements "bubble" up to their parent elements.</li>
+                                <li>When an event is fired on an element, it is first delivered to the element's event handler (if any), then to the parent element's event handler (if any), ...</li>
+                                <li>If you intend to handle an event in a child element alone, you should cancel the bubbling of the event in the child element's event-handling code by using the <code>cancelBubble</code> property of the event object.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Event bubbling</h3>
+
+                        <pre><code data-trim>
+&lt;p id=&quot;bubble&quot;&gt;Bubbling enabled.&lt;/p&gt;
+&lt;p id=&quot;noBubble&quot;&gt;Bubbling disabled.&lt;/p&gt;
+                        </code></pre>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+function registerEvents() {
+    document.addEventListener(&quot;click&quot;, documentClick);                        
+    document.getElementById(&quot;bubble&quot;).addEventListener(&quot;click&quot;, bubble);    
+    document.getElementById(&quot;noBubble&quot;).addEventListener(&quot;click&quot;, noBubble);    
+}
+window.addEventListener(&quot;load&quot;, registerEvents);
+&lt;/script&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Event bubbling</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Event object can be passed to the event handler.</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+function documentClick() {
+    alert( &quot;You clicked in the document.&quot; );  
+}
+
+function bubble(e) {
+    alert( &quot;This will bubble.&quot; );
+    e.cancelBubble = false;
+}
+
+function noBubble(e) {
+    alert( &quot;This will not bubble.&quot; );
+    e.cancelBubble = true;
+}
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/EventHandler_EventBubbling.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>DOM events</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Every DOM element has several events.</li>
+                                <li>The following slides lists some common events and their descriptions. The actual DOM event names begin with <strong>"on"</strong>, but the names shown here are the ones used with <code>addEventListener</code></li>
+                            </ul>
+                        </div>
+
+                        <a href="http://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">More info on W3CSchools</a>
+                    </section>
+
+                    <section>
+                        <h3>DOM events</h3>
+                        
+                        <div>
+                            <img height="500px" src="assets/C09/DOMEvents_1.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>DOM events</h3>
+                        
+                        <div>
+                            <img height="300px" src="assets/C09/DOMEvents_2.png">
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Legacy Code for event handling</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Two other models for registering event handlers
+                                    <ul>
+                                        <li>Inline model</li>
+                                        <li>Traditional model</li>
+                                    </ul>
+                                </li>
+                                <li>Both are considered legacy code by the HTML5 standard but are still frequently used.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Legacy Code - Inline model</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Inline model treats events as attributes of HTML elements
+                                    <ul>
+                                        <li>Places calls to JavaScript functions directly in HTML code.</li>
+                                        <li>It's generally considered poor practice to intermix HTML and JavaScript code in this manner.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;body onload=&quot;loadEventHandler()&quot;&gt;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Legacy Code - Traditional model</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Traditional model assigns the name of the function to the event property of a DOM node (in JavaScript code).
+                                    <ul>
+                                        <li>Problem: If another statement assigns a value to the <code>document.onload</code> property, the original value is lost, which may not be the intended result.</li>
+                                        <li>Multiple events handlers can not be specified directly (can be achieved using anonymous functions or wrapper functions).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+document.onload = &quot;loadEventHandler()&quot;
+                        </code></pre>
+                    </section>
+                </section>
 			</div>
 
 		</div>

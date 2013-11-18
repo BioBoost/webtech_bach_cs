@@ -1,0 +1,33 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Array Length</title>
+    </head>
+    <body>
+    <p id="bubble">Bubbling enabled.</p>
+    <p id="noBubble">Bubbling disabled.</p>
+
+        <script type="text/javascript">
+        function documentClick() {
+            alert( "You clicked in the document." );  
+        }
+
+        function bubble(e) {
+            alert( "This will bubble." );
+            e.cancelBubble = false;
+        }
+
+        function noBubble(e) {
+            alert( "This will not bubble." );
+            e.cancelBubble = true;
+        }
+
+        function registerEvents() {
+            document.addEventListener("click", documentClick);                        
+            document.getElementById("bubble").addEventListener("click", bubble);    
+            document.getElementById("noBubble").addEventListener("click", noBubble);    
+        }
+        window.addEventListener("load", registerEvents);
+        </script>
+    </body>
+</html>
