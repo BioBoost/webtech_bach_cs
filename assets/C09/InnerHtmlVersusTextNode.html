@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Dynamic Content Container</title>
+        <script type="text/javascript">
+            function documentLoad() {
+                var aElem1 = document.createElement("a");
+                aElem1.href = "http://www.google.com";
+                aElem1.innerHTML = '<img src="ToCatchAMouse.jpg" alt="none" />';
+                document.getElementById("dynamic1").appendChild(aElem1);
+                        
+                var aElem2 = document.createElement("a");
+                aElem2.href = "http://www.google.com";
+                var aContent = document.createTextNode('<img src="ToCatchAMouse.jpg" />');
+                aElem2.appendChild(aContent);
+                document.getElementById("dynamic2").appendChild(aElem2);
+            }
+            window.addEventListener("load", documentLoad, false);
+        </script>
+    </head>
+    <body>
+        <div id="dynamic1">
+                
+        </div>    
+        <div id="dynamic2">
+                
+        </div>        
+    </body>
+</html>

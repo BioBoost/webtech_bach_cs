@@ -1866,6 +1866,357 @@ function noBubble(e) {
 document.onload = &quot;loadEventHandler()&quot;
                         </code></pre>
                     </section>
+
+                    <section>
+                        <h3>Manipulating HTML elements using DOM</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>JavaScript can be used to manipulate the HTML elements of the browsers DOM tree.</li>
+                                <li>Lets start with a simple HTML page containing some buttons and a div container to host some content</li>
+                                <li>We added some fancy CSS to make the page look a bit more interesting</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Manipulating HTML elements using DOM</h3>
+
+                        <pre><code data-trim>
+&lt;body&gt;
+    &lt;div id=&quot;content&quot;&gt;
+        &lt;div id=&quot;display&quot;&gt;
+            &lt;div id=&quot;dynamicContent&quot;&gt;This is the dynamic content display container.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;actions&quot;&gt;
+            &lt;textarea id=&quot;txtInput&quot; cols=&quot;40&quot; rows=&quot;5&quot; placeholder=&quot;input here pls&quot;&gt;&lt;/textarea&gt;
+            &lt;ul id=&quot;controlList&quot;&gt;
+                &lt;li&gt;&lt;input type=&quot;button&quot; id=&quot;btnSetRed&quot; value=&quot;Set Dynamic Content to Red&quot; /&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;input type=&quot;button&quot; id=&quot;btnSetBlue&quot; value=&quot;Set Dynamic Content to Blue&quot; /&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;input type=&quot;button&quot; id=&quot;btnChangeInnerHTML&quot; value=&quot;Change inner HTML&quot; /&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;input type=&quot;button&quot; id=&quot;btnAddParagraphNode&quot; value=&quot;Add paragraph node&quot; /&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;input type=&quot;button&quot; id=&quot;btnRemoveElement&quot; value=&quot;Remove Element by ID&quot; /&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+                        </code></pre>
+                        <a href="assets/C09/DynamicContentContainer_SimpleHTML.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Manipulating HTML elements using DOM</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Lets register some event handlers for the first two buttons</li>
+                                <li>The first button will allow us to set the css class of the dynamic content container to red</li>
+                                <li>The second button allows us to switch to blue</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function setDynamicContentClass(classname) {
+        alert(&quot;Event received with classname = &quot; + classname);
+    }
+
+    // Register page load event
+    window.addEventListener(&quot;load&quot;, documentLoad);
+
+    function documentLoad() {
+        //Assign event handlers to control buttons
+        document.getElementById(&quot;btnSetRed&quot;).addEventListener( &quot;click&quot;, function () { setDynamicContentClass(&quot;red&quot;); });
+        document.getElementById(&quot;btnSetBlue&quot;).addEventListener(&quot;click&quot;, function () { setDynamicContentClass(&quot;blue&quot;); });
+    }
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/DynamicContentContainer_AddingEventHandlers.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>The window load event</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>The window object's load event fires when the window finishes loading successfully (i.e., all its children are loaded and all external files referenced by the page are loaded)</li>
+                                <li>Every DOM element has a load event, but it's most commonly used on the window object.</li>
+                                <li>Why not register all events directly ?
+                                    <ul>
+                                        <li>If a script in the head attempts to get a DOM node for an HTML element in the body, <code>getElementById</code> returns <code>null</code> because the body has not yet loaded</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>setDynamicContentClass implementation</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>By using the <code>getElementById</code> we can fetch the node with the given id</li>
+                                <li>Next we use the <code>setAttribute</code> method on the node object to change the css class attribute</li>
+                                <li>You are now able to <strong>dynamically</strong> change CSS classes</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function setDynamicContentClass(classname) {
+        document.getElementById(&quot;dynamicContent&quot;).setAttribute(&quot;class&quot;, classname);
+    }
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/DynamicContentContainer_ClassImplementation.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Change the content of the container</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Lets give the user the oppertunity to dynamically add HTML content to the page</li>
+                                <li>We fetch the content of the text area using the <code>value</code> property
+                                    <ul>
+                                        <li><a href="http://www.w3schools.com/jsref/prop_textarea_value.asp" target="_blank">More info</a></li>
+                                    </ul>
+                                </li>
+                                <li>We inject the content into the container by assigning the value of the text area to the <code>innerHTML</code> property of the container
+                                    <ul>
+                                        <li><a href="http://www.w3schools.com/jsref/prop_html_innerhtml.asp" target="_blank">More info</a></li>
+                                    </ul>
+                                </li>
+                                <li>We nust also not forget the register the new event handler</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Change the content of the container</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+  // Change the inner HTML content of the dynamic content container
+  function changingDivHTMLContent() {
+    var newContent = document.getElementById(&quot;txtInput&quot;).value;
+    document.getElementById(&quot;dynamicContent&quot;).innerHTML = newContent;
+  }
+
+  //...
+
+  function documentLoad() {
+    //Assign event handlers to control buttons
+    document.getElementById(&quot;btnSetRed&quot;).addEventListener(&quot;click&quot;, function () { setDynamicContentClass(&quot;red&quot;); });
+    document.getElementById(&quot;btnSetBlue&quot;).addEventListener(&quot;click&quot;, function () { setDynamicContentClass(&quot;blue&quot;); });
+    document.getElementById(&quot;btnChangeInnerHTML&quot;).addEventListener(&quot;click&quot;, changingDivHTMLContent);
+  }
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/DynamicContentContainer_AddContent.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Using node objects to inject HTML</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>New content can also be added to the page by creating node objects</li>
+                                <li>Lets for example add a new paragraph node to the dynamic container with a class attribute of "newnode"</li>
+                                <li>The actual text for the paragraph is fetched from the input text area</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Using node objects to inject HTML</h3>
+                        
+                        <div>
+                            <img height="200px" src="assets/C09/NewParagraphNode.jpg">
+                        </div>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>This would require the following steps:
+                                    <ol>
+                                        <li>Create <code>p</code> element node</li>
+                                        <li>Set the <code>id</code> attribute</li>
+                                        <li>Set the <code>class</code> attribute</li>
+                                        <li>Create text node</li>
+                                        <li>Append text node to <code>p</code> node</li>
+                                        <li>Append <code>p</code> node to <code>div</code> node</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Using node objects to inject HTML</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var idCount = 0;
+
+  //...
+
+  // Add new paragraph element to the dynamic content
+  function addNewContentNode() {
+    // Create new element node
+    var newNode = document.createElement(&quot;p&quot;);
+    newNode.setAttribute(&quot;id&quot;, &quot;newNode_&quot; + idCount++);
+    newNode.setAttribute(&quot;class&quot;, &quot;newnode&quot;);
+
+    //Get text content for new node
+    var content = document.getElementById(&quot;txtInput&quot;).value;
+
+    //Create new text node and add to element node
+    var textNode = document.createTextNode(content);
+    newNode.appendChild(textNode);
+
+    //Add element to dynamic content node
+    document.getElementById(&quot;dynamicContent&quot;).appendChild(newNode);
+  }
+
+  //...
+
+  function documentLoad() {
+    //Assign event handlers to control buttons
+    document.getElementById(&quot;btnSetRed&quot;).addEventListener( &quot;click&quot;, function () { setDynamicContentClass(&quot;red&quot;); });
+    document.getElementById(&quot;btnSetBlue&quot;).addEventListener(&quot;click&quot;, function () { setDynamicContentClass(&quot;blue&quot;); });
+    document.getElementById(&quot;btnChangeInnerHTML&quot;).addEventListener(&quot;click&quot;, changingDivHTMLContent);
+    document.getElementById(&quot;btnAddParagraphNode&quot;).addEventListener(&quot;click&quot;, addNewContentNode);
+  }
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/DynamicContentContainer_AddNode.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Removing objects from the DOM tree</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Last but not least lets look at how to remove DOM objects</li>
+                                <li>Lets for example remove the last created paragraph from the div container</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Using node objects to inject HTML</h3>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+  // ...
+
+  function removeLastContentNode() {
+    var nodeId = &quot;newNode_&quot; + (idCount-1);
+    
+    // Get element node
+    var element = document.getElementById(nodeId);
+
+    // If element exists
+    if (element) {
+      // Get parent node and remove child element
+      var parent = element.parentNode;
+      parent.removeChild(element);
+      idCount--;  // Decrement id count
+    }
+  }
+
+  // ...
+
+  function documentLoad() {
+    //Assign event handlers to control buttons
+    document.getElementById(&quot;btnSetRed&quot;).addEventListener( &quot;click&quot;, function () { setDynamicContentClass(&quot;red&quot;); });
+    document.getElementById(&quot;btnSetBlue&quot;).addEventListener(&quot;click&quot;, function () { setDynamicContentClass(&quot;blue&quot;); });
+    document.getElementById(&quot;btnChangeInnerHTML&quot;).addEventListener(&quot;click&quot;, changingDivHTMLContent);
+    document.getElementById(&quot;btnAddParagraphNode&quot;).addEventListener(&quot;click&quot;, addNewContentNode);
+    document.getElementById(&quot;btnRemoveElement&quot;).addEventListener(&quot;click&quot;, removeLastContentNode);
+  }
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/DynamicContentContainer_RemoveNode.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Important Side Note</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Notice the difference between
+                                    <ul>
+                                        <li>set content event handler: uses <code>.innerHTML</code> attribute</li>
+                                        <li>add paragraph event handler: uses <code>.appendChild(textNode)</code> method</li>
+                                    </ul>
+                                </li>
+                                <li>Watch what happens when we set the content to <code>&lt;h1&gt;Is this a header ?&lt;/h1&gt;</code>.</li>
+                                <li>Try the same by adding a paragraph with the content <code>&lt;h1&gt;Is this a header ?&lt;/h1&gt;</code>.</li>
+                                <li>Can you think of a reason why this happens ?</li>
+                            </ul>
+                        </div>
+                        <a href="assets/C09/DynamicContentContainer_RemoveNode.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>Important Side Note</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Difference:
+                                    <ul>
+                                        <li><code>.innerHTML</code>: Property of container elements. When assigning text to this the new value gets parsed as HTML by the browser</li>
+                                        <li><code>TextNode</code>: Value is converted to text</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>Important Side Note</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Example</li>
+                            </ul>
+                        </div>
+
+                        <pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;Dynamic Content Container&lt;/title&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            function documentLoad() {
+                var aElem1 = document.createElement(&quot;a&quot;);
+                aElem1.href = &quot;http://www.google.com&quot;;
+                aElem1.innerHTML = '&lt;img src=&quot;ToCatchAMouse.jpg&quot; alt=&quot;none&quot; /&gt;';
+                document.getElementById(&quot;dynamic1&quot;).appendChild(aElem1);
+                        
+                var aElem2 = document.createElement(&quot;a&quot;);
+                aElem2.href = &quot;http://www.google.com&quot;;
+                var aContent = document.createTextNode('&lt;img src=&quot;ToCatchAMouse.jpg&quot; /&gt;');
+                aElem2.appendChild(aContent);
+                document.getElementById(&quot;dynamic2&quot;).appendChild(aElem2);
+            }
+            window.addEventListener(&quot;load&quot;, documentLoad, false);
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;dynamic1&quot;&gt;
+                
+        &lt;/div&gt;    
+        &lt;div id=&quot;dynamic2&quot;&gt;
+                
+        &lt;/div&gt;        
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <a href="assets/C09/InnerHtmlVersusTextNode.html" target="_blank">Show Me</a>
+                    </section>
                 </section>
 			</div>
 

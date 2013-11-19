@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Dynamic Content Container</title>
+        <style type="text/css">
+        body {
+            background-color: #BDBDBD;
+        }
+        #content {
+            width: 800px;
+            height: 200px;
+            margin: 40px auto 40px auto;
+        }
+        #dynamicContent {
+            padding: 40px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: #787878;
+            -webkit-border-radius: 40px;
+            -moz-border-radius: 40px;
+            border-radius: 40px;
+        }
+        #display {
+            padding-bottom: 40px;            
+            border-bottom-style: solid;
+            border-bottom-width: 5px;
+            border-bottom-color: #909090; 
+        }
+        #actions {
+            padding: 20px;
+            width: 400px;
+            margin: 20px auto 20px auto;
+        }
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="display">
+                <div id="dynamicContent">This is the dynamic content display container.</div>
+            </div>
+            <div id="actions">
+                <textarea id="txtInput" cols="40" rows="5" placeholder="input here pls"></textarea>
+                <ul id="controlList">
+                    <li><input type="button" id="btnSetRed" value="Set Dynamic Content to Red" /></li>
+                    <li><input type="button" id="btnSetBlue" value="Set Dynamic Content to Blue" /></li>
+                    <li><input type="button" id="btnChangeInnerHTML" value="Change inner HTML" /></li>
+                    <li><input type="button" id="btnAddParagraphNode" value="Add paragraph node" /></li>
+                    <li><input type="button" id="btnRemoveElement" value="Remove Element by ID" /></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
