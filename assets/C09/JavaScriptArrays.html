@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>JavaScript Arrays</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var myArray = new Array(10);
+        var MAX = 2000, MIN = 50;
+
+        document.write("<ul>");
+        for (var i = 0; i < myArray.length; i++) {
+            myArray[i] = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+            document.write("<li>" + myArray[i] + "</li>");
+        }
+        document.write("</ul>");
+        </script>
+    </body>
+</html>

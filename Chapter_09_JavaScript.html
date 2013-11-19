@@ -1176,12 +1176,17 @@ function helloWorld() {
                         <pre><code data-trim>
 &lt;script type=&quot;text/javascript&quot;&gt;
 var myArray = new Array(10);
-document.writeln(&quot;&lt;div&gt;Your new array has a length of &quot;
-    + myArray.length
-    + &quot; elements&lt;/div&gt;&quot;);
+var MAX = 2000, MIN = 50;
+
+document.write(&quot;&lt;ul&gt;&quot;);
+for (var i = 0; i &lt; myArray.length; i++) {
+    myArray[i] = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+    document.write(&quot;&lt;li&gt;&quot; + myArray[i] + &quot;&lt;/li&gt;&quot;);
+}
+document.write(&quot;&lt;/ul&gt;&quot;);
 &lt;/script&gt;
                         </code></pre>
-                        <a href="assets/C09/ArrayLength.html" target="_blank">Show Me</a>
+                        <a href="assets/C09/JavaScriptArrays.html" target="_blank">Show Me</a>
                     </section>
 
                     <section>
@@ -1196,7 +1201,28 @@ document.writeln(&quot;&lt;div&gt;Your new array has a length of &quot;
                                 </li>
                             </ul>
                         </div>
-                        <!-- TODO: Add example here -->
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+var myArray = new Array(10);
+var MAX = 2000, MIN = 50;
+
+document.write(&quot;&lt;ul&gt;&quot;);
+for (var i = 0; i &lt; myArray.length; i++) {
+    myArray[i] = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+    document.write(&quot;&lt;li&gt;&quot; + myArray[i] + &quot;&lt;/li&gt;&quot;);
+}
+document.write(&quot;&lt;/ul&gt;&quot;);
+
+myArray[25] = 9999;
+document.write(&quot;&lt;ul&gt;&quot;);
+for (var i = 0; i &lt; myArray.length; i++) {
+    document.write(&quot;&lt;li&gt;&quot; + myArray[i] + &quot;&lt;/li&gt;&quot;);
+}
+document.write(&quot;&lt;/ul&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/JavaScriptArraysReallocation.html" target="_blank">Show Me</a>
                     </section>
 
                     <section>
@@ -1233,6 +1259,11 @@ document.writeln(&quot;&lt;div&gt;&quot; + x.join(&quot;Hello&quot; -1)  + &quot
 &lt;/script&gt;
                         </code></pre>
                         <a href="assets/C09/NanaBatman.html" target="_blank">Show Me</a>
+
+<!--
+The join() method joins the elements of an array into a string, and returns the string.
+The elements will be separated by a specified separator. The default separator is comma (,).
+-->
                     </section>
 
                     <section>
@@ -1395,6 +1426,10 @@ var someArray = [   [1, 2, 3],              // Row 0
                 <section>
                     <section>
                         <h2>Reference parameters</h2>
+
+                        <div>
+                            <img height="300px" src="assets/C09/PassByReference.png">
+                        </div>
                     </section>
 
                     <section>
@@ -1475,7 +1510,7 @@ printElement(myArray[2]);       //Passed by value
                         <h2>Manipulating the Document Object Model</h2>
 
                         <div>
-                            <!-- <img height="300px" src="assets/C09/JS_Arrays.jpg"> -->
+                            <img height="300px" src="assets/JediMindTricks.jpg">
                         </div>
                     </section>
 
@@ -1484,7 +1519,7 @@ printElement(myArray[2]);       //Passed by value
 
                         <div class="alignleft">
                             <ul>
-                                <li>When a web page is loaded, the browser creates a Document Object Model of the page.</li>
+                                <li>When a web page is loaded, the browser creates a <strong>Document Object Model</strong> of the page.</li>
                                 <li>The HTML DOM model is constructed as a tree of Objects</li>
                             </ul>
                         </div>
@@ -1501,7 +1536,11 @@ printElement(myArray[2]);       //Passed by value
                             <ul>
                                 <li>The Document Object Model gives you scripting access to all the elements on a web page.</li>
                                 <li>Using JavaScript, you can create, modify and remove elements in the page dynamically.</li>
-                                <li>With the DOM, HTML5 elements can be treated as objects, and many attributes of HTML5 elements can be treated as properties of those objects.</li>
+                                <li>With the DOM, HTML5 elements can be treated as objects
+                                    <ul>
+                                        <li>and many attributes of HTML5 elements can be treated as properties of those objects.</li>
+                                    </ul>
+                                </li>
                                 <li>Then objects can be scripted with JavaScript to achieve dynamic effects.</li>
                             </ul>
                         </div>
@@ -1516,8 +1555,8 @@ printElement(myArray[2]);       //Passed by value
                                     <ul>
                                         <li>Nodes are related to each other through child-parent relationships.</li>
                                         <li>A node can have multiple children, but only one parent.</li>
-                                        <li>Nodes with the same parent node are referred to as siblings.</li>
-                                        <li>The html node in a DOM tree is called the root node, because it has no parent.</li>
+                                        <li>Nodes with the same parent node are referred to as <strong>siblings</strong>.</li>
+                                        <li>The html node in a DOM tree is called the <strong>root node</strong>, because it has no parent.</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -1681,7 +1720,7 @@ window.addEventListener(&quot;load&quot;, displayName(&quot;Mark&quot;));
 
                         <div class="alignleft">
                             <ul>
-                                <li>The process whereby events fired on child elements "bubble" up to their parent elements.</li>
+                                <li>The process whereby events fired on child elements <strong>bubble</strong> up to their parent elements.</li>
                                 <li>When an event is fired on an element, it is first delivered to the element's event handler (if any), then to the parent element's event handler (if any), ...</li>
                                 <li>If you intend to handle an event in a child element alone, you should cancel the bubbling of the event in the child element's event-handling code by using the <code>cancelBubble</code> property of the event object.</li>
                             </ul>
@@ -1691,10 +1730,18 @@ window.addEventListener(&quot;load&quot;, displayName(&quot;Mark&quot;));
                     <section>
                         <h3>Event bubbling</h3>
 
+                        <div class="alignleft">
+                            The HTML elements
+                        </div>
+
                         <pre><code data-trim>
 &lt;p id=&quot;bubble&quot;&gt;Bubbling enabled.&lt;/p&gt;
 &lt;p id=&quot;noBubble&quot;&gt;Bubbling disabled.&lt;/p&gt;
                         </code></pre>
+
+                        <div class="alignleft">
+                            The JS code to register event handlers
+                        </div>
 
                         <pre><code data-trim>
 &lt;script type=&quot;text/javascript&quot;&gt;
@@ -1713,7 +1760,7 @@ window.addEventListener(&quot;load&quot;, registerEvents);
 
                         <div class="alignleft">
                             <ul>
-                                <li>Event object can be passed to the event handler.</li>
+                                <li>Notice that the event object can be passed to the event handler.</li>
                             </ul>
                         </div>
 
