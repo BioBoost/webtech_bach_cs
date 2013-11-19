@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>JavaScript Objects</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Apple
+            var apple = new function() {
+                this.type = "macintosh";
+                this.color = "red";
+                this.getInfo = function () {
+                    return this.color + ' ' + this.type + ' apple';
+                };
+            }
+
+            // Using the instance
+            apple.color = "reddish";
+            document.write("<div>" + apple.getInfo() + "</div>");
+        </script>
+    </body>
+</html>

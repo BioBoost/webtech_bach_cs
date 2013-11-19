@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>JavaScript Objects</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Apple
+            function Apple (type) {
+                this.type = type;
+                this.color = "red";
+            }
+             
+            Apple.prototype.getInfo = function() {
+                return this.color + ' ' + this.type + ' apple';
+            };
+
+            // Instantiating an Apple
+            var apple = new Apple('granny');
+            apple.color = "reddish";
+            document.write("<div>" + apple.getInfo() + "</div>");
+        </script>
+    </body>
+</html>

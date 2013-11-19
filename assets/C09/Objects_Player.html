@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>JavaScript Objects</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+
+
+
+function Player(id, name)
+{
+    this.id = id;
+    this.name = name;
+
+    // help action
+    this.help = function() {
+        var out = "<ul>";
+        out += "<li>help: gives you a list of commands</li>";
+        out += "<li>go <north|east|south|west>: walk in the given direction</li>";
+        out += "<li>look: gives a description of your current surroundings</li>";
+        out += "</ul>";
+        return out;
+    }
+
+    this.toString = function() {
+        return "Hello, my name is " + this.name + ".";
+    }
+
+    this.executeAction = function(useraction) {
+        // Execute action
+        switch(useraction)
+        {
+            case 'help':
+                return userAction_Help();
+                break;
+
+            default:
+                return "Unknown command";
+                break;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

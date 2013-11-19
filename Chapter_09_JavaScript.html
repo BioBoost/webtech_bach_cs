@@ -781,9 +781,14 @@ function helloWorld() {
 
                         <div class="alignleft">
                             <ul>
-                                <li>"Everything" in JavaScript is an Object: a String, a Number, an Array, a function....
+                                <li>"Everything" in JavaScript is an Object:
                                     <ul>
-                                        <li>This is actually only halve of the truth. Primitive types (int, boolean, ...) are not objects but are silently converted to their equivalent object types (Integer, Boolean, ...) when necessary.</li>
+                                        <li>a <code>String</code>, a <code>Number</code>, an <code>Array</code>, a <code>function</code>, ...</li>
+                                    </ul>
+                                </li>
+                                <li>This is actually only halve of the truth.
+                                    <ul>
+                                        <li>Primitive types (<code>int, boolean, ...</code>) are not objects but are silently converted to their equivalent object types (<code>Integer, Boolean, ...</code>) when necessary.</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -798,7 +803,7 @@ function helloWorld() {
                                 <li>In addition, JavaScript allows you to define your own objects.</li>
                                 <li>Properties are the values associated with an object.</li>
                                 <li>Methods are the actions that can be performed on objects.</li>
-                                <li>JavaScript has several built-in objects, like String, Date, Array, and more.</li>
+                                <li>JavaScript has several built-in objects, like <code>String, Date, Array</code> and more.</li>
                             </ul>
                         </div>
                     </section>
@@ -889,6 +894,231 @@ function helloWorld() {
                         </div>
 
                         <a href="http://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">More info on W3CSchools</a>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript classes ?</h3>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>It's important to note that there are no classes in JavaScript.</li>
+                                <li>Functions can be used to somewhat simulate classes, but in general JavaScript is a class-less language.</li>
+                                <li>Everything is an object. And when it comes to inheritance, objects inherit from objects, not classes from classes as in the "class"-ical languages.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+
+                        <div class="alignleft">
+                            Actually there are 3 ways:
+                        </div>
+
+                        <div class="alignleft">
+                            <ol>
+                                <li>Using a function
+                                    <ul>
+                                        <li>You define a normal JavaScript function and then create an object by using the <code>new</code> keyword.</li>
+                                        <li>To define properties and methods for an object created using function(), you use the this keyword.</li>
+                                        <li>To instantiate an object using the Apple constructor function, set some properties and call methods you can do the following.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>1. Using a function</h4>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function Apple (type) {         // Apple
+        this.type = type;
+        this.color = &quot;red&quot;;
+        this.getInfo = getAppleInfo;
+    }
+     
+    // anti-pattern! keep reading...
+    function getAppleInfo() {
+        return this.color + ' ' + this.type + ' apple';
+    }
+
+    // Instantiating an Apple
+    var apple = new Apple('granny');
+    apple.color = &quot;reddish&quot;;
+    document.write(&quot;&lt;div&gt;&quot; + apple.getInfo() + &quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/JS_Objects_Option1.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>1. Using a function</h4>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>Problem with previous approach is that you may end up defining a lot of these functions and they are all in the <strong>global namespace</strong></li>
+                                <li>This means you may have naming conflicts if you (or another library you are using) decide to create another function with the same name.</li>
+                                <li>The way to prevent pollution of the global namespace, you can define your methods <strong>within the constructor function</strong>.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>1. Using a function</h4>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function Apple (type) {     // Apple
+        this.type = type;
+        this.color = &quot;red&quot;;
+        this.getInfo = function() {
+            return this.color + ' ' + this.type + ' apple';
+        }
+    }
+
+    // Instantiating an Apple
+    var apple = new Apple('granny');
+    apple.color = &quot;reddish&quot;;
+    document.write(&quot;&lt;div&gt;&quot; + apple.getInfo() + &quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/JS_Objects_Option1_1.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>1. Using a function</h4>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li>A drawback of the previous code is that the method <code>getInfo()</code> is recreated every time you create a new object.</li>
+                                <li>Sometimes that may be what you want, but it's rare.</li>
+                                <li>A more inexpensive way is to add <code>getInfo()</code> to the <strong>prototype</strong> of the constructor function.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>1. Using a function</h4>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Apple
+    function Apple (type) {
+        this.type = type;
+        this.color = &quot;red&quot;;
+    }
+     
+    Apple.prototype.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+
+    // Instantiating an Apple
+    var apple = new Apple('granny');
+    apple.color = &quot;reddish&quot;;
+    document.write(&quot;&lt;div&gt;&quot; + apple.getInfo() + &quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/JS_Objects_Option1_2.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+
+                        <div class="alignleft">
+                            <ol start="2">
+                                <li>Using object literals
+                                    <ul>
+                                        <li>Literals are shorter way to define objects and arrays in JavaScript.</li>
+                                        <li>So you can skip the class-like stuff and create an instance (object) immediately.</li>
+                                        <li>In this case you don't need to (and cannot) create an instance of the class, it already exists. So you simply start using this instance.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>2. Using object literals</h4>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Apple
+    var apple = {
+        type: &quot;macintosh&quot;,
+        color: &quot;red&quot;,
+        getInfo: function () {
+            return this.color + ' ' + this.type + ' apple';
+        }
+    }
+
+    // Using the instance
+    apple.color = &quot;reddish&quot;;
+    document.write(&quot;&lt;div&gt;&quot; + apple.getInfo() + &quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/JS_Objects_Option2.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+
+                        <div class="alignleft">
+                            <ol start="3">
+                                <li>Singleton using a function
+                                    <ul>
+                                        <li>The third way is a combination of the other two you already saw. You can use a function to define a singleton object.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>3. Singleton using a function</h4>
+
+                        <pre><code data-trim>
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Apple
+    var apple = new function() {
+        this.type = &quot;macintosh&quot;;
+        this.color = &quot;red&quot;;
+        this.getInfo = function () {
+            return this.color + ' ' + this.type + ' apple';
+        };
+    }
+
+    // Using the instance
+    apple.color = &quot;reddish&quot;;
+    document.write(&quot;&lt;div&gt;&quot; + apple.getInfo() + &quot;&lt;/div&gt;&quot;);
+&lt;/script&gt;
+                        </code></pre>
+                        <a href="assets/C09/JS_Objects_Option3.html" target="_blank">Show Me</a>
+                    </section>
+
+                    <section>
+                        <h3>So how do we create our own objects ?</h3>
+                        <h4>3. Singleton using a function</h4>
+
+                        <div class="alignleft">
+                            <ul>
+                                <li><code>new function(){...}</code> does two things at the same time:
+                                    <ul>
+                                        <li>define a function (an anonymous constructor function)</li>
+                                        <li>and invoke it with new.</li>
+                                    </ul>
+                                </li>
+                                <li>It might look a bit confusing if you're not used to it and it's not too common, but hey, it's an option, when you really want a constructor function that you'll use only once and there's no sense of giving it a name.</li>
+                            </ul>
+                        </div>
                     </section>
                 </section>
 
