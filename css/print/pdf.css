@@ -188,3 +188,26 @@ ul, ol, div, p {
 .reveal small a {
 	font-size: 16pt !important;
 }
+
+.reveal
+{
+    color: black !important;
+    background-color: white !important;
+    opacity: 1.0 !important;
+}
+
+.reveal pre code
+{
+    border-left-style: solid !important;
+    border-left-width: 3px !important;
+    border-left-color: grey !important;
+}
+
+.reveal pre code,
+.reveal pre code *
+{
+    background-color: white !important;
+    opacity: 1.0 !important;
+    font-size: 16pt !important;
+    color: black !important;
+}
